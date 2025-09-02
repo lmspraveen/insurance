@@ -1,0 +1,44 @@
+
+
+.auth-wrapper{
+position: relative;
+&:before{
+  content: '';
+  width: 55%;
+    height: 281px;
+    background-color: var(--primary);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 352px;
+    z-index: -1;
+}
+}
+.text-primary{
+ color: var(--primary);
+}
+
+.text-dark-gray{
+  color: var(--dark-gray);
+}
+
+.fs-48{
+font-size: 48px;
+}
+
+.fw-800{
+font-weight: 800;
+}
+
+
+
+.auth-card{
+  border: 1px solid var(--card-border);
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  @media(min-width:1024px){
+     padding: 54px;
+  }
+}

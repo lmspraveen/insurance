@@ -1,1 +1,99 @@
+
+@use '@angular/material' as mat;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --primary:#003366;
+  --card-border: #E9E9E9;
+  --dark-gray:#474747;
+}
+
+
+
+
+
+html {
+  @include mat.theme((
+     color: (
+      // primary: $my-primary-palette,
+      // secondary: $my-secondary-palette,
+    ),
+    typography: Inter,
+    density: 0,
+  ));
+}
+
+body {
+  margin: 0;
+  line-height: 1.2;
+}
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; }
+
+.mat-drawer-inner-container{
+   @media(min-width:1024px){
+     display: block !important;
+   }
+}
+
+mat-form-field{
+  width: 100%;
+  
+
+  .mat-mdc-form-field-infix{
+    min-height: 46px;
+    padding-top: 11px !important;
+    padding-bottom: 11px !important;
+  }
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mat-mdc-notch-piece{
+    border-color: #B8B8B8;
+    border-width: 1px;
+    border-left: 1px solid #B8B8B8;
+    border-radius: 10px;
+   
+  }
+
+}
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mat-mdc-notch-piece, .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mat-mdc-notch-piece{
+  border-color: #B8B8B8 !important;
+}
+  .mat-mdc-form-field .mdc-notched-outline__notch{
+    margin-left: 0 !important;
+  }
+  .mat-mdc-notch-piece.mdc-notched-outline__leading{
+display: none;
+  }
+
+  .mat-mdc-button:hover>.mat-mdc-button-persistent-ripple::before{
+    opacity: 0 !important;
+  }
+
+  .mat-mdc-unelevated-button:not(:disabled){
+    background-color: var(--primary) !important;
+    border-radius: 10px !important;
+  }
+
+  .mat-mdc-outlined-button:not(:disabled){
+    border-radius: 10px !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+  }
+
+
+  ::-webkit-input-placeholder { 
+  color: rgb(71 71 71 / 50%) !important;
+}
+::-moz-placeholder { 
+  color: rgb(71 71 71 / 50%) !important;
+}
+:-ms-input-placeholder { 
+ color: rgb(71 71 71 / 50%) !important;
+}
+:-moz-placeholder {
+color: rgb(71 71 71 / 50%) !important;
+}
