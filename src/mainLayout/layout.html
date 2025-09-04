@@ -1,23 +1,24 @@
 @if (shouldRun === false) {
   <div class="example-container" [class.example-is-mobile]="isMobile()">
-    <mat-toolbar class="example-toolbar">
-      <button matIconButton (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">Responsive App</h1>
-    </mat-toolbar>
+   
 
     <mat-sidenav-container class="example-sidenav-container"
                           [style.marginTop.px]="isMobile() ? 56 : 0">
       <mat-sidenav #snav [mode]="isMobile() ? 'over' : 'side'"
                   [fixedInViewport]="isMobile()" fixedTopGap="56">
+                    <button matIconButton (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
         <mat-nav-list>
-          @for (nav of fillerNav; track nav) {
-            <a mat-list-item (click)="snav.open()">{{nav}}</a>
-          }
+          <!-- @for (nav of fillerNav; track nav) {
+            <a mat-list-item >{{nav}}</a>
+          } -->
+ <a mat-list-item disableRipple [class.active-link]="activePage === 'dashboard'" 
+   (click)="activePage = 'dashboard'"><img src="/img/icon/db-icon.svg" alt="icon" /> Dashboard</a>
 
+   
           <mat-accordion MatAccordionDisplayMode='flat'>
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
-      <mat-panel-title (click)="snav.open()">Claims</mat-panel-title>
+      <mat-panel-title >Claims</mat-panel-title>
     
     </mat-expansion-panel-header>
     <a mat-list-item >Raise Claim</a>
@@ -28,7 +29,7 @@
   </mat-expansion-panel>
   <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" >
     <mat-expansion-panel-header>
-      <mat-panel-title (click)="snav.open()"> Business User </mat-panel-title>
+      <mat-panel-title > Business User </mat-panel-title>
       <!-- <mat-panel-description>
         Currently I am {{panelOpenState() ? 'open' : 'closed'}}
       </mat-panel-description> -->
@@ -41,7 +42,7 @@
       </mat-sidenav>
 
       <mat-sidenav-content>
-        <button matButton="filled">Basic</button>
+        
         
         @for (content of fillerContent; track content) {
     <p>{{content}}</p>
@@ -54,6 +55,3 @@
 }
 
 
-<!-- Copyright 2025 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license -->

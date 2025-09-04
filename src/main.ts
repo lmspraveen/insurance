@@ -3,12 +3,12 @@ import { appConfig } from './app/app.config';
 import {provideHttpClient} from '@angular/common/http';
 import {VERSION as CDK_VERSION} from '@angular/cdk';
 import {VERSION as MAT_VERSION} from '@angular/material/core';
-//import { SidenavResponsiveExample } from './mainLayout/sidenav-responsive-example';
+import { Layout } from './mainLayout/layout';
 import { App } from './app/app';
 
 console.info('Angular CDK version', CDK_VERSION.full);
 console.info('Angular Material version', MAT_VERSION.full);
 
-bootstrapApplication(App, {
+bootstrapApplication(Layout, {
   providers: [provideHttpClient()],
 }).catch(err => console.error(err));

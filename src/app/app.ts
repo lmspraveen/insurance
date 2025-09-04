@@ -6,6 +6,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 import {
   MatDialog,
@@ -18,6 +19,11 @@ import {
 } from '@angular/material/dialog';
 import { DialogExampleDialog } from './dialog-example-dialog';
 import {MatTabsModule} from '@angular/material/tabs';
+
+interface Role {
+  value: string;
+  viewValue: string;
+}
 
 export interface DialogData {
   name: string;
@@ -34,7 +40,7 @@ export interface DialogData {
     MatInputModule,
     MatButtonModule,
     MatTabsModule,
-    
+    MatSelectModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -63,4 +69,11 @@ export class App {
       }
     });
   }
+    roles: Role[] = [
+    {value: 'unit-user', viewValue: 'Unit User'},
+    {value: 'head', viewValue: 'Unit Head (HOD)'},
+    {value: 'insurance-coordinator', viewValue: 'Insurance Coordinator'},
+    {value: 'insurance-manager', viewValue: 'Insurance Manager'},
+    {value: 'finance', viewValue: 'Finance'},
+  ];
 }

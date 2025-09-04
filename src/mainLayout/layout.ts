@@ -9,13 +9,14 @@ import {MatExpansionModule} from '@angular/material/expansion';
 
 /** @title Responsive sidenav */
 @Component({
-  selector: 'sidenav-responsive-example',
-  templateUrl: 'sidenav-responsive-example.html',
-  styleUrl: 'sidenav-responsive-example.scss',
+  selector: 'layout',
+  templateUrl: 'layout.html',
+  styleUrl: 'layout.scss',
   imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatExpansionModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidenavResponsiveExample implements OnDestroy {
+export class Layout implements OnDestroy {
+  activePage: string = '';
     readonly panelOpenState = signal(false);
   protected readonly fillerNav = Array.from({length: 5}, (_, i) => `Nav Item ${i + 1}`);
 
@@ -53,6 +54,3 @@ export class SidenavResponsiveExample implements OnDestroy {
 }
 
 
-/**  Copyright 2025 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license */
