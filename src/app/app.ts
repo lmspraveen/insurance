@@ -1,12 +1,20 @@
 import { ChangeDetectionStrategy, Component, inject, signal, model } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+
+import { Login } from './auth/login/login';
 
 import {
   MatDialog,
@@ -18,7 +26,8 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { DialogExampleDialog } from './dialog-example-dialog';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CustomInput } from './shared/components/custom-input/custom-input';
 
 interface Role {
   value: string;
@@ -32,15 +41,18 @@ export interface DialogData {
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     RouterOutlet,
     FormsModule,
+    ReactiveFormsModule,
     MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatTabsModule,
-    MatSelectModule
+    MatSelectModule,
+    Login,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -53,13 +65,19 @@ export class App {
   readonly animal = signal('');
   readonly name = model('');
 
+  // form = new FormGroup({
+  //   employeeCode: new FormControl<string | null>('', Validators.required),
+  //   mobile: new FormControl<string | null>(''),
+  //   password: new FormControl<string | null>(''),
+  // });
+
   readonly dialog = inject(MatDialog);
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogExampleDialog, {
-         width: '900px',
-    maxWidth: '100vw', 
-     panelClass: 'custom-dialog-container', 
+      width: '900px',
+      maxWidth: '100vw',
+      panelClass: 'custom-dialog-container',
       data: { name: this.name(), animal: this.animal() },
     });
 
@@ -69,11 +87,12 @@ export class App {
       }
     });
   }
-    roles: Role[] = [
-    {value: 'unit-user', viewValue: 'Unit User'},
-    {value: 'head', viewValue: 'Unit Head (HOD)'},
-    {value: 'insurance-coordinator', viewValue: 'Insurance Coordinator'},
-    {value: 'insurance-manager', viewValue: 'Insurance Manager'},
-    {value: 'finance', viewValue: 'Finance'},
+
+  roles: Role[] = [
+    { value: 'unit-user', viewValue: 'Unit User' },
+    { value: 'head', viewValue: 'Unit Head (HOD)' },
+    { value: 'insurance-coordinator', viewValue: 'Insurance Coordinator' },
+    { value: 'insurance-manager', viewValue: 'Insurance Manager' },
+    { value: 'finance', viewValue: 'Finance' },
   ];
 }
