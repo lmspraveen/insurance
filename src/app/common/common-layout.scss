@@ -6,7 +6,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 32px;
   background-color: #f7f9fc;
   mat-sidenav-container {
     background-color: transparent;
@@ -89,6 +88,9 @@
         margin-left: 250px;
       }
     }
+  }
+  @media (min-width: 1024px) {
+    padding: 32px;
   }
 }
 
