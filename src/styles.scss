@@ -18,7 +18,7 @@ html {
     (
       color: (
         // primary: $my-primary-palette,
-        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       ),
       typography: Inter,
       density: 0,
@@ -272,12 +272,43 @@ div.mat-mdc-select-panel {
 
   &.active-link {
     background-color: var(--primary);
+    box-shadow: 0px 4px 4px 0px #00000040;
 
     .mdc-list-item__primary-text {
       color: var(--color-white) !important;
 
       img {
         filter: brightness(0) invert(1);
+      }
+    }
+  }
+}
+
+// breadcrumb
+.breadcrumb {
+  display: flex;
+  gap: 28px;
+  .breadcrumb-item {
+    font-size: 20px;
+    color: var(--dark-gray);
+    font-weight: 500;
+    position: relative;
+    .breadcrumb-link {
+      color: inherit;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      background-image: url('./../public/img/icon/caret.svg');
+      background-repeat: no-repeat;
+      right: -28px;
+      top: -3px;
+      height: 30px;
+      width: 30px;
+    }
+    &:last-child {
+      &::after {
+        display: none;
       }
     }
   }

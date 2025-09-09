@@ -1,35 +1,137 @@
 <main class="main-wrapper" [class.is-mobile]="isMobile()">
     <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="isMobile() ? 56 : 0">
-        <mat-sidenav #snav [mode]="isMobile() ? 'over' : 'side'" [fixedInViewport]="isMobile()" fixedTopGap="56">
-            <div class="flex justify-between w-100 p-5">
-                <img class="h-[44px]" src="img/logo.svg" alt="">
-                <button matIconButton (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <mat-sidenav #snav [mode]="isMobile() ? 'over' : 'side'" [fixedInViewport]="isMobile()" fixedTopGap="56"
+            (closedStart)="accordion.closeAll()">
+            <div class="sidebar flex flex-col justify-between h-full pb-5">
+                <div class="sidebar-inner">
+
+                    <div class="logo flex justify-between flex-col lg:flex-row w-100">
+                        @if(!snav.opened){
+                        <img class="h-[44px]" src="img/logo.svg" alt="">
+                        <button matIconButton (click)="snav.open(); ">
+                            <img class="h-[44px]" src="img/icon/hamburger.svg" alt="">
+                        </button>
+                        } @else{
+                        <img class="h-[44px] min-w-[44px]" src="img/logo-icon.svg" alt="">
+                        }
+                    </div>
+                    <mat-nav-list>
+                        <a class="font-medium text-[#474747]" mat-list-item [class.active-link]="
+                    activePage==='dashboard'" (click)="snav.close(); activePage='dashboard'">
+                            <img title="Dashboard" src=" /img/icon/dashboard.svg" alt="icon" />
+                            <span>Dashboard</span>
+                        </a>
+                        <mat-accordion #accordion="matAccordion" MatAccordionDisplayMode='flat'>
+                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                                <mat-expansion-panel-header class="!px-4">
+                                    <mat-panel-title class="flex gap-4">
+                                        <img title="Admin User" src="/img/icon/admin.svg" alt="icon" />
+                                        <span>Admin User</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <a mat-list-item class="active">Code Master</a>
+                                <a mat-list-item>Business Unit Master</a>
+                                <a mat-list-item>Approval Master</a>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                                <mat-expansion-panel-header class="!px-4">
+                                    <mat-panel-title class="flex gap-4">
+                                        <img title="Masters" src="/img/icon/claim.svg" alt="icon" />
+                                        <span>Masters</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <a mat-list-item>Insurance Companies</a>
+                                <a mat-list-item>Asset Master</a>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                                <mat-expansion-panel-header class="!px-4">
+                                    <mat-panel-title class="flex gap-4">
+                                        <img title="Policy Requests" src="/img/icon/policy-request.svg" alt="icon" />
+                                        <span>Policy Requests</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <a mat-list-item>Create Policy Request</a>
+                                <a mat-list-item>Approve Requests</a>
+                                <a mat-list-item>Events</a>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                                <mat-expansion-panel-header class="!px-4">
+                                    <mat-panel-title class="flex gap-4">
+                                        <img title="Policy" src="/img/icon/policy.svg" alt="icon" />
+                                        <span>Policy</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <a mat-list-item>Manage Policy</a>
+                                <a mat-list-item>Renew Policy</a>
+                                <a mat-list-item>Policy Coinsured</a>
+                                <a mat-list-item>Approve Policy</a>
+                                <a mat-list-item>Events</a>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                                <mat-expansion-panel-header class="!px-4">
+                                    <mat-panel-title class="flex gap-4">
+                                        <img title="Invoices" src="/img/icon/invoices.svg" alt="icon" />
+                                        <span>Invoices</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <a mat-list-item>Policy Invoices</a>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                                <mat-expansion-panel-header class="!px-4">
+                                    <mat-panel-title class="flex gap-4">
+                                        <img title="Claims" src="/img/icon/claim.svg" alt="icon" />
+                                        <span>Claims</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <a mat-list-item>Raise Claim</a>
+                                <a mat-list-item>Claims Dashboard</a>
+                                <a mat-list-item>Claims Approvals</a>
+                                <a mat-list-item>Claims Payments & Closures</a>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                                <mat-expansion-panel-header class="!px-4">
+                                    <mat-panel-title class="flex gap-4">
+                                        <img title="Reports & Alerts" src="/img/icon/reports-alert.svg" alt="icon" />
+                                        <span>Reports & Alerts</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <a mat-list-item>Reports</a>
+                                <a mat-list-item>Alerts</a>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </mat-nav-list>
+                </div>
+                <mat-nav-list class="pt-8 border-t border-[#E9E9E9]">
+                    <a (click)="Logout();" class="!font-medium !text-[#474747] text-[16px]" mat-list-item
+                        [class.active-link]="" (click)="activePage='dashboard'">
+                        <img title="Logout" src=" /img/icon/logout.svg" alt="icon" />
+                        <span>Logout</span>
+                    </a>
+                </mat-nav-list>
             </div>
-            <mat-nav-list>
-
-                <a mat-list-item [class.active-link]="activePage === 'dashboard'" (click)="activePage = 'dashboard'">
-                    <img src="/img/icon/dashboard.svg" alt="icon" /> Dashboard</a>
-
-
-                <mat-accordion MatAccordionDisplayMode='flat'>
-                    <mat-expansion-panel hideToggle
-                        class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
-                        <mat-expansion-panel-header class="!px-4">
-                            <mat-panel-title class="flex gap-4">
-                                <img src="/img/icon/claim.svg" alt="icon" /> Claims
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <a mat-list-item>Raise Claim</a>
-                        <a mat-list-item>Claims Dashboard</a>
-                        <a mat-list-item>Raise Claim</a>
-                        <a mat-list-item>Claims Approvals</a>
-                    </mat-expansion-panel>
-                </mat-accordion>
-            </mat-nav-list>
         </mat-sidenav>
 
-        <mat-sidenav-content>
-            <router-outlet></router-outlet>
+        <mat-sidenav-content class="px-9">
+            <ng-container>
+                <ul class="mt-5 breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        Dashboard
+                    </li>
+                </ul>
+            </ng-container>
+            <main class="py-6 min-h-[87dvh]">
+                <router-outlet></router-outlet>
+            </main>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </main>
