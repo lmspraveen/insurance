@@ -25,7 +25,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { DialogExampleDialog } from './dialog-example-dialog';
+import { DialogExampleDialog } from './shared/dialogues/dialog-example-dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CustomInput } from './shared/components/custom-input/custom-input';
 
@@ -52,7 +52,6 @@ export interface DialogData {
     MatButtonModule,
     MatTabsModule,
     MatSelectModule,
-    Login,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

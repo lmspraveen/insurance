@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AUTH_ROUTES } from './auth/auth.routes';
+import { COMMON_ROUTES } from './common/common.routes';
 
 export const APP_ROUTES: Routes = [
   {
@@ -8,11 +9,10 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: '',
-    redirectTo: 'auth',
-    pathMatch: 'full',
+    children: COMMON_ROUTES,
   },
   {
     path: '**',
-    redirectTo: 'auth',
+    redirectTo: '',
   },
 ];

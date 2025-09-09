@@ -1,0 +1,66 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  background-color: #f7f9fc;
+  mat-sidenav-container {
+    background-color: transparent;
+    mat-sidenav {
+      background-color: #fff;
+      border: 1px solid #e9e9e9;
+      border-radius: 32px;
+      ::ng-deep {
+        .mat-mdc-nav-list {
+          .mat-expansion-panel-body {
+            padding: 0;
+            .mat-mdc-list-item {
+              min-height: auto;
+              padding: 0 24px;
+              .mdc-list-item__content {
+                .mdc-list-item__primary-text {
+                  font-size: 14px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+      @media (min-width: 1024px) {
+        width: 250px;
+        transform: translate3d(0%, 0, 0);
+        visibility: visible !important;
+        &.mat-drawer-opened {
+          width: 70px;
+        }
+      }
+    }
+
+    mat-sidenav-content {
+      @media (min-width: 1024px) {
+        margin-left: 250px;
+      }
+    }
+  }
+}
+
+.is-mobile .toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.app-name {
+  margin-left: 8px;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.is-mobile .sidenav-container {
+  flex: 1 0 auto;
+}

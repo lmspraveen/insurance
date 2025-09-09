@@ -9,10 +9,19 @@
                             <img src="img/logo.svg" class="h-[40px]" alt="Logo" />
 
                         </div>
-                        <img src="img/back-btn.svg" alt="img" class="absolute top-[56px] left-[30px] cursor-pointer" />
-                        <img src="img/clap.svg" alt="img" class="absolute top-[56px] right-[30px]" />
-                        <h4 class="text-primary font-bold text-2xl text-center mb-4">Hello There!</h4>
-                        <h5 class="text-primary text-xl font-semibold mb-12 text-center">Let’s Create an account.</h5>
+                        <div class="flex justify-between">
+                            <img (click)="goToBack()" src="img/back-btn.svg" alt="img"
+                                class="absolute top-[56px] left-[30px] cursor-pointer" />
+                            <div class="form-head text-center flex-1">
+                                <h4 class="text-primary font-bold text-2xl mb-4">Hello There!</h4>
+                                <h5 class="text-primary text-xl font-semibold mb-12">Let’s Create an
+                                    account.
+                                </h5>
+                            </div>
+                            <div class="handshake-container">
+                                <img src="img/clap.svg" alt="img" class="hand left-hand" />
+                            </div>
+                        </div>
                         <form class="example-form">
                             <div class="grid lg:grid-cols-2 gap-8">
                                 <div class="">
@@ -28,13 +37,20 @@
 
 
                                     <mat-form-field appearance="outline">
-                                        <mat-select>
-
+                                        <mat-select [(value)]="selectedRole">
+                                            <mat-option value="">Select Role</mat-option>
                                             @for (role of roles; track role) {
                                             <mat-option [value]="role.value">{{ role.viewValue }}</mat-option>
                                             }
                                         </mat-select>
                                     </mat-form-field>
+
+                                    <!-- <mat-select [(value)]="selectedRole">
+                                            <mat-option value="">Select role</mat-option>
+                                            @for (role of roles; track role) {
+                                            <mat-option [value]="role.value">{{ role.viewValue }}</mat-option>
+                                            }
+                                        </mat-select> -->
 
                                 </div>
                                 <div class="relative">
@@ -61,7 +77,7 @@
                                 </div>
                             </div>
                             <button matButton="filled"
-                                class="w-full lg:w-[400px]  min-h-[60px] mx-auto !block mt-10">Create
+                                class="w-full min-h-[60px]  !text-[20px] !font-bold lg:w-[400px] mx-auto !block mt-10 mb-6 lg:mb-0">Create
                                 Account</button>
                         </form>
 

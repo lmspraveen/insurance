@@ -11,7 +11,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { DialogData } from './app'; // import interface from app
+import { DialogData } from './../../app'; // import interface from app
 
 @Component({
   selector: 'dialog-example-dialog',

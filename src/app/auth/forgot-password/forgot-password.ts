@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -26,4 +28,12 @@ export class ForgotPassword {
     mobile: new FormControl<string | null>(''),
     password: new FormControl<string | null>(''),
   });
+
+  constructor(private location: Location, private router: Router) {}
+  goBack(): void {
+    this.location.back();
+  }
+  goToOtp() {
+    this.router.navigate(['/auth/signup']);
+  }
 }

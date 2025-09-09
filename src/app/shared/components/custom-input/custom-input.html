@@ -9,6 +9,31 @@
     <mat-form-field appearance="outline" class="w-full">
         <input matInput [type]="getInputType()" [placeholder]="placeholder" [formControl]="control"
             [required]="required" autocomplete="off" />
+        @if(control.invalid && (control.dirty || control.touched)){
+        <mat-error>
+            @if (control.errors?.['required']){
+            <ng-container>
+                {{ placeholder || 'This field' }} is required.
+            </ng-container>
+            }
+            @if (control.errors?.['email']){
+            <ng-container>
+                Please enter a valid email address.
+            </ng-container>
+            }
+            @if (control.errors?.['minlength']){
+            <ng-container>
+                Minimum length is {{ control.errors?.['minlength'].requiredLength }}.
+            </ng-container>
+            }
+            @if (control.errors?.['maxlength']){
+            <ng-container>
+                Maximum length is {{ control.errors?.['maxlength'].requiredLength }}.
+            </ng-container>
+            }
+            <!-- Add other validation messages as needed -->
+        </mat-error>
+        }
     </mat-form-field>
 
     @if (type === 'password') {

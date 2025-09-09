@@ -10,34 +10,46 @@
             </div>
             <div class="flex-1 p-5 lg:p-8 overflow-auto flex ">
                 <div class="auth-card max-w-full lg:w-[580px] mx-auto relative">
+
                     <div class="h-full">
                         <div class="block lg:hidden">
                             <img src="img/logo.svg" class="h-[40px]" alt="Logo" />
                             <h1 class="text-primary text-[28px] fw-800 my-5">Insurance & Claims System</h1>
                         </div>
-                        <div class="handshake-container">
-                            <img src="img/clap.svg" alt="img" class="hand left-hand absolute top-[56px] right-[30px]" />
+                        <div class="flex justify-between">
+                            <div class="form-head">
+                                <h4 class="text-primary font-bold text-2xl mb-4">Welcome Back!</h4>
+                                <h5 class="text-primary text-xl font-semibold mb-12">Start back with your credentials
+                                </h5>
+                            </div>
+                            <div class="handshake-container">
+                                <img src="img/clap.svg" alt="img" class="hand left-hand" />
+                            </div>
                         </div>
-
-                        <h4 class="text-primary font-bold text-2xl mb-4">Welcome Back!</h4>
-                        <h5 class="text-primary text-xl font-semibold mb-12">Start back with your credentials</h5>
                         <form class="example-form">
-                            <custom-input label="Employee Code" type="text" placeholder="Enter Employee Code"
-                                [required]="true" [control]="form.controls.employeeCode"></custom-input>
-
-                            <custom-input label="Password" type="password" placeholder="Enter your Password"
-                                [required]="true" [control]="form.controls.password"></custom-input>
-
-
-                            <a matButton href="#" disableRipple (click)="goToForgotPassword()"
-                                class="font-medium !text-xs !text-[#474747] !min-w-[auto] !p-0 !block me-0 ms-auto w-[110px] hover:bg-[transparent">
+                            <div class="mb-8">
+                                <custom-input label="Employee Code" type="text" placeholder="Enter Employee Code"
+                                    [required]="true" [control]="form.controls.employeeCode"></custom-input>
+                            </div>
+                            <div class="mb-8">
+                                <custom-input label="Password" type="password" placeholder="Enter your Password"
+                                    [required]="true" [control]="form.controls.password"></custom-input>
+                            </div>
+                            <a mat-button disableRipple (click)="goToForgotPassword()"
+                                class="font-medium !text-xs !text-[#474747] !min-w-[auto] !p-0 !block me-0 ms-auto w-[110px] hover:bg-[transparent]">
                                 Forgot Password?
                             </a>
-                            <button matButton="filled" class="w-full min-h-[60px] mb-2">Login</button>
-                            <button matButton="outlined" class="w-full min-h-[60px]">Login</button>
+                            <p class="text-[#DC4545] text-[12px] text-center font-semibold mb-3">Invalid Employee ID !
+                            </p>
+
+
+                            <button (click)="dummyLogin()" matButton="filled"
+                                class="w-full min-h-[60px]  !text-[20px] !font-bold mb-2">Login</button>
+                            <!-- <button (click)="dummyLogin()" matButton="outlined"
+                                class="w-full min-h-[60px] !text-[20px] !font-bold">Login</button> -->
                         </form>
 
-                        <a (click)="goToSignup()" matButton href="#" disableRipple
+                        <a (click)="goToSignup()" matButton disableRipple
                             class="font-medium mt-8  !text-[#474747] !min-w-[auto] !p-0 !block mx-auto w-[250px] underline hover:bg-[transparent">
                             Don't have an account? Create New
                         </a>

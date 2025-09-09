@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-otp',
@@ -20,4 +21,9 @@ import { Router } from '@angular/router';
   templateUrl: './otp.html',
   styleUrl: './otp.scss',
 })
-export class Otp {}
+export class Otp {
+  constructor(private location: Location) {}
+  goBack(): void {
+    this.location.back();
+  }
+}

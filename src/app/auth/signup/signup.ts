@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 interface Role {
   value: string;
@@ -27,6 +28,8 @@ interface Role {
 })
 export class Signup {
   hide: boolean = true;
+  selectedRole: string = ''; // default empty selection
+
   roles: Role[] = [
     { value: 'unit-user', viewValue: 'Unit User' },
     { value: 'head', viewValue: 'Unit Head (HOD)' },
@@ -34,4 +37,10 @@ export class Signup {
     { value: 'insurance-manager', viewValue: 'Insurance Manager' },
     { value: 'finance', viewValue: 'Finance' },
   ];
+
+  constructor(private location: Location) {}
+
+  goToBack() {
+    this.location.back();
+  }
 }
