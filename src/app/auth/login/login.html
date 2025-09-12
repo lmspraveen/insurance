@@ -1,6 +1,6 @@
 <main class="main h-full">
     <div class="auth-wrapper h-full">
-        <div class="flex h-full">
+        <div class="flex lg:h-full">
             <div class="flex-1 p-8 hidden lg:flex  flex-col justify-between">
                 <div>
                     <img src="img/logo.svg" class="h-[60px]" alt="Logo" />
@@ -9,9 +9,9 @@
                 <img src="img/auth-left-img.svg" alt="img" class="max-w-full h-[400px]" />
             </div>
             <div class="flex-1 p-5 lg:p-8 overflow-auto flex ">
-                <div class="auth-card max-w-full lg:w-[580px] mx-auto relative">
+                <div class="auth-card max-w-full w-full lg:w-[580px] mx-auto relative">
 
-                    <div class="h-full">
+                    <div class="lg:h-full">
                         <div class="block lg:hidden">
                             <img src="img/logo.svg" class="h-[40px]" alt="Logo" />
                             <h1 class="text-primary text-[28px] fw-800 my-5">Insurance & Claims System</h1>
@@ -27,11 +27,11 @@
                             </div>
                         </div>
                         <form class="example-form">
-                            <div class="mb-8">
+                            <div class="mb-3">
                                 <custom-input label="Employee Code" type="text" placeholder="Enter Employee Code"
                                     [required]="true" [control]="form.controls.employeeCode"></custom-input>
                             </div>
-                            <div class="mb-8">
+                            <div class="mb-3">
                                 <custom-input label="Password" type="password" placeholder="Enter your Password"
                                     [required]="true" [control]="form.controls.password"></custom-input>
                             </div>
@@ -44,9 +44,9 @@
 
 
                             <button (click)="dummyLogin()" matButton="filled"
-                                class="w-full min-h-[60px]  !text-[20px] !font-bold mb-2">Login</button>
+                                class="w-full min-h-[60px]  !text-[20px] !font-semibold mb-2 !rounded-[10px]">Login</button>
                             <!-- <button (click)="dummyLogin()" matButton="outlined"
-                                class="w-full min-h-[60px] !text-[20px] !font-bold">Login</button> -->
+                                class="w-full min-h-[60px] !text-[20px] !font-semibold rounded-[10px]">Login</button> -->
                         </form>
 
                         <a (click)="goToSignup()" matButton disableRipple

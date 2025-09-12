@@ -1,0 +1,26 @@
+<div class="relative" [ngClass]="{ 'has-value': hasValue }">
+    @if (label) {
+    <mat-label class="block font-semibold text-[#474747] mb-3">
+        {{ label }}
+        @if (required) {
+        <span class="text-[#DC4545]">*</span>
+        }
+    </mat-label>
+    }
+
+    <mat-form-field appearance="outline" class="w-full" [ngClass]="{ 'has-value': hasValue }">
+        <textarea matInput [placeholder]="placeholder" [formControl]="control" [required]="required" [rows]="rows"
+            (input)="onInput($event)">
+        </textarea>
+
+        <mat-error>
+            @if(control?.invalid && (control?.dirty || control?.touched)){
+            @if (control.errors?.['required']){
+            <ng-container>
+                {{ label || 'This field' }} is required.
+            </ng-container>
+            }
+            }
+        </mat-error>
+    </mat-form-field>
+</div>

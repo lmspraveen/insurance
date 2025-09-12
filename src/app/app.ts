@@ -14,8 +14,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 
-import { Login } from './auth/login/login';
-
 import {
   MatDialog,
   MatDialogTitle,
@@ -25,7 +23,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { DialogExampleDialog } from './shared/dialogues/dialog-example-dialog';
+import { DialogExampleDialog } from './shared/dialogues/confirmation-dialogue/confirmation-dialogue';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CustomInput } from './shared/components/custom-input/custom-input';
 
@@ -74,10 +72,13 @@ export class App {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogExampleDialog, {
-      width: '900px',
+      width: '537px',
       maxWidth: '100vw',
       panelClass: 'custom-dialog-container',
-      data: { name: this.name(), animal: this.animal() },
+      data: {
+        name: this.name(),
+        animal: this.animal(),
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

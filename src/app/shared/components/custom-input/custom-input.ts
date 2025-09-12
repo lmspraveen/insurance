@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -8,7 +9,7 @@ export type InputType = 'text' | 'number' | 'email' | 'password' | 'tel' | 'url'
 @Component({
   selector: 'custom-input',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, CommonModule],
   templateUrl: './custom-input.html',
   styleUrls: ['./custom-input.scss'],
 })
@@ -20,8 +21,12 @@ export class CustomInput {
   @Input({ required: true }) control!: FormControl<string | null>;
 
   hide = true; // used only for password type
+
+  get hasValue(): boolean {
+    return !!this.control?.value;
+  }
+
   getInputType(): string {
-    console.log(this.type);
     return this.type === 'password' ? (this.hide ? 'password' : 'text') : this.type;
   }
   toggleVisibility(): void {

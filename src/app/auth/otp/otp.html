@@ -1,6 +1,6 @@
 <main class="main h-full">
     <div class="auth-wrapper h-full">
-        <div class="flex h-full">
+        <div class="flex lg:h-full">
             <div class="flex-1 p-8 hidden lg:flex  flex-col justify-between">
                 <div>
                     <img src="img/logo.svg" class="h-[60px]" alt="Logo" />
@@ -10,7 +10,7 @@
             </div>
             <div class="flex-1 p-5 lg:p-8 overflow-auto flex ">
                 <div class="auth-card max-w-full lg:w-[580px] mx-auto relative">
-                    <div class="h-full">
+                    <div class="h-full ">
                         <div class="block lg:hidden">
                             <img src="img/logo.svg" class="h-[40px]" alt="Logo" />
                             <h1 class="text-primary text-[28px] fw-800 my-5">Insurance & Claims System</h1>
@@ -25,35 +25,38 @@
                         <p class="text-sm text-primary mb-10">Enter the OTP which has been sent to your registered Email
                             ID.</p>
                         <form class="otp-form">
-                            <div class="flex gap-x-8">
-                                <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-5">
+                            <div class="flex gap-x-3">
+                                <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-3">
                                     <input matInput type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
                                         class="text-center" required
                                         (keypress)="($event.charCode >= 48 && $event.charCode <= 57) ? true : $event.preventDefault()">
                                 </mat-form-field>
-                                <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-5">
+                                <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-3">
                                     <input matInput type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
                                         class="text-center" required
                                         (keypress)="($event.charCode >= 48 && $event.charCode <= 57) ? true : $event.preventDefault()">
                                 </mat-form-field>
-                                <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-5">
+                                <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-3">
                                     <input matInput type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
                                         class="text-center" required
                                         (keypress)="($event.charCode >= 48 && $event.charCode <= 57) ? true : $event.preventDefault()">
                                 </mat-form-field>
-                                <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-5">
+                                <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-3">
                                     <input matInput type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
                                         class="text-center" required
                                         (keypress)="($event.charCode >= 48 && $event.charCode <= 57) ? true : $event.preventDefault()">
                                 </mat-form-field>
                             </div>
+                            <p class="text-[#DC4545] text-[12px] text-center font-semibold mt-[56px] mb-3">
+                                Please enter valid OTP
+                            </p>
                             <button matButton="filled"
-                                class=" mt-[56px] w-full min-h-[60px] !text-[20px] !font-bold">Submit
+                                class=" mt-4 w-full min-h-[60px] !text-[20px] !font-semibold !rounded-[10px]">Submit
                                 OTP</button>
-                            <!-- <button matButton="outlined" class="w-full min-h-[60px] !text-[20px] !font-bold">Submit
+                            <!-- <button matButton="outlined" class="w-full min-h-[60px] !text-[20px] !font-semibold !rounded-[10px]">Submit
                                 OTP</button> -->
                             <a matButton href="#" disableRipple
-                                class="font-medium mt-8  !text-[#474747] !min-w-[auto] !p-0 !block mx-auto w-[90px] !h-[auto] underline hover:bg-[transparent !underline">
+                                class="font-medium mt-8  !text-[#474747] !min-w-[auto] !p-0 !block mx-auto w-[90px] !h-[auto] underline hover:bg-[transparent !underline rounded-[10px]">
                                 Resend OTP
                             </a>
                         </form>

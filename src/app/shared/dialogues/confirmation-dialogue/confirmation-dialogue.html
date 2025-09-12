@@ -1,0 +1,25 @@
+<!-- <h2 mat-dialog-title>Hi {{ data.name }}</h2>
+
+<mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="animal">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="animal()">Ok</button>
+</mat-dialog-actions> -->
+
+
+<div class="text-center">
+  <h3 class="text-[20px] text-[var(--primary)] font-semibold mb-8">Are you sure you want to Make
+    the Changes?</h3>
+  <mat-dialog-actions align="center" class="flex gap-4 !p-0">
+    <button class="min-h-[60px] !min-w-[115px] !bg-white  !text-[20px] !font-semibold !rounded-[10px]"
+      matButton="outlined" (click)="onNoClick()">No</button>
+    <button class="min-h-[60px] !min-w-[115px]  !text-[20px] !font-semibold !rounded-[10px]" matButton="filled"
+      [mat-dialog-close]="animal()">Yes</button>
+  </mat-dialog-actions>
+</div>

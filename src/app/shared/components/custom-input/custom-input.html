@@ -1,4 +1,4 @@
-<div class="relative">
+<div class="relative" [ngClass]="{ 'has-value': hasValue }">
     <mat-label class="block font-semibold text-[#474747] mb-3">
         {{ label }}
         @if (required) {
@@ -6,14 +6,15 @@
         }
     </mat-label>
 
-    <mat-form-field appearance="outline" class="w-full">
+    <mat-form-field appearance="outline" class="w-full" [ngClass]="{ 'has-value': hasValue }">
         <input matInput [type]="getInputType()" [placeholder]="placeholder" [formControl]="control"
             [required]="required" autocomplete="off" />
-        @if(control.invalid && (control.dirty || control.touched)){
+
         <mat-error>
+            @if(control.invalid && (control.dirty || control.touched)){
             @if (control.errors?.['required']){
             <ng-container>
-                {{ placeholder || 'This field' }} is required.
+                {{ label || 'This field' }} is required.
             </ng-container>
             }
             @if (control.errors?.['email']){
@@ -31,9 +32,8 @@
                 Maximum length is {{ control.errors?.['maxlength'].requiredLength }}.
             </ng-container>
             }
-            <!-- Add other validation messages as needed -->
+            }
         </mat-error>
-        }
     </mat-form-field>
 
     @if (type === 'password') {

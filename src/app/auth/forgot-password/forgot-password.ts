@@ -34,6 +34,9 @@ export class ForgotPassword {
     this.location.back();
   }
   goToOtp() {
-    this.router.navigate(['/auth/signup']);
+    this.router.navigate(['/auth/otp']);
+  }
+  goToLogin() {
+    this.router.navigate(['/auth/login']);
   }
 }

@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-reset-password',
@@ -22,4 +23,13 @@ import { Router } from '@angular/router';
 })
 export class ResetPassword {
   hide: boolean = true;
+  constructor(private location: Location, private router: Router) {}
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  goToLogin() {
+    this.router.navigate(['/auth/login']);
+  }
 }

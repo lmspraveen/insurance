@@ -1,5 +1,40 @@
-<h1 class="text-[var(--primary)] text-[24px] font-bold">Dashboard</h1>
-<div class="mt-8 flex flex-col lg:flex-row gap-8">
+<header aria-label="page-header" class="flex justify-between items-center gap-8 mb-5">
+    <ul class="mb-0 breadcrumb">
+        <li class="breadcrumb-item">
+            <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a>
+        </li>
+        <li class="breadcrumb-item">
+            Dashboard
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white active" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton [matMenuTriggerFor]="menu">
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+        <mat-menu #menu="matMenu" class="bg-white">
+            <button mat-menu-item>
+                <mat-icon>dialpad</mat-icon>
+                <span>Redial</span>
+            </button>
+            <button mat-menu-item disabled>
+                <mat-icon>voicemail</mat-icon>
+                <span>Check voice mail</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon>
+                <span>Disable alerts</span>
+            </button>
+        </mat-menu>
+
+    </div>
+</header>
+<section aria-label="Page title">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Dashboard</h1>
+</section>
+<section aria-label="Widgets" class="widget-wrapper mt-8 flex flex-col lg:flex-row gap-8">
     <div class="widget flex-1">
         <h2 class="text-[var(--primary)] text-[20px] font-semibold">Active Policies</h2>
         <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">24</span>
@@ -16,4 +51,147 @@
         <h2 class="text-[var(--primary)] text-[20px] font-semibold">Pending Approvals</h2>
         <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">04</span>
     </div>
-</div>
+</section>
+
+<section aria-label="charts" class="mt-8 flex flex-col lg:flex-row gap-8">
+    <custom-card>
+        <div class="flex justify-between">
+            <h2 class="text-[var(--primary)] text-[20px] font-semibold">Policy Type Distribution</h2>
+            <div class="filter">
+                <button class="filter-icon !w-[40px] !h-[40px] !bg-white" matIconButton [matMenuTriggerFor]="menu2"
+                    [matMenuTriggerRestoreFocus]="false" #menuTrigger="matMenuTrigger">
+                    <img class="min-w-[24px] min-h-[24px]" src="/img/icon/filter.svg" alt="">
+                </button>
+                <mat-menu #menu2="matMenu" class="bg-white min-w-[243px]" [hasBackdrop]="false">
+                    <div class="px-4 py-2" (click)="$event.stopPropagation()">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-[var(--primary)] text-[20px] font-semibold ">Filter</h2>
+                            <img (click)="menuTrigger.closeMenu()" class="cursor-pointer min-w-[24px] min-h-[24px]"
+                                src="/img/icon/cross.svg" alt="">
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.vehicle">Vehicle</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.building">Building</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.fire">Fire</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.marine">Marine</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.others">Others</mat-checkbox>
+                        </div>
+
+                        <div class="flex justify-end gap-3 mt-6">
+                            <button (click)="menuTrigger.closeMenu()" matButton="outlined"
+                                class="!h-[30px] !text-[14px] !font-semibold rounded-[5px]">
+                                Cancel</button>
+                            <button (click)="applyFilters(menu)" matButton="filled"
+                                class="!h-[30px] !text-[14px] !font-semibold rounded-[5px]">
+                                Apply</button>
+                        </div>
+                    </div>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="card-body">
+
+        </div>
+    </custom-card>
+
+    <custom-card>
+        <div class="flex justify-between">
+            <h2 class="text-[var(--primary)] text-[20px] font-semibold">Claims by Status</h2>
+            <div class="filter">
+                <button class="filter-icon !w-[40px] !h-[40px] !bg-white" matIconButton [matMenuTriggerFor]="menu2"
+                    [matMenuTriggerRestoreFocus]="false" #menuTrigger="matMenuTrigger">
+                    <img class="min-w-[24px] min-h-[24px]" src="/img/icon/filter.svg" alt="">
+                </button>
+                <mat-menu #menu2="matMenu" class="bg-white min-w-[243px]" [hasBackdrop]="false">
+                    <div class="px-4 py-2" (click)="$event.stopPropagation()">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-[var(--primary)] text-[20px] font-semibold ">Filter</h2>
+                            <img (click)="menuTrigger.closeMenu()" class="cursor-pointer min-w-[24px] min-h-[24px]"
+                                src="/img/icon/cross.svg" alt="">
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.vehicle">Vehicle</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.building">Building</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.fire">Fire</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.marine">Marine</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.others">Others</mat-checkbox>
+                        </div>
+
+                        <div class="flex justify-end gap-3 mt-6">
+                            <button (click)="menuTrigger.closeMenu()" matButton="outlined"
+                                class="!h-[30px] !text-[14px] !font-semibold rounded-[5px]">
+                                Cancel</button>
+                            <button (click)="applyFilters(menu)" matButton="filled"
+                                class="!h-[30px] !text-[14px] !font-semibold rounded-[5px]">
+                                Apply</button>
+                        </div>
+                    </div>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="card-body">
+
+        </div>
+    </custom-card>
+</section>
+<section class="mt-8">
+    <custom-card>
+        <div class="flex justify-between">
+            <h2 class="text-[var(--primary)] text-[20px] font-semibold">Recent Activities</h2>
+            <button disableRipple
+                class="font-medium !text-xs !text-[#474747] !min-w-[auto] !p-0 !block me-0 ms-auto hover:bg-[transparent]">
+                View All
+            </button>
+        </div>
+        <mat-list class="bullet-list">
+            <mat-list-item>
+                <div class="flex flex-col lg:flex-row flex-1 justify-between lg:items-center w-100">
+                    <span class="text-[16px] font-medium text-[var(--body-color)]">You Submitted Claim #125</span>
+                    <span class="text-[12px] font-normal text-[var(--body-color)]">Thursday | 24/07/2025 | 09:55
+                        am</span>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="flex flex-col lg:flex-row flex-1 justify-between lg:items-center w-100">
+                    <span class="text-[16px] font-medium text-[var(--body-color)]">Policy #366 was renewed</span>
+                    <span class="text-[12px] font-normal text-[var(--body-color)]">Thursday | 24/07/2025 | 09:55
+                        am</span>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="flex flex-col lg:flex-row flex-1 justify-between lg:items-center w-100">
+                    <span class="text-[16px] font-medium text-[var(--body-color)]">You added new policy #633
+                        request</span>
+                    <span class="text-[12px] font-normal text-[var(--body-color)]">Thursday | 24/07/2025 | 09:55
+                        am</span>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </custom-card>
+</section>

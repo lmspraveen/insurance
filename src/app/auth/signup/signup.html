@@ -1,17 +1,16 @@
-<main class="main h-full">
+<main class="main lg:h-full">
     <div class="auth-wrapper lg:h-full">
-        <div class="flex h-full">
-            <img src="img/logo.svg" class="h-[40px] mt-6 ms-6 hidden lg:block" alt="Logo" />
-            <div class="flex-1 p-5 lg:p-8 overflow-auto h-full">
-                <div class="auth-card max-w-full lg:w-[1000px] mx-auto relative h-full">
-                    <div class="h-full">
-                        <div class="block lg:hidden">
-                            <img src="img/logo.svg" class="h-[40px]" alt="Logo" />
-
+        <div class="flex lg:h-full">
+            <img src="img/logo.svg" class="h-[66px] mt-6 ms-6 hidden lg:block" alt="Logo" />
+            <div class="flex-1 p-5 lg:p-8 overflow-auto lg:h-full">
+                <div class="auth-card max-w-full lg:w-[1000px] mx-auto relative lg:h-full">
+                    <div class="lg:h-full">
+                        <div class="block lg:hidden text-center mb-4">
+                            <img src="img/logo.svg" class="h-[40px] " alt="Logo" />
                         </div>
-                        <div class="flex justify-between">
+                        <div class="flex justify-between relative">
                             <img (click)="goToBack()" src="img/back-btn.svg" alt="img"
-                                class="absolute top-[56px] left-[30px] cursor-pointer" />
+                                class="absolute top-[0] left-[0] cursor-pointer" />
                             <div class="form-head text-center flex-1">
                                 <h4 class="text-primary font-bold text-2xl mb-4">Hello There!</h4>
                                 <h5 class="text-primary text-xl font-semibold mb-12">Let’s Create an
@@ -23,61 +22,33 @@
                             </div>
                         </div>
                         <form class="example-form">
-                            <div class="grid lg:grid-cols-2 gap-8">
-                                <div class="">
-                                    <mat-label class="block font-semibold text-[#474747] mb-3">Name <span
-                                            class="text-[#DC4545]">*</span></mat-label>
-                                    <mat-form-field appearance="outline" FloatLabelType="never" class="w-full">
-                                        <input matInput placeholder="Enter your Employee Code" value="">
-                                    </mat-form-field>
+                            <div class="grid lg:grid-cols-2 gap-x-8 gap-y-3">
+                                <div class="mb-1">
+                                    <custom-input label="Name" type="text" placeholder="Enter Name" [required]="true"
+                                        [control]="form.controls.Name"></custom-input>
                                 </div>
-                                <div class="">
-                                    <mat-label class="block font-semibold text-[#474747] mb-3">Role <span
-                                            class="text-[#DC4545]">*</span></mat-label>
-
-
-                                    <mat-form-field appearance="outline">
-                                        <mat-select [(value)]="selectedRole">
-                                            <mat-option value="">Select Role</mat-option>
-                                            @for (role of roles; track role) {
-                                            <mat-option [value]="role.value">{{ role.viewValue }}</mat-option>
-                                            }
-                                        </mat-select>
-                                    </mat-form-field>
-
-                                    <!-- <mat-select [(value)]="selectedRole">
-                                            <mat-option value="">Select role</mat-option>
-                                            @for (role of roles; track role) {
-                                            <mat-option [value]="role.value">{{ role.viewValue }}</mat-option>
-                                            }
-                                        </mat-select> -->
-
+                                <div class="mb-0">
+                                    <custom-select label="Roles" [required]="true" placeholder="Select Role"
+                                        [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
+                                    </custom-select>
                                 </div>
-                                <div class="relative">
-                                    <mat-label class="block font-semibold text-[#474747] mb-3">New Password <span
-                                            class="text-[#DC4545]">*</span></mat-label>
-                                    <mat-form-field appearance="outline" FloatLabelType="never" class="w-full">
-                                        <input [type]="hide ? 'password' : 'text'" matInput
-                                            placeholder="Enter your Password" value="">
-                                    </mat-form-field>
-                                    <img [src]="hide ? 'img/close-eye.svg' : 'img/open-eye.svg'" alt="Toggle Password"
-                                        class="absolute top-[53px] right-[14px] cursor-pointer"
-                                        (click)="hide = !hide" />
+                                <div class="mb-1">
+                                    <custom-input label="New Password" type="password" placeholder="Enter New Password"
+                                        [required]="true" [control]="form.controls.NPassword"></custom-input>
                                 </div>
-                                <div class="relative">
-                                    <mat-label class="block font-semibold text-[#474747] mb-3">Confirm New Password
-                                        <span class="text-[#DC4545]">*</span></mat-label>
-                                    <mat-form-field appearance="outline" FloatLabelType="never" class="w-full">
-                                        <input [type]="hide ? 'password' : 'text'" matInput
-                                            placeholder="Enter your Password" value="">
-                                    </mat-form-field>
-                                    <img [src]="hide ? 'img/close-eye.svg' : 'img/open-eye.svg'" alt="Toggle Password"
-                                        class="absolute top-[53px] right-[14px] cursor-pointer"
-                                        (click)="hide = !hide" />
+                                <div class="mb-1">
+                                    <custom-input label="Confirm New Password" type="password"
+                                        placeholder="Enter Confirm New Password" [required]="true"
+                                        [control]="form.controls.CPassword"></custom-input>
                                 </div>
                             </div>
+
+                            <!-- <custom-textarea label="Message" placeholder="Ex. It makes me feel..." [required]="true"
+                                [control]="messageControl" [(value)]="message">
+                            </custom-textarea> -->
+
                             <button matButton="filled"
-                                class="w-full min-h-[60px]  !text-[20px] !font-bold lg:w-[400px] mx-auto !block mt-10 mb-6 lg:mb-0">Create
+                                class="w-full min-h-[60px]  !text-[20px] !font-semibold lg:w-[400px] mx-auto !block mt-10 mb-6 lg:mb-0 !rounded-[10px]">Create
                                 Account</button>
                         </form>
 

@@ -11,11 +11,11 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { DialogData } from './../../app'; // import interface from app
+import { DialogData } from './../../../app'; // import interface from app
 
 @Component({
-  selector: 'dialog-example-dialog',
-  templateUrl: './dialog-example-dialog.html',
+  selector: 'confirmation-dialogue',
+  templateUrl: './confirmation-dialogue.html',
   imports: [
     FormsModule,
     MatFormFieldModule,

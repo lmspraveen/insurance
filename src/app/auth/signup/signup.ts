@@ -8,8 +8,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { CustomSelect } from '../../shared/components/custom-select/custom-select';
+import { CustomInput } from '../../shared/components/custom-input/custom-input';
+import { CustomTextarea } from '../../shared/components/custom-textarea/custom-textarea';
 
-interface Role {
+interface Roles {
   value: string;
   viewValue: string;
 }
@@ -22,21 +25,34 @@ interface Role {
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    CustomSelect,
+    CustomInput,
+    CustomTextarea,
   ],
   templateUrl: './signup.html',
   styleUrl: './signup.scss',
 })
 export class Signup {
   hide: boolean = true;
-  selectedRole: string = ''; // default empty selection
 
-  roles: Role[] = [
+  form = new FormGroup({
+    Name: new FormControl<string | null>('', Validators.required),
+    Roles: new FormControl<string | null>('', Validators.required),
+    CPassword: new FormControl<string | null>('', Validators.required),
+    NPassword: new FormControl<string | null>('', Validators.required),
+  });
+
+  selectedRole: string = '';
+  roles: Roles[] = [
     { value: 'unit-user', viewValue: 'Unit User' },
     { value: 'head', viewValue: 'Unit Head (HOD)' },
     { value: 'insurance-coordinator', viewValue: 'Insurance Coordinator' },
     { value: 'insurance-manager', viewValue: 'Insurance Manager' },
     { value: 'finance', viewValue: 'Finance' },
   ];
+
+  messageControl = new FormControl('', { nonNullable: true });
+  message = '';
 
   constructor(private location: Location) {}
 
