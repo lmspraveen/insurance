@@ -28,7 +28,7 @@ interface Roles {
     MatSelectModule,
     CustomSelect,
     CustomInput,
-    CustomTextarea,
+    // CustomTextarea,
     CustomButton,
   ],
   templateUrl: './signup.html',

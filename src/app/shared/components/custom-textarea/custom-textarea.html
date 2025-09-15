@@ -14,13 +14,13 @@
         </textarea>
 
         <mat-error>
-            @if(control?.invalid && (control?.dirty || control?.touched)){
+            <!-- @if(control?.invalid && (control?.dirty || control?.touched)){ -->
             @if (control.errors?.['required']){
             <ng-container>
                 {{ label || 'This field' }} is required.
             </ng-container>
             }
-            }
+            <!-- } -->
         </mat-error>
     </mat-form-field>
 </div>
