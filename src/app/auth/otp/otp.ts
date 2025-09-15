@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { CustomButton } from '../../shared/components/custom-button/custom-button';
 
 @Component({
   selector: 'app-otp',
@@ -17,13 +18,17 @@ import { Location } from '@angular/common';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    CustomButton,
   ],
   templateUrl: './otp.html',
   styleUrl: './otp.scss',
 })
 export class Otp {
-  constructor(private location: Location) {}
+  constructor(private location: Location, private router: Router) {}
   goBack(): void {
     this.location.back();
+  }
+  goToLogin() {
+    this.router.navigate(['/auth/login']);
   }
 }

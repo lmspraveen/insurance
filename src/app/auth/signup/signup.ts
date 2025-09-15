@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 import { CustomSelect } from '../../shared/components/custom-select/custom-select';
 import { CustomInput } from '../../shared/components/custom-input/custom-input';
 import { CustomTextarea } from '../../shared/components/custom-textarea/custom-textarea';
+import { CustomButton } from '../../shared/components/custom-button/custom-button';
 
 interface Roles {
   value: string;
@@ -28,6 +29,7 @@ interface Roles {
     CustomSelect,
     CustomInput,
     CustomTextarea,
+    CustomButton,
   ],
   templateUrl: './signup.html',
   styleUrl: './signup.scss',

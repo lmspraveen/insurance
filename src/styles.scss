@@ -20,7 +20,7 @@ html {
     (
       color: (
         // primary: $my-primary-palette,
-        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       ),
       typography: Inter,
       density: 0,
@@ -63,6 +63,11 @@ body {
 
 .fw-800 {
   font-weight: 800;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 // auth flow
@@ -151,6 +156,11 @@ mat-form-field {
     font-weight: 500;
     font-size: 16px;
     color: var(--body-color);
+    @media (max-width: 1536px) {
+      min-height: 48px;
+      padding: 12px 0 !important;
+      font-size: 15px;
+    }
   }
 
   .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mat-mdc-notch-piece {
@@ -318,6 +328,7 @@ div.mat-mdc-select-panel {
   .mdc-list-item__primary-text {
     display: flex;
     gap: 16px;
+    font-weight: 500 !important;
   }
 
   &.active-link {
@@ -355,9 +366,15 @@ div.mat-mdc-select-panel {
   }
 }
 
+// page-header{
+.page-header {
+  top: 0px;
+  position: sticky !important;
+  position: -webkit-sticky !important;
+}
+
 // breadcrumb
 .breadcrumb {
-  display: flex;
   gap: 28px;
   .breadcrumb-item {
     font-size: 20px;

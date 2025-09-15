@@ -1,0 +1,9 @@
+<button *ngIf="isFilled()" matButton="filled" [disabled]="disabled" (click)="handleClick($event)"
+    class="w-full min-h-[48px] !text-[16px] 2xl:min-h-[60px] !2xl:text-[20px] !font-semibold mb-2 !rounded-[10px] {{extraClasses}}">
+    {{ label }}
+</button>
+
+<button *ngIf="isOutlined()" matButton="outlined" [disabled]="disabled" (click)="handleClick($event)"
+    class="w-full min-h-[48px] !text-[16px] 2xl:min-h-[60px] !2xl:text-[20px] !font-semibold mb-2 !rounded-[10px] {{extraClasses}}">
+    {{ label }}
+</button>

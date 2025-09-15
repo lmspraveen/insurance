@@ -8,11 +8,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { CustomButton } from '../../shared/components/custom-button/custom-button';
 
 @Component({
   selector: 'app-login',
   imports: [
     CustomInput,
+    CustomButton,
     MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,

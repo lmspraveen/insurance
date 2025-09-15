@@ -37,9 +37,9 @@
     </mat-form-field>
 
     @if (type === 'password') {
-    <button class="absolute top-[53px] right-[14px] cursor-pointer w-5 h-5" mat-icon-button matSuffix type="button"
-        (click)="toggleVisibility()">
-        <img [src]="hide ? 'img/close-eye.svg' : 'img/open-eye.svg'" alt="Toggle Password" />
+    <button class="absolute top-[46px] 2xl:top-[53px] right-[14px] cursor-pointer w-5 h-5" mat-icon-button matSuffix
+        type="button" (click)="toggleVisibility()">
+        <img [src]="hide ? 'img/open-eye.svg' : 'img/close-eye.svg'" alt="Toggle Password" />
     </button>
     }
 </div>

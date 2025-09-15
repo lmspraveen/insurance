@@ -6,7 +6,7 @@
                     <img src="img/logo.svg" class="h-[60px]" alt="Logo" />
                     <h1 class="text-primary fs-48 fw-800 pe-24 mt-10">Insurance & Claims System</h1>
                 </div>
-                <img src="img/auth-left-img.svg" alt="img" class="max-w-full h-[400px]" />
+                <img src="img/auth-left-img.svg" alt="img" class="max-w-full h-[455px]" />
             </div>
             <div class="flex-1 p-5 lg:p-8 overflow-auto flex ">
                 <div class="auth-card max-w-full lg:w-[580px] mx-auto relative">
@@ -16,8 +16,9 @@
                             <h1 class="text-primary text-[28px] fw-800 my-5">Insurance & Claims System</h1>
                         </div>
                         <div class="flex items-center justify-between mb-10">
-                            <img src="img/back-btn.svg" alt="img" class="cursor-pointer" (click)="goBack()" />
-                            <img src="img/think.svg" class="" alt="Logo" />
+                            <img src="img/back-btn.svg" alt="img" class="cursor-pointer" (click)="goToLogin()" />
+                            <!-- <img src="img/think.svg" class="" alt="Logo" /> -->
+                            <img class="h-[45px] w-[45px]" src="img/icon/thinking.gif" alt="thinker" />
                         </div>
 
                         <h4 class="text-primary font-bold text-2xl mb-4">Enter OTP</h4>
@@ -25,7 +26,7 @@
                         <p class="text-sm text-primary mb-10">Enter the OTP which has been sent to your registered Email
                             ID.</p>
                         <form class="otp-form">
-                            <div class="flex gap-x-3">
+                            <div class="flex gap-x-9">
                                 <mat-form-field appearance="outline" FloatLabelType="never" class="w-full mb-3">
                                     <input matInput type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
                                         class="text-center" required
@@ -47,15 +48,17 @@
                                         (keypress)="($event.charCode >= 48 && $event.charCode <= 57) ? true : $event.preventDefault()">
                                 </mat-form-field>
                             </div>
-                            <p class="text-[#DC4545] text-[12px] text-center font-semibold mt-[56px] mb-3">
+                            <p class="text-[#DC4545] text-[12px] text-center font-semibold">
                                 Please enter valid OTP
                             </p>
-                            <button matButton="filled"
-                                class=" mt-4 w-full min-h-[60px] !text-[20px] !font-semibold !rounded-[10px]">Submit
-                                OTP</button>
+                            <!-- <button matButton="filled"
+                                class=" mt-4 w-full min-h-[48px] !text-[16px] !font-semibold !rounded-[10px]">Submit
+                                OTP</button> -->
                             <!-- <button matButton="outlined" class="w-full min-h-[60px] !text-[20px] !font-semibold !rounded-[10px]">Submit
                                 OTP</button> -->
-                            <a matButton href="#" disableRipple
+                            <custom-button label="Submit
+                                OTP" matButton="filled" class="mt-4"></custom-button>
+                            <a matButton disableRipple
                                 class="font-medium mt-8  !text-[#474747] !min-w-[auto] !p-0 !block mx-auto w-[90px] !h-[auto] underline hover:bg-[transparent !underline rounded-[10px]">
                                 Resend OTP
                             </a>

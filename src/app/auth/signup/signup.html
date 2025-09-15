@@ -1,6 +1,6 @@
-<main class="main lg:h-full">
-    <div class="auth-wrapper lg:h-full">
-        <div class="flex lg:h-full">
+<main class="main h-full">
+    <div class="auth-wrapper h-full">
+        <div class="flex items-center lg:items-stretch h-full">
             <img src="img/logo.svg" class="h-[66px] mt-6 ms-6 hidden lg:block" alt="Logo" />
             <div class="flex-1 p-5 lg:p-8 overflow-auto lg:h-full">
                 <div class="auth-card max-w-full lg:w-[1000px] mx-auto relative lg:h-full">
@@ -43,13 +43,10 @@
                                 </div>
                             </div>
 
-                            <!-- <custom-textarea label="Message" placeholder="Ex. It makes me feel..." [required]="true"
-                                [control]="messageControl" [(value)]="message">
-                            </custom-textarea> -->
 
-                            <button matButton="filled"
-                                class="w-full min-h-[60px]  !text-[20px] !font-semibold lg:w-[400px] mx-auto !block mt-10 mb-6 lg:mb-0 !rounded-[10px]">Create
-                                Account</button>
+                            <custom-button label="Create Account" matButton="filled"
+                                class="lg:w-[400px] mx-auto !block mt-10">
+                            </custom-button>
                         </form>
 
 

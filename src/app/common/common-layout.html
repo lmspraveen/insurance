@@ -3,9 +3,17 @@
     @if(isMobile()){
     <div class="logo-mobile flex justify-between px-4 py-3 bg-[var(--primary)] w-100">
         <img class="h-[44px]" src="img/logo-white.svg" alt="">
-        <button matIconButton (click)="snav.toggle(); ">
-            <img class="hamburger h-[44px]" src="img/icon/hamburger.svg" alt="">
-        </button>
+        <div class="flex gap-4 custom-dropdown-mobile">
+            <button class="!w-[24px] !h-[24px]" matIconButton>
+                <img class="min-w-[24px] min-h-[24px]" src="/img/icon/notification.svg" alt="">
+            </button>
+            <button class="!w-[24px] !h-[24px] " matIconButton>
+                <img class="min-w-[24px] min-h-[24px]" src="/img/icon/user.svg" alt="">
+            </button>
+            <button matIconButton (click)="snav.toggle(); ">
+                <img class="hamburger h-[44px]" src="img/icon/hamburger.svg" alt="">
+            </button>
+        </div>
     </div>
     }
     <mat-sidenav-container class="sidenav-container">
@@ -133,7 +141,7 @@
             </aside>
         </mat-sidenav>
 
-        <mat-sidenav-content class="content !ms-0 px-4 lg:ps-9 lg:pe-0">
+        <mat-sidenav-content class="content !ms-0 !px-6 lg:px-9">
             <main class="min-h-[87dvh]">
                 <router-outlet></router-outlet>
             </main>

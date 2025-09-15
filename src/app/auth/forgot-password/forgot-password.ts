@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { CustomButton } from '../../shared/components/custom-button/custom-button';
 
 @Component({
   selector: 'app-forgot-password',
@@ -18,6 +19,7 @@ import { Router } from '@angular/router';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    CustomButton,
   ],
   templateUrl: './forgot-password.html',
   styleUrl: './forgot-password.scss',
