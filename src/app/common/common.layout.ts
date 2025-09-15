@@ -27,44 +27,29 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CommonLayout implements OnDestroy {
-  activePage: string = 'dashboard';
-  readonly panelOpenState = signal(false);
-  protected readonly fillerNav = Array.from({ length: 5 }, (_, i) => `Nav Item ${i + 1}`);
+  readonly isMobile = signal(false);
+  activePage = 'dashboard';
 
-  protected readonly fillerContent = Array.from(
-    { length: 50 },
-    () =>
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-  );
+  private readonly _mobileQuery = inject(MediaMatcher).matchMedia('(max-width: 1024px)');
+  private readonly _mobileQueryListener = () => this.isMobile.set(this._mobileQuery.matches);
 
-  protected readonly isMobile = signal(true);
-
-  private readonly _mobileQuery: MediaQueryList;
-  private readonly _mobileQueryListener: () => void;
-
-  constructor(private authService: AuthService, private router: Router) {
-    const media = inject(MediaMatcher);
-
-    this._mobileQuery = media.matchMedia('(max-width: 1024px)');
+  constructor(private router: Router, private authService: AuthService) {
     this.isMobile.set(this._mobileQuery.matches);
-    this._mobileQueryListener = () => this.isMobile.set(this._mobileQuery.matches);
     this._mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
-  Logout(): void {
-    this.authService.logout(); // store dummy token
-    this.router.navigate(['/auth/login']); // redirect to dashboard
+  switchActivePage(page: string) {
+    this.activePage = page;
+    this.router.navigate([page]);
   }
 
-  ngOnDestroy(): void {
+  Logout() {
+    this.authService.logout();
+    this.activePage = 'dashboard';
+    this.router.navigate(['/auth/login']);
+  }
+
+  ngOnDestroy() {
     this._mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
-
-  protected readonly shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(
-    window.location.host
-  );
 }

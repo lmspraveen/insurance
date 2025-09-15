@@ -4,7 +4,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-export type InputType = 'text' | 'number' | 'email' | 'password' | 'tel' | 'url' | 'search';
+export type InputType = 'text' | 'email' | 'password' | 'tel' | 'url' | 'search' | 'date';
 
 @Component({
   selector: 'custom-input',

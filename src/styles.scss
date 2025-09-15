@@ -13,6 +13,7 @@
   --body-color: #474747;
   --danger: #dc4545;
   --light-gray: #f6f6f6;
+  --med-gray: #888888;
 }
 
 html {
@@ -20,7 +21,7 @@ html {
     (
       color: (
         // primary: $my-primary-palette,
-        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       ),
       typography: Inter,
       density: 0,
@@ -55,6 +56,10 @@ body {
 
 .text-dark-gray {
   color: var(--dark-gray);
+}
+
+.text-med-gray {
+  color: var(--med-gray);
 }
 
 .fs-48 {
@@ -168,6 +173,13 @@ mat-form-field {
     border-width: 2px;
     border-left: 2px solid var(--input-border);
     border-radius: 10px;
+  }
+
+  .mdc-text-field--no-label:not(.mdc-text-field--textarea)
+    .mat-mdc-form-field-input-control.mdc-text-field__input,
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+    height: auto;
+    min-height: 21px;
   }
 
   .mdc-text-field--invalid {
@@ -540,6 +552,27 @@ custom-card {
         margin-top: 12px;
         padding: 0 0 0 18px;
       }
+    }
+  }
+}
+
+/* Custom tabs */
+.tabs {
+  button {
+    border: 2px solid var(--primary);
+    border-radius: 20px;
+    min-height: 37px;
+    padding: 5px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--primary);
+    &.active {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    &:hover {
+      background: #ebf5ff;
+      color: var(--primary);
     }
   }
 }

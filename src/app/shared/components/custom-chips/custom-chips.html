@@ -1,0 +1,15 @@
+<div class="chips-container">
+    @if (label) {
+    <mat-label class="block font-semibold text-[#474747] mb-3">{{ label }}</mat-label>
+    }
+    <div class="chips-wrapper flex flex-wrap gap-3">
+        @for (chip of chips; track chip) {
+        <div class="chip-item flex items-center gap-2 bg-[#474747] text-white ps-4 pe-3 py-2 rounded-[5px]">
+            <span>{{ chip.label }}</span>
+            <button type="button" class="remove-btn">
+                <img (click)="onRemoveChip(chip)" class="cursor-pointer" src="/img/icon/cross-round.svg" />
+            </button>
+        </div>
+        }
+    </div>
+</div>

@@ -39,13 +39,13 @@
                     </div>
                     <mat-nav-list>
                         <a class="font-medium text-[#474747] mb-[8px]" mat-list-item [class.active-link]="
-                    activePage==='dashboard'" (click)="snav.close(); activePage='dashboard'">
+                    activePage==='dashboard'" (click)="snav.close(); switchActivePage('dashboard')">
                             <img title="Dashboard" src=" /img/icon/dashboard.svg" alt="icon" />
                             <span>Dashboard</span>
                         </a>
                         <mat-accordion class="flex flex-col gap-[8px]" #accordion="matAccordion"
                             MatAccordionDisplayMode='flat'>
-                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                            <mat-expansion-panel (click)="snav.close();" hideToggle
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
@@ -57,7 +57,7 @@
                                 <a mat-list-item>Business Unit Master</a>
                                 <a mat-list-item>Approval Master</a>
                             </mat-expansion-panel>
-                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                            <mat-expansion-panel (click)="snav.close();" hideToggle
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
@@ -68,8 +68,12 @@
                                 <a mat-list-item class="active">Insurance Companies</a>
                                 <a mat-list-item>Asset Master</a>
                             </mat-expansion-panel>
-                            <mat-expansion-panel (click)="snav.close()" hideToggle
-                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                            <mat-expansion-panel
+                                (click)="snav.close(); switchActivePage('policy-request/create-policy-request')"
+                                hideToggle
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]"
+                                [class.active-link]="
+                    activePage==='policy-request'">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
                                         <img title="Policy Requests" src="/img/icon/policy-request.svg" alt="icon" />
@@ -80,7 +84,7 @@
                                 <a mat-list-item>Approve Requests</a>
                                 <a mat-list-item>Events</a>
                             </mat-expansion-panel>
-                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                            <mat-expansion-panel (click)="snav.close();" hideToggle
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
