@@ -29,6 +29,12 @@ export class Dashboard {
     fire: false,
     marine: false,
     others: false,
+    submitted: false,
+    inreview: false,
+    approve: false,
+    rejected: false,
+    paid: false,
+    closed: false,
   };
 
   applyFilters(menuTrigger: any) {

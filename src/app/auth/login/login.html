@@ -43,7 +43,8 @@
                             </p>
 
 
-                            <custom-button label="Login" matButton="filled" (buttonClick)="dummyLogin()">
+                            <custom-button label="Login" matButton="filled"
+                                (buttonClick)="dummyLogin(); openSnackBar('User Login Successfully')">
                             </custom-button>
                             <!-- this buton will appear when inputs are filled -->
                             <!-- <custom-button label="Login" matButton="outlined" (buttonClick)="dummyLogin()">
