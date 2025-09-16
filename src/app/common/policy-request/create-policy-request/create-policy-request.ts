@@ -21,12 +21,12 @@ interface Roles {
     MatIconButton,
     CustomCard,
     ReactiveFormsModule,
+    CustomInput,
     CommonModule,
     CustomButton,
-    CustomInput,
-    CustomSelect,
-    CustomChips,
-    CustomTextarea,
+    // CustomSelect,
+    // CustomChips,
+    // CustomTextarea,
     NewRequest,
   ],
   templateUrl: './create-policy-request.html',
@@ -60,12 +60,29 @@ export class CreatePolicyRequest {
     { value: 'finance', viewValue: 'Finance' },
   ];
 
+  get policyStartControl(): FormControl {
+    return this.form.get('policyStartDate') as FormControl;
+  }
+
+  get policyEndControl(): FormControl {
+    return this.form.get('policyEndDate') as FormControl;
+  }
+
   form = new FormGroup({
     Name: new FormControl<string | null>('', Validators.required),
     Roles: new FormControl<string | null>('', Validators.required),
     CPassword: new FormControl<string | null>('', Validators.required),
     NPassword: new FormControl<string | null>('', Validators.required),
+    policyStartDate: new FormControl('', Validators.required),
+    policyEndDate: new FormControl(''),
   });
+
+  today = new Date();
+  maxDate = new Date(new Date().setFullYear(new Date().getFullYear() + 1));
+
+  submitForm() {
+    console.log(this.form.value);
+  }
 
   /* chips */
   selectedPolicies = [

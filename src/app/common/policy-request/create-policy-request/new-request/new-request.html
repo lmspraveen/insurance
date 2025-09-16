@@ -51,10 +51,17 @@
                 [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
         </div>
         <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
-            <custom-input [required]="true" label="Policy Start Date" type="date" placeholder="Enter Policy Start Date"
+            <!-- <custom-input [required]="true" label="Policy Start Date" type="date" placeholder="Enter Policy Start Date"
                 [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
             <custom-input [required]="true" label="Policy End Date" type="date" placeholder="Enter Policy End Date"
-                [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input> -->
+
+            <custom-datepicker label="Policy Start Date" placeholder="Select start date" [required]="true"
+                [control]="policyStartControl">
+            </custom-datepicker>
+            <custom-datepicker label="Policy End Date" placeholder="Select end date" [required]="true"
+                [control]="policyEndControl">
+            </custom-datepicker>
         </div>
     </div>
     <div class="p-6 border-b border-b-[var(--card-border)]">

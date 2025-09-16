@@ -53,8 +53,8 @@
     </custom-card>
 
     <new-request *ngIf="activeTab === 'tab1'" [pincodeControl]="pincodeControl" [roles]="roles"
-        [selectedRole]="selectedRole" [selectedPolicies]="selectedPolicies" [form]="form"
-        (removenew)="handleRemove($event)">
+        [selectedRole]="selectedRole" [selectedPolicies]="selectedPolicies" [policyStartControl]="policyStartControl"
+        [policyEndControl]="policyEndControl" [form]="form" (removenew)="handleRemove($event)">
     </new-request>
 
     <!-- tab 2 content -->
