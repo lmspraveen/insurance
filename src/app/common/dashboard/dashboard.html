@@ -20,20 +20,21 @@
 <section aria-label="Page title">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Dashboard</h1>
 </section>
-<section aria-label="Widgets" class="widget-wrapper mt-4 lg:mt-8 flex flex-col lg:flex-row gap-8">
-    <div class="widget flex-1">
+<section aria-label="Widgets"
+    class="widget-wrapper mt-4 lg:mt-8 grid 2xl:grid-cols-4 sm:grid-cols-2 grid-col-1 gap-x-8 gap-y-3">
+    <div class="widget">
         <h2 class="text-[var(--primary)] text-[20px] font-semibold">Active Policies</h2>
         <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">24</span>
     </div>
-    <div class="widget flex-1">
+    <div class="widget">
         <h2 class="text-[var(--primary)] text-[20px] font-semibold">Expiring Soon</h2>
         <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">05</span>
     </div>
-    <div class="widget flex-1">
+    <div class="widget">
         <h2 class="text-[var(--primary)] text-[20px] font-semibold">Open Claims</h2>
         <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">12</span>
     </div>
-    <div class="widget flex-1">
+    <div class="widget">
         <h2 class="text-[var(--primary)] text-[20px] font-semibold">Pending Approvals</h2>
         <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">04</span>
     </div>
@@ -97,36 +98,42 @@
         <div class="flex justify-between">
             <h2 class="text-[var(--primary)] text-[20px] font-semibold">Claims by Status</h2>
             <div class="filter">
-                <button class="filter-icon !w-[40px] !h-[40px] !bg-white" matIconButton [matMenuTriggerFor]="menu"
+                <button class="filter-icon !w-[40px] !h-[40px] !bg-white" matIconButton [matMenuTriggerFor]="menu2"
                     [matMenuTriggerRestoreFocus]="false" #menuTrigger="matMenuTrigger">
                     <img class="min-w-[24px] min-h-[24px]" src="/img/icon/filter.svg" alt="">
                 </button>
-                <mat-menu #menu="matMenu" class="bg-white min-w-[243px]" [hasBackdrop]="false">
+                <mat-menu #menu2="matMenu" class="bg-white !min-w-[280px]" [hasBackdrop]="false">
                     <div class="px-4 py-2" (click)="$event.stopPropagation()">
                         <div class="flex justify-between items-center mb-4">
                             <h2 class="text-[var(--primary)] text-[20px] font-semibold ">Filter</h2>
                             <img (click)="menuTrigger.closeMenu()" class="cursor-pointer min-w-[24px] min-h-[24px]"
                                 src="/img/icon/cross.svg" alt="">
                         </div>
-                        <div class="checkbox">
-                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                [(ngModel)]="filters.vehicle">Vehicle</mat-checkbox>
-                        </div>
-                        <div class="checkbox">
-                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                [(ngModel)]="filters.building">Building</mat-checkbox>
-                        </div>
-                        <div class="checkbox">
-                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                [(ngModel)]="filters.fire">Fire</mat-checkbox>
-                        </div>
-                        <div class="checkbox">
-                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                [(ngModel)]="filters.marine">Marine</mat-checkbox>
-                        </div>
-                        <div class="checkbox">
-                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                [(ngModel)]="filters.others">Others</mat-checkbox>
+                        <div class="grid lg:grid-cols-2 grid-col-1 gap-x-3 gap-y-1">
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.submitted">Submitted</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.inreview">In Review</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.approve">Approved</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.rejected">Rejected</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.paid">Paid</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.closed">Closed</mat-checkbox>
+                            </div>
                         </div>
 
                         <div class="flex justify-end gap-3 mt-6">
