@@ -1,36 +1,52 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerToggle, MatDatepicker } from '@angular/material/datepicker';
-import { MatIconModule } from '@angular/material/icon';
+import { MAT_DATE_FORMATS, MatDateFormats, provideNativeDateAdapter } from '@angular/material/core';
+
+export const CUSTOM_DATE_FORMATS: MatDateFormats = {
+  parse: {
+    dateInput: 'DD MMM YYYY', // Parse format
+  },
+  display: {
+    dateInput: 'dd MMM yyyy', // <-- This gives "18 Aug 2025"
+    monthYearLabel: 'MMM yyyy',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM yyyy',
+  },
+};
 
 @Component({
   selector: 'custom-datepicker',
   standalone: true,
+  templateUrl: './custom-datepicker.html',
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDatepickerModule,
-    MatDatepickerToggle,
-    MatIconModule,
   ],
-  templateUrl: './custom-datepicker.html',
-  styleUrls: ['./custom-datepicker.scss'],
+  providers: [
+    provideNativeDateAdapter(),
+    { provide: MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
+  ],
 })
 export class CustomDatepicker {
+  @Input() label!: string;
+  @Input() placeholder = '';
+  @Input() required = false;
   @Input() control!: FormControl;
-  @Input() label: string = '';
-  @Input() placeholder: string = '';
-  @Input() required: boolean = false;
-  @Input() minDate?: Date; // optional
-  @Input() maxDate?: Date; // optional
+  @Input() minDate?: Date;
+  @Input() maxDate?: Date;
 
-  get hasValue(): boolean {
-    return !!this.control?.value;
+  hasValue = signal(false);
+
+  ngOnInit() {
+    this.control.valueChanges.subscribe((value) => {
+      this.hasValue.set(!!value);
+    });
   }
 }

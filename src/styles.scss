@@ -24,7 +24,7 @@ html {
     (
       color: (
         // primary: $my-primary-palette,
-        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       ),
       typography: Inter,
       density: 0,
@@ -246,7 +246,7 @@ mat-form-field {
     // display: none;.
   }
   &.has-value .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mat-mdc-notch-piece {
-    border-color: var(--primary);
+    border-color: var(--dark-gray);
   }
 }
 
@@ -264,6 +264,18 @@ textarea::placeholder {
   opacity: 1;
 }
 
+.mat-mdc-select {
+  .mat-mdc-select-arrow {
+    transform: rotate(360deg);
+    transition: all ease-in-out 0.3s;
+  }
+  &[aria-expanded='true'] {
+    .mat-mdc-select-arrow {
+      transform: rotate(180deg);
+      transition: all ease-in-out 0.3s;
+    }
+  }
+}
 .mat-mdc-select-placeholder {
   color: var(--input-border) !important;
 }
@@ -543,7 +555,7 @@ div.mat-mdc-select-panel {
   }
 }
 
-// snackbar
+/* snackbar */
 .mat-mdc-snack-bar-container {
   &.center-snackbar {
     margin: 0 auto;
@@ -632,6 +644,22 @@ custom-card {
     &:hover {
       background: #ebf5ff;
       color: var(--primary);
+    }
+  }
+}
+
+/* datepicker */
+.mat-mdc-text-field-wrapper {
+  .mat-datepicker-toggle {
+    padding-right: 10px;
+    button {
+      position: relative;
+      &:after {
+        content: url('/img/icon/calendar.svg');
+      }
+      svg {
+        display: none;
+      }
     }
   }
 }

@@ -77,10 +77,32 @@
             <custom-chips label="Selected Documents" [chips]="selectedPolicies"
                 (remove)="removePolicy($event)"></custom-chips>
         </div>
+        <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-9 mb-2">
+            <h5 class="block font-semibold text-[#474747] mb-6">Upload Documents</h5>
+            <div class="flex flex-wrap gap-6">
+                <div class="item-wrapper flex flex-col gap-4 justify-center items-center">
+                    <div class="item relative w-[88px] h-[117px] border border-[#888888] rounded-[5px] overflow-hidden">
+                        <img class="w-full" src="/img/invoice.jpeg" alt="">
+                        <span
+                            class="img-type absolute left-0 top-0 block font-semibold bg-[#474747] text-white text-[12px]  rounded-[6px] rounded-t-none rounded-l-none px-2 py-1">PDF</span>
+                    </div>
+                    <div
+                        class="dismiss-icon w-auto inline-flex border border-[var(--primary)] rounded-full p-2 hover:bg-slate-50 cursor-pointer">
+                        <img class="icon" src="/img/icon/trash.svg" alt="">
+                    </div>
+                </div>
+                <div
+                    class="add-more flex items-center justify-center flex-col gap-3 cursor-pointer relative w-[88px] h-[117px] border border-dashed border-[#888888] rounded-[5px] overflow-hidden">
+                    <img src="/img/icon/doc.svg" alt="">
+                    <p class="block font-normal text-center text-[12px] text-[#474747] mb-0">Upload Documents</p>
+                    <input type="file" class="absolute w-full h-full opacity-0 cursor-pointer">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="p-6">
         <custom-textarea label="Additional Details" [required]="true"></custom-textarea>
-        <div class="flex justify-end gap-6 mt-8">
+        <div class="flex justify-end gap-6 mt-4">
             <custom-button matButton="outlined" label="Cancel"></custom-button>
             <custom-button matButton="filled" label="Submit" class="min-w-[185px]"></custom-button>
         </div>

@@ -1,25 +1,19 @@
-<div class="relative" [ngClass]="{ 'has-value': hasValue }">
-    <mat-label class="block font-semibold text-[#474747] mb-3">
+<div class="relative" [ngClass]="{ 'has-value': hasValue() }">
+    <mat-label *ngIf="label" class="block font-semibold text-[#474747] mb-3">
         {{ label }}
-        @if (required) {
-        <span class="text-[#DC4545]">*</span>
-        }
+        <span *ngIf="required" class="text-[#DC4545]">*</span>
     </mat-label>
 
-    <mat-form-field appearance="outline" class="w-full" [ngClass]="{ 'has-value': hasValue }">
+    <mat-form-field appearance="outline" class="w-full" [ngClass]="{ 'has-value': hasValue() }">
         <input matInput [matDatepicker]="picker" [placeholder]="placeholder" [formControl]="control"
             [required]="required" [min]="minDate" [max]="maxDate" />
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
 
-        <mat-error>
-            @if (control.invalid && (control.dirty || control.touched)) {
-            @if (control.errors?.['required']) {
-            <ng-container>
+        <mat-error *ngIf="control.invalid && (control.dirty || control.touched)">
+            <ng-container *ngIf="control.errors?.['required']">
                 {{ label || 'This field' }} is required.
             </ng-container>
-            }
-            }
         </mat-error>
     </mat-form-field>
 </div>
