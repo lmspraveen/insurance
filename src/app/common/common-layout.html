@@ -68,22 +68,27 @@
                                 <a mat-list-item class="active">Insurance Companies</a>
                                 <a mat-list-item>Asset Master</a>
                             </mat-expansion-panel>
-                            <mat-expansion-panel
-                                (click)="snav.close(); switchActivePage('policy-request/create-policy-request')"
-                                hideToggle
+                            <mat-expansion-panel hideToggle
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]"
                                 [class.active-link]="
-                    activePage==='policy-request'">
+                    activePage==='policy-request'" (opened)="onPanelOpened()">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
                                         <img title="Policy Requests" src="/img/icon/policy-request.svg" alt="icon" />
                                         <span>Policy Requests</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <a mat-list-item class="active">Create Policy Request</a>
-                                <a mat-list-item>Approve Requests</a>
-                                <a mat-list-item>Events</a>
+
+                                <a mat-list-item [routerLink]="'/policy-request/create-policy-request'"
+                                    routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="snav.close()">Create Policy Request</a>
+                                <a mat-list-item [routerLink]="'/policy-request/aprrove-request'"
+                                    routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="snav.close()">Approve Requests</a>
+                                <a mat-list-item [routerLink]="'/policy-request/events'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Events</a>
                             </mat-expansion-panel>
+
                             <mat-expansion-panel (click)="snav.close();" hideToggle
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">

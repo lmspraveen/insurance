@@ -1,0 +1,155 @@
+<custom-card class="mt-3 !p-0">
+
+    <div class="p-6 border-b border-b-[var(--card-border)]">
+        <p class="text-[var(--med-gray)] text-[12px] font-medium mb-0">
+            @if(activeTab === 'newRequest'){
+            <span>Fill in all Details to Request New Policy</span>
+            }
+            @if(activeTab === 'additionRequest'){
+            <span>Add to Existing Policy</span>
+            }
+            @if(activeTab === 'deletionRequest'){
+            <span>Delete from Existing Policy</span>
+            }
+            @if(activeTab === 'modificationRequest'){
+            <span>Modification of Existing Policy</span>
+            }
+        </p>
+
+    </div>
+    <form [formGroup]="form">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
+                <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
+                    [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                <custom-input [required]="true" label="Branch Code" type="text" placeholder="Enter Branch Code"
+                    [control]="form.controls.branchCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                <custom-input [required]="true" label="Division Code" type="text" placeholder="Enter Division Code"
+                    [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
+                    [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+            </div>
+        </div>
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
+                <custom-input [required]="true"
+                    [label]="activeTab === 'additionRequest' ? 'Change Request Number' : 'Request Number'" type="text"
+                    [placeholder]="activeTab === 'additionRequest' ? 'Enter Change Request Number' : 'Enter Request Number'"
+                    [control]="form.controls.requestNumber" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                @if(activeTab === 'additionRequest'){
+                <custom-input [required]="true" label="Requester Name" type="text" placeholder="Enter Requester Name"
+                    [control]="form.controls.requesterName" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                }
+                <custom-select label="Status" [required]="true" placeholder="Select Status  " [options]="roles"
+                    [(value)]="selectedRole" [control]="form.controls.Roles">
+                </custom-select>
+            </div>
+        </div>
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
+                <custom-select label="Policy Type" [required]="true" placeholder="Select Policy Type" [options]="roles"
+                    [(value)]="selectedRole" [control]="form.controls.Roles">
+                </custom-select>
+            </div>
+            <div class="mt-3">
+                <custom-chips label="Selected Policy Type" [chips]="selectedPolicies"
+                    (remove)="removePolicy($event)"></custom-chips>
+            </div>
+            <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3 mt-6">
+                <custom-select label="Assets" [required]="true" placeholder="Select Assets" [options]="roles"
+                    [(value)]="selectedRole" [control]="form.controls.Roles">
+                </custom-select>
+            </div>
+            <div class="my-3 ">
+                <custom-chips label="Selected Assets" [chips]="selectedPolicies"
+                    (remove)="removePolicy($event)"></custom-chips>
+            </div>
+        </div>
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3 mb-3">
+                <custom-input [required]="true" label="Sum Insured" type="text" placeholder="Enter Sum Insured"
+                    [control]="form.controls.sumInsured" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                <custom-input [required]="true" label="Currency" type="text" placeholder="Enter Currency"
+                    [control]="form.controls.currency" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+            </div>
+            <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
+                <!-- <custom-input [required]="true" label="Policy Start Date" type="date" placeholder="Enter Policy Start Date"
+                    [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                <custom-input [required]="true" label="Policy End Date" type="date" placeholder="Enter Policy End Date"
+                    [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input> -->
+
+                <custom-datepicker label="Policy Start Date" placeholder="Select start date" [required]="true"
+                    [control]="policyStartControl">
+                </custom-datepicker>
+                <custom-datepicker label="Policy End Date" placeholder="Select end date" [required]="true"
+                    [control]="policyEndControl">
+                </custom-datepicker>
+            </div>
+        </div>
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <custom-textarea label="Reason for Request" placeholder="Enter reason for Request"
+                [required]="true"></custom-textarea>
+        </div>
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
+                <custom-select label="Document Type" [required]="true" placeholder="Select Document Type"
+                    [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
+                </custom-select>
+            </div>
+            <div class="my-3">
+                <custom-chips label="Selected Documents" [chips]="selectedPolicies"
+                    (remove)="removePolicy($event)"></custom-chips>
+            </div>
+
+            <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
+                (filesChanged)="onFilesChanged($event)">
+            </custom-file-upload>
+        </div>
+        <div class="p-6">
+            <custom-textarea label="Additional Details" placeholder="Enter additional details"
+                [required]="true"></custom-textarea>
+        </div>
+        @if(activeTab !== 'newRequest'){
+        <ng-container>
+            <div class="p-6 border-b border-b-[var(--card-border)] border-t border-t-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
+                    <custom-input [required]="true" label="Policy Number" type="text" placeholder="Enter Policy Number"
+                        [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Company Code" type="text"
+                        placeholder="Enter Policy Company Code" [control]="pincodeControl"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Branch Code" type="text"
+                        placeholder="Enter Policy Branch Code" [control]="pincodeControl"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Location Code" type="text"
+                        placeholder="Enter Policy Location Code" [control]="pincodeControl"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Division Code" type="text"
+                        placeholder="Enter Policy Division Code" [control]="pincodeControl"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
+                    <custom-select label="Policy Document Type" [required]="true"
+                        placeholder="Select Policy Document Type" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="my-3">
+                    <custom-chips label="Selected Policy Documents" [chips]="selectedPolicies"
+                        (remove)="removePolicy($event)"></custom-chips>
+                </div>
+
+                <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
+                    (filesChanged)="onFilesChanged($event)">
+                </custom-file-upload>
+            </div>
+        </ng-container>
+        }
+        <div class="p-6 flex justify-end gap-6 mt-4">
+            <custom-button matButton="outlined" label="Cancel"></custom-button>
+            <custom-button matButton="filled" label="Submit" class="min-w-[185px]"></custom-button>
+        </div>
+    </form>
+</custom-card>

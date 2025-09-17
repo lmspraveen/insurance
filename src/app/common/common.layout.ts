@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -23,6 +23,7 @@ import { Router } from '@angular/router';
     MatListModule,
     MatExpansionModule,
     RouterOutlet,
+    RouterModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -41,6 +42,13 @@ export default class CommonLayout implements OnDestroy {
   switchActivePage(page: string) {
     this.activePage = page;
     this.router.navigate([page]);
+  }
+
+  onPanelOpened() {
+    // Navigate to first child if not already on any policy-request page
+    if (!this.router.url.startsWith('/policy-request')) {
+      this.router.navigate(['/policy-request/create-policy-request']);
+    }
   }
 
   Logout() {

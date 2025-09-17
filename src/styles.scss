@@ -24,7 +24,7 @@ html {
     (
       color: (
         // primary: $my-primary-palette,
-        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       ),
       typography: Inter,
       density: 0,
@@ -659,6 +659,39 @@ custom-card {
       }
       svg {
         display: none;
+      }
+    }
+  }
+}
+
+/* mat table */
+.custom-table {
+  &.mat-mdc-table {
+    background: white;
+    border: 0;
+    th.mat-mdc-header-cell {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 100%;
+      padding: 0 24px;
+      text-align: center;
+      color: var(--primary);
+      border: 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+    tr.mat-mdc-row {
+      td.mat-mdc-cell {
+        font-weight: 400;
+        font-size: 12px;
+        text-align: center;
+        color: var(--body-color);
+        border: 0;
+        border-bottom: 1px solid var(--card-border);
+      }
+      &:last-child {
+        td.mat-mdc-cell {
+          border-bottom: 0 !important;
+        }
       }
     }
   }
