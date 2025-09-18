@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconButton } from '@angular/material/button';
 
 export interface PeriodicElement {
   requestId: string;
@@ -52,7 +53,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 @Component({
   selector: 'app-approve-request',
-  imports: [CustomCard, MatTableModule],
+  imports: [CustomCard, MatTableModule, MatIconButton],
   templateUrl: './approve-request.html',
   styleUrl: './approve-request.scss',
 })
