@@ -38,9 +38,9 @@
 
                     </div>
                     <mat-nav-list>
-                        <a class="font-medium text-[#474747] mb-[8px]" mat-list-item [routerLink]="'/dashboard'"
-                            routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
-                            (click)="snav.close()">
+                        <a class="font-medium text-[#474747] mb-[8px]" mat-list-item (click)="snav.close();" hideToggle
+                            [class.active-link]="
+                    activePage==='dashboard'" (opened)="onPanelOpened()">
                             <img title="Dashboard" src=" /img/icon/dashboard.svg" alt="icon" />
                             <span>Dashboard</span>
                         </a>

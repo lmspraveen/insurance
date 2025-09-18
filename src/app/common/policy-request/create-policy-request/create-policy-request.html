@@ -28,7 +28,7 @@
     <custom-card>
         <h2 class="text-[var(--body-color)] text-[16px] font-semibold mb-2">Request Type</h2>
         <p class="text-[var(--med-gray)] text-[12px] font-medium mb-6">Select Desired Request Type</p>
-        <div class="tabs flex flex-col lg:flex-row gap-3 lg:gap-6">
+        <div class="tabs flex flex-col md:flex-row gap-3 lg:gap-6">
             <button (click)="toggleTab('newRequest')" [class.active]="activeTab === 'newRequest'">New Request</button>
             <button (click)="toggleTab('additionRequest')" [class.active]="activeTab === 'additionRequest'">Addition to
                 Existing
