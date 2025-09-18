@@ -14,18 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 
-import {
-  MatDialog,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
-import { DialogExampleDialog } from './shared/dialogues/confirmation-dialogue/confirmation-dialogue';
 import { MatTabsModule } from '@angular/material/tabs';
-import { CustomInput } from './shared/components/custom-input/custom-input';
 
 interface Role {
   value: string;
@@ -58,35 +47,6 @@ export interface DialogData {
 export class App {
   readonly title = signal('ng-material-demo');
   hide: boolean = true;
-
-  readonly animal = signal('');
-  readonly name = model('');
-
-  // form = new FormGroup({
-  //   employeeCode: new FormControl<string | null>('', Validators.required),
-  //   mobile: new FormControl<string | null>(''),
-  //   password: new FormControl<string | null>(''),
-  // });
-
-  readonly dialog = inject(MatDialog);
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogExampleDialog, {
-      width: '537px',
-      maxWidth: '100vw',
-      panelClass: 'custom-dialog-container',
-      data: {
-        name: this.name(),
-        animal: this.animal(),
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result !== undefined) {
-        this.animal.set(result);
-      }
-    });
-  }
 
   roles: Role[] = [
     { value: 'unit-user', viewValue: 'Unit User' },

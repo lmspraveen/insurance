@@ -1,0 +1,16 @@
+.status-button {
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  height: 34px;
+  border: 0;
+  &.success {
+    background-color: #7fffb2;
+    border-color: #7fffb2;
+  }
+  &.warning {
+    background-color: #ffe57f;
+    border-color: #ffe57f;
+  }
+}
