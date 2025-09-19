@@ -40,7 +40,7 @@
                     <mat-nav-list>
                         <a class="font-medium text-[#474747] mb-[8px]" mat-list-item [routerLink]="'/dashboard'"
                             routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
-                            (click)="snav.close()">
+                            (click)="accordion.closeAll();snav.close()">
                             <img title="Dashboard" src=" /img/icon/dashboard.svg" alt="icon" />
                             <span>Dashboard</span>
                         </a>
@@ -56,7 +56,7 @@
                                         <span>Admin User</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <a mat-list-item class="active">Code Master</a>
+                                <a mat-list-item>Code Master</a>
                                 <a mat-list-item>Business Unit Master</a>
                                 <a mat-list-item>Approval Master</a>
                             </mat-expansion-panel>
@@ -69,10 +69,11 @@
                                         <span>Masters</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <a mat-list-item class="active">Insurance Companies</a>
+                                <a mat-list-item>Insurance Companies</a>
                                 <a mat-list-item>Asset Master</a>
                             </mat-expansion-panel>
-                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                            <mat-expansion-panel [expanded]="activePage==='policy-request'" (click)="snav.close();"
+                                hideToggle [class.active-link]="
                     activePage==='policy-request'" (opened)="onPanelOpened('policy-request')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
@@ -92,7 +93,7 @@
                                     [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Events</a>
                             </mat-expansion-panel>
                             <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
-                    activePage==='policy'" (opened)="onPanelOpened('policy')"
+                    activePage==='policy'" [expanded]="activePage==='policy'" (opened)="onPanelOpened('policy')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">

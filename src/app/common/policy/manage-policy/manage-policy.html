@@ -22,5 +22,133 @@
 </header>
 <section aria-label="Manage Policy">
     <h1 class="text-[var(--primary)] text-[24px] font-bold"> Manage Policy</h1>
-    <custom-card class="mt-4 !p-0 overflow-hidden min-height"></custom-card>
+    <div class="flex flex-col  2xl:flex-row 2xl:justify-between items-center mt-6">
+        <mat-form-field appearance="outline" FloatLabelType="never" class="search w-[454px]">
+            <img class="prefix absolute z-50 cursor-pointer top-[7px] 2xl:top-[14px] left-[0px] 2xl:left-[6px]"
+                src="/img/search.svg" alt="">
+            <input matInput placeholder="search" value="">
+        </mat-form-field>
+        <div class="flex item gap-6 custom-dropdown">
+            <div class="filter">
+                <button
+                    class="2xl:!w-[60px] 2xl:!h-[60px] !w-[48px] !h-[48px] !bg-white !border !border-[var(--input-border)] flex items-center justify-center"
+                    matIconButton [matMenuTriggerFor]="menu2" [matMenuTriggerRestoreFocus]="false"
+                    #menuTrigger="matMenuTrigger">
+                    <img class="min-w-[28px] min-h-[28px] m-auto" src="/img/icon/filter.svg" alt="">
+                </button>
+
+                <mat-menu #menu2="matMenu" class="bg-white !min-w-[280px]" [hasBackdrop]="false">
+                    <div class="px-4 py-2" (click)="$event.stopPropagation()">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-[var(--primary)] text-[20px] font-semibold ">Filter</h2>
+                            <img (click)="menuTrigger.closeMenu()" class="cursor-pointer min-w-[24px] min-h-[24px]"
+                                src="/img/icon/cross.svg" alt="">
+                        </div>
+                        <div class="grid lg:grid-cols-2 grid-col-1 gap-x-3 gap-y-1">
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.submitted">Submitted</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.inreview">In
+                                    Review</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.approve">Approved</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.rejected">Rejected</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.paid">Paid</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.closed">Closed</mat-checkbox>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end gap-3 mt-6">
+                            <custom-button label="Cancel" (click)="menuTrigger.closeMenu()" matButton="outlined"
+                                class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
+                            </custom-button>
+                            <custom-button label="Apply" (click)="applyFilters(menu)" matButton="filled"
+                                class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
+                            </custom-button>
+                        </div>
+                    </div>
+                </mat-menu>
+            </div>
+            <custom-button class="!rounded-full lg:min-w-[220px]" icon="add" iconPosition="start"
+                label="Create Policy"></custom-button>
+        </div>
+    </div>
+    <custom-card class="mt-2 !p-0 overflow-hidden min-filter-height">
+        <div class="mat-elevation-z2 overflow-x-auto">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
+                <ng-container matColumnDef="policyNumber">
+                    <th mat-header-cell *matHeaderCellDef>Policy Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.policyNumber}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="insuranceCompanyId">
+                    <th mat-header-cell *matHeaderCellDef>Insurance Company ID</th>
+                    <td mat-cell *matCellDef="let element"> {{element.insuranceCompanyId}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="policyType">
+                    <th mat-header-cell *matHeaderCellDef>Policy Type </th>
+                    <td mat-cell *matCellDef="let element"> {{element.policyType}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="sumInsured">
+                    <th mat-header-cell *matHeaderCellDef>Sum Insured</th>
+                    <td mat-cell *matCellDef="let element"> {{element.sumInsured}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="businessUnit">
+                    <th mat-header-cell *matHeaderCellDef> Business Unit </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.businessUnit}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="expiryDate">
+                    <th mat-header-cell *matHeaderCellDef> Expiry Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.expiryDate}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Approval Status </th>
+                    <td mat-cell *matCellDef="let element">
+                        @if(element.status === 'active'){
+                        <span class="font-semibold text-[#128A4E]">
+                            Active
+                        </span>
+                        }
+                        @if(element.status === 'pending'){
+                        <span class="font-semibold text-[#128A4E]">
+                            Pending
+                        </span>
+                        }
+
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </custom-card>
 </section>

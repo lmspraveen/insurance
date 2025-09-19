@@ -1,5 +1,12 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Component, OnDestroy, inject, ChangeDetectionStrategy, signal } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  inject,
+  ChangeDetectionStrategy,
+  signal,
+  OnInit,
+} from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,7 +34,7 @@ import { Router } from '@angular/router';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class CommonLayout implements OnDestroy {
+export default class CommonLayout implements OnInit, OnDestroy {
   readonly isMobile = signal(false);
   activePage = 'dashboard';
 
@@ -39,39 +46,69 @@ export default class CommonLayout implements OnDestroy {
     this._mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
-  switchActivePage(page: string) {
-    this.activePage = page;
-    this.router.navigate([page]);
+  ngOnInit(): void {
+    // this.activePage(this.router.url);
+    this.setActivePage(this.router.url);
+  }
+
+  setActivePage(url: string) {
+    if (url.startsWith('/policy-request')) {
+      this.activePage = 'policy-request';
+    } else if (url.startsWith('/policy')) {
+      this.activePage = 'policy';
+    } else if (url.startsWith('/admin-user')) {
+      this.activePage = 'admin-user';
+    } else if (url.startsWith('/masters')) {
+      this.activePage = 'masters';
+    } else if (url.startsWith('/invoices')) {
+      this.activePage = 'invoices';
+    } else if (url.startsWith('/reports-alerts')) {
+      this.activePage = 'reports-alerts';
+    } else {
+      this.activePage = 'dashboard';
+    }
   }
 
   onPanelOpened(panel: string) {
+    const currentUrl = this.router.url;
+
+    // ✅ Only navigate if we are not already inside this panel's child route
     switch (panel) {
       case 'policy':
-        this.router.navigate(['/policy/manage-policy']);
+        if (!currentUrl.startsWith('/policy')) {
+          this.router.navigate(['/policy/manage-policy']);
+        }
         break;
 
       case 'policy-request':
-        this.router.navigate(['/policy-request/create-policy-request']);
+        if (!currentUrl.startsWith('/policy-request')) {
+          this.router.navigate(['/policy-request/create-policy-request']);
+        }
         break;
 
       case 'admin-user':
-        this.router.navigate(['/admin-user/code-master']);
+        if (!currentUrl.startsWith('/admin-user')) {
+          this.router.navigate(['/admin-user/code-master']);
+        }
         break;
 
       case 'masters':
-        this.router.navigate(['/masters/code-master']);
+        if (!currentUrl.startsWith('/masters')) {
+          this.router.navigate(['/masters/code-master']);
+        }
         break;
 
       case 'invoices':
-        this.router.navigate(['/invoices/policy-invoices']);
+        if (!currentUrl.startsWith('/invoices')) {
+          this.router.navigate(['/invoices/policy-invoices']);
+        }
         break;
 
       case 'reports-alerts':
-        this.router.navigate(['/reports-alerts/reports']);
+        if (!currentUrl.startsWith('/reports-alerts')) {
+          this.router.navigate(['/reports-alerts/reports']);
+        }
         break;
-
-      default:
-        this.router.navigate(['/dashboard']);
     }
   }
 

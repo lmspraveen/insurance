@@ -1,9 +1,33 @@
-<button *ngIf="isFilled()" matButton="filled" [disabled]="disabled" (click)="handleClick($event)"
+@if(isFilled()){
+<button matButton="filled" [disabled]="disabled" (click)="handleClick($event)"
     class="w-full min-h-[48px] !text-[16px] 2xl:min-h-[60px] !2xl:text-[20px] !font-semibold mb-2 !rounded-[10px] {{extraClasses}}">
+    @if(icon && iconPosition === 'start'){
+    <mat-icon class="mr-2">
+        {{ icon }}
+    </mat-icon>
+    }
     {{ label }}
+    @if(icon && iconPosition === 'end'){
+    <mat-icon class="ms-2">
+        {{ icon }}
+    </mat-icon>
+    }
 </button>
+}
 
-<button *ngIf="isOutlined()" matButton="outlined" [disabled]="disabled" (click)="handleClick($event)"
+@if(isOutlined()){
+<button matButton="outlined" [disabled]="disabled" (click)="handleClick($event)"
     class="w-full min-h-[48px] !text-[16px] 2xl:min-h-[60px] !2xl:text-[20px] !font-semibold mb-2 !rounded-[10px] {{extraClasses}}">
+    @if(icon && iconPosition === 'start'){
+    <mat-icon class="mr-2">
+        {{ icon }}
+    </mat-icon>
+    }
     {{ label }}
+    @if(icon && iconPosition === 'end'){
+    <mat-icon class="ms-2">
+        {{ icon }}
+    </mat-icon>
+    }
 </button>
+}
