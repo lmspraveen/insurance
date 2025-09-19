@@ -48,7 +48,7 @@
                             MatAccordionDisplayMode='flat'>
 
                             <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
-                    activePage==='admin-user'" (opened)="onPanelOpened()"
+                    activePage==='admin-user'" (opened)="onPanelOpened('admin-user')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
@@ -61,7 +61,7 @@
                                 <a mat-list-item>Approval Master</a>
                             </mat-expansion-panel>
                             <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
-                    activePage==='masters'" (opened)="onPanelOpened()"
+                    activePage==='masters'" (opened)="onPanelOpened('masters')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
@@ -73,7 +73,7 @@
                                 <a mat-list-item>Asset Master</a>
                             </mat-expansion-panel>
                             <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
-                    activePage==='policy-request'" (opened)="onPanelOpened()"
+                    activePage==='policy-request'" (opened)="onPanelOpened('policy-request')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
@@ -91,8 +91,8 @@
                                 <a mat-list-item [routerLink]="'/policy-request/events'" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Events</a>
                             </mat-expansion-panel>
-
-                            <mat-expansion-panel (click)="snav.close();" hideToggle
+                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                    activePage==='policy'" (opened)="onPanelOpened('policy')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
@@ -100,12 +100,20 @@
                                         <span>Policy</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <a mat-list-item class="active">Manage Policy</a>
-                                <a mat-list-item>Renew Policy</a>
-                                <a mat-list-item>Policy Coinsured</a>
-                                <a mat-list-item>Approve Policy</a>
-                                <a mat-list-item>Events</a>
+                                <a mat-list-item [routerLink]="'/policy/manage-policy'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Manage Policy</a>
+                                <a mat-list-item [routerLink]="'/policy/renew-policy'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Renew Policy</a>
+                                <a mat-list-item [routerLink]="'/policy/policy-coinsured'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Policy
+                                    Coinsured</a>
+                                <a mat-list-item [routerLink]="'/policy/approve-policy'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Approve
+                                    Policy</a>
+                                <a mat-list-item [routerLink]="'/policy/events'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Events</a>
                             </mat-expansion-panel>
+
                             <mat-expansion-panel (click)="snav.close()" hideToggle
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">

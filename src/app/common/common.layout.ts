@@ -44,21 +44,34 @@ export default class CommonLayout implements OnDestroy {
     this.router.navigate([page]);
   }
 
-  onPanelOpened() {
-    if (!this.router.url.startsWith('/policy-request')) {
-      this.router.navigate(['/policy-request/create-policy-request']);
-    } else if (!this.router.url.startsWith('/admin-user')) {
-      this.router.navigate(['/admin-user/code-master']);
-    } else if (!this.router.url.startsWith('/masters')) {
-      this.router.navigate(['/masters/code-master']);
-    } else if (!this.router.url.startsWith('/policy')) {
-      this.router.navigate(['/policy/manage-policy']);
-    } else if (!this.router.url.startsWith('/invoices')) {
-      this.router.navigate(['/invoices/policy-invoices']);
-    } else if (!this.router.url.startsWith('/reports-alerts')) {
-      this.router.navigate(['/reports-alerts/reports']);
-    } else {
-      this.router.navigate(['/dashboard']);
+  onPanelOpened(panel: string) {
+    switch (panel) {
+      case 'policy':
+        this.router.navigate(['/policy/manage-policy']);
+        break;
+
+      case 'policy-request':
+        this.router.navigate(['/policy-request/create-policy-request']);
+        break;
+
+      case 'admin-user':
+        this.router.navigate(['/admin-user/code-master']);
+        break;
+
+      case 'masters':
+        this.router.navigate(['/masters/code-master']);
+        break;
+
+      case 'invoices':
+        this.router.navigate(['/invoices/policy-invoices']);
+        break;
+
+      case 'reports-alerts':
+        this.router.navigate(['/reports-alerts/reports']);
+        break;
+
+      default:
+        this.router.navigate(['/dashboard']);
     }
   }
 
