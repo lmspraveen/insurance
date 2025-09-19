@@ -29,7 +29,7 @@ import { RequestTypeTabs } from './request-type-tabs/request-type-tabs';
   styleUrl: './create-policy-request.scss',
 })
 export class CreatePolicyRequest {
-  activeTab: string = '';
+  activeTab: string = 'newRequest';
   showResult: boolean = false;
   pincodeControl = new FormControl('');
 
