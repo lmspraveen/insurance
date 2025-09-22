@@ -47,7 +47,8 @@
                         <mat-accordion class="flex flex-col gap-[8px]" #accordion="matAccordion"
                             MatAccordionDisplayMode='flat'>
 
-                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                            <mat-expansion-panel [expanded]="activePage==='admin-user'" (click)="snav.close();"
+                                hideToggle [class.active-link]="
                     activePage==='admin-user'" (opened)="onPanelOpened('admin-user')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
@@ -56,22 +57,47 @@
                                         <span>Admin User</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <a mat-list-item>Code Master</a>
-                                <a mat-list-item>Business Unit Master</a>
-                                <a mat-list-item>Approval Master</a>
+
+                                <a mat-list-item [routerLink]="'/admin-user/code-master'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Code Master</a>
+                                <a mat-list-item [routerLink]="'/admin-user/approval-master'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Approval
+                                    Master</a>
+                                <a mat-list-item [routerLink]="'/admin-user/business-unit-master'"
+                                    routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="snav.close()">Business Unit Master</a>
                             </mat-expansion-panel>
-                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+
+                            <mat-expansion-panel [expanded]="activePage==='business-user'" (click)="snav.close();"
+                                hideToggle [class.active-link]="
+                    activePage==='business-user'" (opened)="onPanelOpened('business-user')"
+                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
+                                <mat-expansion-panel-header class="!px-4">
+                                    <mat-panel-title class="flex gap-4">
+                                        <img title="Business User" src="/img/icon/business.svg" alt="icon" />
+                                        <span>Business User</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+
+                                <a mat-list-item [routerLink]="'/business-user/insurance-companies'"
+                                    routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="snav.close()">Insurance Companies</a>
+                                <a mat-list-item [routerLink]="'/business-user/asset-master'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Asset Master</a>
+                            </mat-expansion-panel>
+                            <!-- <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
                     activePage==='masters'" (opened)="onPanelOpened('masters')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
-                                        <img title="Masters" src="/img/icon/claim.svg" alt="icon" />
-                                        <span>Masters</span>
+                                        <img title="Business User" src="/img/icon/business.svg" alt="icon" />
+                                        <span>Business User</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <a mat-list-item>Insurance Companies</a>
                                 <a mat-list-item>Asset Master</a>
-                            </mat-expansion-panel>
+                            </mat-expansion-panel> -->
+
                             <mat-expansion-panel [expanded]="activePage==='policy-request'" (click)="snav.close();"
                                 hideToggle [class.active-link]="
                     activePage==='policy-request'" (opened)="onPanelOpened('policy-request')"
@@ -87,8 +113,7 @@
                                     routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                                     (click)="snav.close()">Create Policy Request</a>
                                 <a mat-list-item [routerLink]="'/policy-request/aprrove-request'"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-                                    (click)="snav.close()">Approve Requests</a>
+                                    routerLinkActive="active" (click)="snav.close()">Approve Requests</a>
                                 <a mat-list-item [routerLink]="'/policy-request/events'" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Events</a>
                             </mat-expansion-panel>
@@ -102,7 +127,7 @@
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <a mat-list-item [routerLink]="'/policy/manage-policy'" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Manage Policy</a>
+                                    (click)="snav.close()">Manage Policy</a>
                                 <a mat-list-item [routerLink]="'/policy/renew-policy'" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Renew Policy</a>
                                 <a mat-list-item [routerLink]="'/policy/policy-coinsured'" routerLinkActive="active"

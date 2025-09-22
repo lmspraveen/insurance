@@ -46,8 +46,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
     FormsModule,
     MatCheckbox,
     MatCheckboxModule,
-    MatList,
-    MatListItem,
     CommonModule,
     MatTableModule,
   ],

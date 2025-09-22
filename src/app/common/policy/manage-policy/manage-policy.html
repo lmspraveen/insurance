@@ -83,8 +83,8 @@
                     </div>
                 </mat-menu>
             </div>
-            <custom-button class="!rounded-full lg:min-w-[220px]" icon="add" iconPosition="start"
-                label="Create Policy"></custom-button>
+            <custom-button (click)="goTo('/policy/manage-policy/create-policy')" class="!rounded-full lg:min-w-[220px]"
+                icon="add" iconPosition="start" label="Create Policy"></custom-button>
         </div>
     </div>
     <custom-card class="mt-2 !p-0 overflow-hidden min-filter-height">
@@ -131,18 +131,37 @@
                             Active
                         </span>
                         }
-                        @if(element.status === 'pending'){
+                        @if(element.status === 'paid'){
                         <span class="font-semibold text-[#128A4E]">
+                            Paid
+                        </span>
+                        }
+                        @if(element.status === 'pending'){
+                        <span class="font-semibold text-[#FFC04C]">
                             Pending
                         </span>
                         }
-
+                        @if(element.status === 'closed'){
+                        <span class="font-semibold text-[#DC4545]">
+                            Closed
+                        </span>
+                        }
+                        @if(element.status === 'unpaid'){
+                        <span class="font-semibold text-[#DC4545]">
+                            Unpaid
+                        </span>
+                        }
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="action">
                     <th mat-header-cell *matHeaderCellDef> Action </th>
-                    <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+                    <td mat-cell *matCellDef="let element">
+                        <button class="status-button text-nowrap success" mat-stroked-button
+                            (click)="goTo('/policy/manage-policy/edit-policy')">
+                            <img src="/img/icon/edit.svg" alt="">
+                        </button>
+                    </td>
                 </ng-container>
 
 

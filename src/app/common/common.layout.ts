@@ -72,17 +72,16 @@ export default class CommonLayout implements OnInit, OnDestroy {
   onPanelOpened(panel: string) {
     const currentUrl = this.router.url;
 
-    // ✅ Only navigate if we are not already inside this panel's child route
     switch (panel) {
-      case 'policy':
-        if (!currentUrl.startsWith('/policy')) {
-          this.router.navigate(['/policy/manage-policy']);
-        }
-        break;
-
       case 'policy-request':
         if (!currentUrl.startsWith('/policy-request')) {
           this.router.navigate(['/policy-request/create-policy-request']);
+        }
+        break;
+
+      case 'policy':
+        if (!currentUrl.startsWith('/policy')) {
+          this.router.navigate(['/policy/manage-policy']);
         }
         break;
 
@@ -92,9 +91,9 @@ export default class CommonLayout implements OnInit, OnDestroy {
         }
         break;
 
-      case 'masters':
-        if (!currentUrl.startsWith('/masters')) {
-          this.router.navigate(['/masters/code-master']);
+      case 'business-user':
+        if (!currentUrl.startsWith('/business-user')) {
+          this.router.navigate(['/business-user/insurance-companies']);
         }
         break;
 

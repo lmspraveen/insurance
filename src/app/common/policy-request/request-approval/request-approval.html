@@ -1,0 +1,120 @@
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Policy Request
+        </li>
+        <li class="breadcrumb-item">
+            Requests Approval
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Request Approval">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Request Approval</h1>
+    <custom-card class="mt-4 !p-0 min-height">
+        <div class="pt-6 px-6 pb-0">
+            <div class="flex justify-between relative">
+                <img (click)="goTo('/policy-request/aprrove-request')" src="img/back-btn.svg" alt="img"
+                    class="cursor-pointer" />
+                <custom-button class="!min-h-[20px]" matButton="outlined" label="Events"></custom-button>
+            </div>
+        </div>
+        <div class="px-6 py-4 mt-6 bg-[#F6F6F6]">
+            <p class="text-[14px] font-normal text-dark-gray mb-3">Approved by HO Insurance Coordinator on 18 Aug 2025 |
+                10:01:16</p>
+            <p class="text-[14px] font-normal text-dark-gray mb-6">Approved by Unit HOD on 15 Aug 2025 | 16:30:23</p>
+            <wizard-steps [steps]="[
+    'Unit HOD',
+    'HO Insurance Coordinator', 
+    'HO Insurance Manager'
+  ]" [activeStep]="2"></wizard-steps>
+        </div>
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Employee Number</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">EMP001</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Approval Status</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Request Generated</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Approval Action</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Pending at Unit HOD</h6>
+                </div>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">In Time</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">10:00:00</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Out Time</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">10:02:30</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Time Taken</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">02:30</h6>
+                </div>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Company Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Branch Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Division Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">75921</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Company Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">123456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Document Type</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">License Document</h6>
+                </div>
+            </div>
+            <custom-file-upload label="Uploaded Document" accept=".pdf,.jpg,.png" [multiple]="true"
+                (filesChanged)="onFilesChanged($event)">
+            </custom-file-upload>
+        </div>
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <span class="text-[16px] font-medium text-med-gray block mb-4">Unit HOD Remarks</span>
+            <p class="text-[16px] font-medium text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <span class="text-[16px] font-medium text-med-gray block mb-4">HO Insurance Coordinator Remarks</span>
+            <p class="text-[16px] font-medium text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="p-6">
+            <custom-textarea label="Remarks" placeholder="Enter your remarks here"></custom-textarea>
+            <div class="grid md:flex md:justify-end gap-6 mt-4">
+                <custom-button matButton="outlined" label="Send Back"></custom-button>
+                <custom-button matButton="outlined" label="Reject"></custom-button>
+                <custom-button matButton="filled" label="Approve" class="min-w-[185px]"
+                    (click)="openConfirmation()"></custom-button>
+            </div>
+        </div>
+    </custom-card>
+</section>

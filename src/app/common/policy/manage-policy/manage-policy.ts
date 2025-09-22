@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { CustomButton } from '../../../shared/components/custom-button/custom-button';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   policyNumber: string;
@@ -31,6 +32,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
     businessUnit: 'Dubai H.O',
     expiryDate: '18/08/2026',
     status: 'active',
+    action: '',
+  },
+  {
+    policyNumber: '01245',
+    insuranceCompanyId: '02154',
+    policyType: 'Vehicle',
+    sumInsured: 'AED 10,000',
+    businessUnit: 'Dubai H.O',
+    expiryDate: '18/08/2026',
+    status: 'pending',
     action: '',
   },
 ];
@@ -56,6 +67,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ManagePolicy {
   @ViewChild(MatMenuTrigger) menu!: MatMenuTrigger;
+
+  constructor(private router: Router) {}
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+  }
 
   filters = {
     vehicle: false,
