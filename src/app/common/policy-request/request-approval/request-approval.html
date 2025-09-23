@@ -110,7 +110,8 @@
         <div class="p-6">
             <custom-textarea label="Remarks" placeholder="Enter your remarks here"></custom-textarea>
             <div class="grid md:flex md:justify-end gap-6 mt-4">
-                <custom-button matButton="outlined" label="Send Back"></custom-button>
+                <custom-button matButton="outlined" label="Send Back"
+                    (click)="goTo('/policy-request/aprrove-request')"></custom-button>
                 <custom-button matButton="outlined" label="Reject"></custom-button>
                 <custom-button matButton="filled" label="Approve" class="min-w-[185px]"
                     (click)="openConfirmation()"></custom-button>

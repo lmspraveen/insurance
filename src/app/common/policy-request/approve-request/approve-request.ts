@@ -61,16 +61,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 @Component({
   selector: 'app-approve-request',
-  imports: [
-    CustomCard,
-    MatTableModule,
-    MatIconButton,
-    MatButtonModule,
-    CustomButton,
-    CustomFileUpload,
-    CustomTextarea,
-    WizardSteps,
-  ],
+  imports: [CustomCard, MatTableModule, MatIconButton, MatButtonModule],
   templateUrl: './approve-request.html',
   styleUrl: './approve-request.scss',
   standalone: true,

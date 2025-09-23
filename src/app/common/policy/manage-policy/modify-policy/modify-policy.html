@@ -1,0 +1,227 @@
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Policy
+        </li>
+        <li class="breadcrumb-item">
+            Manage Policy
+        </li>
+        <li class="breadcrumb-item">
+            Modify Policy
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Events">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Modify Policy</h1>
+    <custom-card class="mt-4 !p-0 overflow-hidden min-height">
+        <div class="flex justify-between p-6 border-b border-b-[var(--card-border)]">
+            <img (click)="goTo('/policy/manage-policy')" src="img/back-btn.svg" alt="img" class="cursor-pointer" />
+            <button (click)="openTemplateDialog(customTemplate)" matButton="outlined"
+                class="!h-[30px] !text-[14px] !font-semibold !rounded-[5px] danger">
+                Close Policy</button>
+        </div>
+        <form [formGroup]="form">
+            <div class="p-6 pb-8 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [value]="'01025'" [required]="true" label="Company Code" type="text"
+                        placeholder="Enter Company Code" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [value]="'01235'" [required]="true" label="Branch Code" type="text"
+                        placeholder="Enter Branch Code" [control]="form.controls.branchCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [value]="'65489'" [required]="true" label="Division Code" type="text"
+                        placeholder="Enter Division Code" [control]="form.controls.divisionCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [value]="'45632'" [required]="true" label="Location Code" type="text"
+                        placeholder="Enter Location Code" [control]="form.controls.locationCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
+                    <custom-select class="!mb-0" label="Document Type" [required]="true"
+                        placeholder="Select Document Type" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="-mt-3">
+                    <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
+                        (filesChanged)="onFilesChanged($event)">
+                    </custom-file-upload>
+                </div>
+            </div>
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Insurance Company ID" type="text"
+                        placeholder="Enter Insurance Company ID" [control]="form.controls.requestNumber"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Number" type="text"
+                        placeholder="Enter Policy Number (Original/New)" [control]="form.controls.requesterName"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-select [multiselect]="true" [required]="true" label="Policy type"
+                        placeholder="Select Policy Type" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="mb-8 mt-2">
+                    <custom-chips label="Selected Policy Type" [chips]="selectedPolicies"
+                        (remove)="removePolicy($event)"></custom-chips>
+                </div>
+
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-select [multiselect]="true" [required]="true" label="Assets"
+                        placeholder="Search & Select the assets" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="mb-4 mt-2">
+                    <custom-chips label="Selected Assets" [chips]="selectedAssets"
+                        (remove)="removeAssets($event)"></custom-chips>
+                </div>
+            </div>
+            <div class="p-6 pt-8 border-b border-b-[var(--card-border)]">
+                <custom-textarea label="Reason for Request" placeholder="Type down your reason for request "
+                    [required]="true"></custom-textarea>
+            </div>
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-datepicker label="Policy Start Date" placeholder="Enter Start Date" [required]="true"
+                        [control]="policyStartControl">
+                    </custom-datepicker>
+                    <custom-datepicker label="Policy End Date" placeholder="Enter End Date" [required]="true"
+                        [control]="policyEndControl">
+                    </custom-datepicker>
+                    <custom-datepicker label="Renewal Date" placeholder="Enter Renewal Date" [required]="true"
+                        [control]="policyEndControl">
+                    </custom-datepicker>
+                    <custom-select [required]="true" label="Status" placeholder="Select Status" [options]="roles"
+                        [(value)]="selectedRole" [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+            </div>
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Sum Insured" type="text" placeholder="Enter Sum Insured"
+                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Premium Amount" type="text"
+                        placeholder="Enter Premium Amount" [control]="form.controls.divisionCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-select [required]="true" label="Currency" placeholder="Select Currency" [options]="roles"
+                        [(value)]="selectedRole" [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+            </div>
+            <div class="p-6 pt-8 border-b border-b-[var(--card-border)]">
+                <custom-textarea label="Terms & Conditions" placeholder="Enter Terms and Conditions "
+                    [required]="true"></custom-textarea>
+                <div class="mt-2">
+                    <custom-textarea label="Policy Description" placeholder="Enter Policy Description "
+                        [required]="true" class="mt-2"></custom-textarea>
+                </div>
+            </div>
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-select [required]="true" label="Territory Covered"
+                        placeholder="Search & Select Territory Covered" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+            </div>
+            <div class="px-6 pt-6">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
+                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Branch Code" type="text" placeholder="Enter Branch Code"
+                        [control]="form.controls.branchCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Division Code" type="text" placeholder="Enter Division Code"
+                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
+                        [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
+                        [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
+                    <custom-select class="!mb-0" label="Document Type" [required]="true"
+                        placeholder="Select Document Type" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="-mt-3">
+                    <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
+                        (filesChanged)="onFilesChanged($event)">
+                    </custom-file-upload>
+                </div>
+            </div>
+
+            <div class="p-6 flex justify-end gap-6 mt-4">
+                <custom-button matButton="outlined" label="Cancel"></custom-button>
+                <custom-button matButton="filled" label="Save Changes" class="min-w-[185px]"
+                    (click)="openConfirmation()"></custom-button>
+            </div>
+        </form>
+    </custom-card>
+</section>
+
+<custom-card class="mt-3 !p-0 overflow-hidden">
+    <div class="p-6 border-b border-b-[var(--card-border)]">
+        <p class="text-[var(--med-gray)] text-[16px] font-medium mb-0">
+            Modification History
+        </p>
+    </div>
+    <div class="mat-elevation-z2 overflow-x-auto  pb-2">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
+            <ng-container matColumnDef="modifiedBy">
+                <th mat-header-cell *matHeaderCellDef>Modified By </th>
+                <td mat-cell *matCellDef="let element"> {{element.modifiedBy}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="employeeId">
+                <th mat-header-cell *matHeaderCellDef>Employee ID</th>
+                <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef>Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Time">
+                <th mat-header-cell *matHeaderCellDef>Time</th>
+                <td mat-cell *matCellDef="let element"> {{element.Time}} </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</custom-card>
+
+<ng-template #customTemplate>
+    <h3 class="text-[20px] text-[var(--primary)] font-semibold mb-8 text-center">Are you sure you want to close this
+        Policy?</h3>
+    <div class="grid lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+        <custom-datepicker label="Effective Date of Cancellation" placeholder="Enter Start Date" [required]="true"
+            [control]="policyStartControl">
+        </custom-datepicker>
+    </div>
+    <div class="pt-6">
+        <custom-textarea
+            value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            placeholder="Enter Renewal Date"></custom-textarea>
+    </div>
+
+</ng-template>

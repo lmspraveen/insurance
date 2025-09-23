@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { Router } from '@angular/router';
 export interface PeriodicElement {
   companyCode: string;
   policyNumber: string;
@@ -83,4 +84,10 @@ export class PolicyCoinsured {
     'action',
   ];
   dataSource = ELEMENT_DATA;
+
+  constructor(private router: Router) {}
+
+  goTo(path: string) {
+    this.router.navigate([path]);
+  }
 }

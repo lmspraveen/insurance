@@ -24,6 +24,7 @@ export class CustomSelect {
   @Input() control: FormControl = new FormControl();
   @Input() options: { value: any; viewValue: string }[] = [];
   @Input() value: any;
+  @Input() multiselect = false;
   @Output() valueChange = new EventEmitter<any>();
 
   onSelectionChange(event: any) {

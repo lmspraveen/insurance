@@ -1,33 +1,32 @@
 <div class="relative" [ngClass]="{ 'has-value': hasValue }">
+    <!-- Dynamic Label -->
+    @if (label) {
     <mat-label class="block font-semibold text-[#474747] mb-3">
         {{ label }}
         @if (required) {
         <span class="text-[#DC4545]">*</span>
         }
     </mat-label>
+    }
 
     <mat-form-field appearance="outline" class="w-full" [ngClass]="{ 'has-value': hasValue }">
         <input matInput [type]="getInputType()" [placeholder]="placeholder" [formControl]="control"
-            [required]="required" autocomplete="off" />
+            [required]="required" [value]="value" (input)="onInputChange($event)" autocomplete="off" />
 
         <mat-error>
-            @if(control.invalid && (control.dirty || control.touched)){
-            @if (control.errors?.['required']){
-            <ng-container>
-                {{ label || 'This field' }} is required.
-            </ng-container>
+            @if (control.invalid && (control.dirty || control.touched)) {
+            @if (control.errors?.['required']) {
+            <ng-container>{{ label || 'This field' }} is required.</ng-container>
             }
-            @if (control.errors?.['email']){
-            <ng-container>
-                Please enter a valid email address.
-            </ng-container>
+            @if (control.errors?.['email']) {
+            <ng-container>Please enter a valid email address.</ng-container>
             }
-            @if (control.errors?.['minlength']){
+            @if (control.errors?.['minlength']) {
             <ng-container>
                 Minimum length is {{ control.errors?.['minlength'].requiredLength }}.
             </ng-container>
             }
-            @if (control.errors?.['maxlength']){
+            @if (control.errors?.['maxlength']) {
             <ng-container>
                 Maximum length is {{ control.errors?.['maxlength'].requiredLength }}.
             </ng-container>

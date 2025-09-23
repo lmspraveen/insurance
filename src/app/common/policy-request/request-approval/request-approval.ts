@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { WizardSteps } from '../../../shared/components/wizard-steps/wizard-steps';
-import { CustomFileUpload } from '../../../shared/components/custom-file-upload/custom-file-upload';
-import { CustomTextarea } from '../../../shared/components/custom-textarea/custom-textarea';
-import { CustomButton } from '../../../shared/components/custom-button/custom-button';
+import { Component, Input } from '@angular/core';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
-import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialog } from '../../../shared/dialogues/confirmation-dialogue';
+import { MatDialog } from '@angular/material/dialog';
+import { CustomButton } from '../../../shared/components/custom-button/custom-button';
+import { Location } from '@angular/common';
+import { CustomFileUpload } from '../../../shared/components/custom-file-upload/custom-file-upload';
+import { CustomTextarea } from '../../../shared/components/custom-textarea/custom-textarea';
+import { WizardSteps } from '../../../shared/components/wizard-steps/wizard-steps';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,6 +25,7 @@ import { Router } from '@angular/router';
   ],
   templateUrl: './request-approval.html',
   styleUrl: './request-approval.scss',
+  standalone: true,
 })
 export class RequestApproval {
   // dialogue
@@ -47,6 +49,11 @@ export class RequestApproval {
         console.log('❌ User clicked NO');
       }
     });
+  }
+
+  /* wizard */
+  goToBack() {
+    this.location.back();
   }
 
   /** File Upload */

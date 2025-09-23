@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -19,17 +19,37 @@ export class CustomInput {
   @Input() required: boolean = false;
   @Input() type: InputType = 'text';
   @Input({ required: true }) control!: FormControl<string | null>;
+  @Input() value: any = '';
+  @Output() valueChange = new EventEmitter<any>();
 
   hide = true; // used only for password type
 
-  get hasValue(): boolean {
-    return !!this.control?.value;
+  ngOnInit() {
+    if (this.value) {
+      this.control.setValue(this.value);
+    }
+
+    this.control.valueChanges.subscribe((val) => {
+      this.value = val;
+      this.valueChange.emit(val);
+    });
   }
 
   getInputType(): string {
     return this.type === 'password' ? (this.hide ? 'password' : 'text') : this.type;
   }
+
   toggleVisibility(): void {
     this.hide = !this.hide;
+  }
+
+  get hasValue(): boolean {
+    return !!this.control?.value;
+  }
+
+  onInputChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.value = inputValue;
+    this.valueChange.emit(inputValue);
   }
 }

@@ -10,15 +10,16 @@
     }
 
     <mat-form-field appearance="outline" class="w-full" [ngClass]="{ 'has-value': hasValue }">
-        <mat-select [value]="value" (selectionChange)="onSelectionChange($event)" [required]="required"
-            [placeholder]="placeholder">
+        <mat-select [multiple]="multiselect" [value]="value" (selectionChange)="onSelectionChange($event)"
+            [required]="required" [placeholder]="placeholder">
             @for (opt of options; track opt) {
             <mat-option [value]="opt.value">{{ opt.viewValue }}</mat-option>
             }
         </mat-select>
+
         <mat-error>
-            @if(control.invalid && (control.dirty || control.touched)){
-            @if (control.errors?.['required']){
+            @if (control.invalid && (control.dirty || control.touched)) {
+            @if (control.errors?.['required']) {
             <ng-container>
                 {{ label || 'This field' }} is required.
             </ng-container>

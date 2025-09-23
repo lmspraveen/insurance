@@ -15,9 +15,10 @@ import { BusinessUnitMaster } from './admin-user/business-unit-master/business-u
 import { CodeMaster } from './admin-user/code-master/code-master';
 import { AssetMaster } from './business-user/asset-master/asset-master';
 import { InsuranceCompanies } from './business-user/insurance-companies/insurance-companies';
-import { CreatePolicy } from './policy/create-policy/create-policy';
-import { EditPolicy } from './policy/edit-policy/edit-policy';
+import { EditPolicy } from './policy/manage-policy/edit-policy/edit-policy';
 import { RequestApproval } from './policy-request/request-approval/request-approval';
+import { CreatePolicy } from './policy/manage-policy/create-policy/create-policy';
+import { ModifyPolicy } from './policy/manage-policy/modify-policy/modify-policy';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -31,12 +32,13 @@ export const COMMON_ROUTES: Routes = [
       /*Policy Request*/
       { path: 'policy-request/create-policy-request', component: CreatePolicyRequest },
       { path: 'policy-request/aprrove-request', component: ApproveRequest },
-      { path: 'policy-request/request-approval', component: RequestApproval },
+      { path: 'policy-request/aprrove-request/request-approval', component: RequestApproval },
       { path: 'policy-request/events', component: Events },
 
       /*Policy*/
       { path: 'policy/manage-policy', component: ManagePolicy },
       { path: 'policy/manage-policy/create-policy', component: CreatePolicy },
+      { path: 'policy/manage-policy/modify-policy', component: ModifyPolicy },
       { path: 'policy/manage-policy/edit-policy', component: EditPolicy },
       { path: 'policy/renew-policy', component: RenewPolicy },
       { path: 'policy/policy-coinsured', component: PolicyCoinsured },

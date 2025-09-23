@@ -1,16 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
-import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CustomInput } from '../../../shared/components/custom-input/custom-input';
-import { CustomSelect } from '../../../shared/components/custom-select/custom-select';
-import { CustomTextarea } from '../../../shared/components/custom-textarea/custom-textarea';
-import { CustomChips } from '../../../shared/components/custom-chips/custom-chips';
-import { CustomButton } from '../../../shared/components/custom-button/custom-button';
-import { CustomDatepicker } from '../../../shared/components/custom-datepicker/custom-datepicker';
-import { CustomFileUpload } from '../../../shared/components/custom-file-upload/custom-file-upload';
+import { CustomInput } from '../../../../shared/components/custom-input/custom-input';
+import { CustomSelect } from '../../../../shared/components/custom-select/custom-select';
+import { CustomTextarea } from '../../../../shared/components/custom-textarea/custom-textarea';
+import { CustomButton } from '../../../../shared/components/custom-button/custom-button';
+import { CustomCard } from '../../../../shared/components/custom-card/custom-card';
+import { CustomDatepicker } from '../../../../shared/components/custom-datepicker/custom-datepicker';
+import { CustomFileUpload } from '../../../../shared/components/custom-file-upload/custom-file-upload';
 
 interface Role {
   value: string;
@@ -26,7 +25,6 @@ interface Role {
     CustomInput,
     CustomSelect,
     CustomTextarea,
-    CustomChips,
     CustomButton,
     CustomCard,
     CustomDatepicker,

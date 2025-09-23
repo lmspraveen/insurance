@@ -19,7 +19,7 @@ export interface PeriodicElement {
   sumInsured: string;
   businessUnit: string;
   expiryDate: string;
-  status: 'active' | 'pending' | 'approved' | 'rejected' | 'requested' | 'inprogress';
+  status: 'active' | 'pending' | 'approved' | 'rejected' | 'requested' | 'inprogress' | 'closed';
   action: any;
 }
 
@@ -44,11 +44,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
     status: 'pending',
     action: '',
   },
+  {
+    policyNumber: '01245',
+    insuranceCompanyId: '02154',
+    policyType: 'Vehicle',
+    sumInsured: 'AED 10,000',
+    businessUnit: 'Dubai H.O',
+    expiryDate: '18/08/2026',
+    status: 'closed',
+    action: '',
+  },
 ];
 
 @Component({
   selector: 'app-manage-policy',
-  standalone: true, // ✅ VERY IMPORTANT for Angular 17+
+  standalone: true,
   imports: [
     CommonModule,
     FormsModule,
@@ -63,7 +73,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     CustomCard,
   ],
   templateUrl: './manage-policy.html',
-  styleUrls: ['./manage-policy.scss'], // ✅ should be styleUrls (plural)
+  styleUrls: ['./manage-policy.scss'],
 })
 export class ManagePolicy {
   @ViewChild(MatMenuTrigger) menu!: MatMenuTrigger;
