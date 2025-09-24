@@ -1,14 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { ConfirmationDialog } from '../../../shared/dialogues/confirmation-dialogue';
 import { MatDialog } from '@angular/material/dialog';
-import { CustomButton } from '../../../shared/components/custom-button/custom-button';
 import { Location } from '@angular/common';
-import { CustomFileUpload } from '../../../shared/components/custom-file-upload/custom-file-upload';
-import { CustomTextarea } from '../../../shared/components/custom-textarea/custom-textarea';
-import { WizardSteps } from '../../../shared/components/wizard-steps/wizard-steps';
 import { Router } from '@angular/router';
 
 export interface PeriodicElement {
@@ -59,6 +55,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     approvalStatus: 'requested',
   },
 ];
+
 @Component({
   selector: 'app-approve-request',
   imports: [CustomCard, MatTableModule, MatIconButton, MatButtonModule],
@@ -67,6 +64,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   standalone: true,
 })
 export class ApproveRequest {
+  // main table
   displayedColumns: string[] = [
     'requestId',
     'employeeId',
@@ -87,7 +85,7 @@ export class ApproveRequest {
 
   openConfirmation() {
     const dialogRef = this.dialog.open(ConfirmationDialog, {
-      data: { message: 'Are you sure  you want to Approve this Policy?' },
+      data: { message: 'Are you sure  you want to approve this policy?' },
       width: '537px',
       panelClass: 'custom-dialog-container',
     });

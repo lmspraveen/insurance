@@ -68,21 +68,21 @@
                                     (click)="snav.close()">Business Unit Master</a>
                             </mat-expansion-panel>
 
-                            <mat-expansion-panel [expanded]="activePage==='business-user'" (click)="snav.close();"
-                                hideToggle [class.active-link]="
-                    activePage==='business-user'" (opened)="onPanelOpened('business-user')"
+                            <mat-expansion-panel [expanded]="activePage==='masters'" (click)="snav.close();" hideToggle
+                                [class.active-link]="
+                    activePage==='masters'" (opened)="onPanelOpened('masters')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
-                                        <img title="Business User" src="/img/icon/business.svg" alt="icon" />
-                                        <span>Business User</span>
+                                        <img title="Masters" src="/img/icon/business.svg" alt="icon" />
+                                        <span>Masters</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
 
-                                <a mat-list-item [routerLink]="'/business-user/insurance-companies'"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-                                    (click)="snav.close()">Insurance Companies</a>
-                                <a mat-list-item [routerLink]="'/business-user/asset-master'" routerLinkActive="active"
+                                <a mat-list-item [routerLink]="'/masters/insurance-companies'" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Insurance
+                                    Companies</a>
+                                <a mat-list-item [routerLink]="'/masters/asset-master'" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Asset Master</a>
                             </mat-expansion-panel>
                             <!-- <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
@@ -114,8 +114,7 @@
                                     (click)="snav.close()">Create Policy Request</a>
                                 <a mat-list-item [routerLink]="'/policy-request/aprrove-request'"
                                     routerLinkActive="active" (click)="snav.close()">Approve Requests</a>
-                                <a mat-list-item [routerLink]="'/policy-request/events'" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Events</a>
+
                             </mat-expansion-panel>
                             <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
                     activePage==='policy'" [expanded]="activePage==='policy'" (opened)="onPanelOpened('policy')"
@@ -136,8 +135,7 @@
                                 <a mat-list-item [routerLink]="'/policy/approve-policy'" routerLinkActive="active"
                                     (click)="snav.close()">Approve
                                     Policy</a>
-                                <a mat-list-item [routerLink]="'/policy/events'" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Events</a>
+
                             </mat-expansion-panel>
 
                             <mat-expansion-panel (click)="snav.close()" hideToggle

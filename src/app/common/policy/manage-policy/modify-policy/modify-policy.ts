@@ -171,7 +171,7 @@ export class ModifyPolicy {
 
   openConfirmation() {
     const dialogRef = this.dialog.open(ConfirmationDialog, {
-      data: { message: 'Are you sure  you want to Make the Changes?' },
+      data: { message: 'Are you sure you want to make the changes?' },
       width: '537px',
       panelClass: 'custom-dialog-container',
     });

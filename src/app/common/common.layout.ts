@@ -91,9 +91,9 @@ export default class CommonLayout implements OnInit, OnDestroy {
         }
         break;
 
-      case 'business-user':
-        if (!currentUrl.startsWith('/business-user')) {
-          this.router.navigate(['/business-user/insurance-companies']);
+      case 'masters':
+        if (!currentUrl.startsWith('/masters')) {
+          this.router.navigate(['/masters/insurance-companies']);
         }
         break;
 

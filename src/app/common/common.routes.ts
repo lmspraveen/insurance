@@ -4,8 +4,6 @@ import { Dashboard } from './dashboard/dashboard';
 import { authGuard } from '../guards/auth.guard';
 import { CreatePolicyRequest } from './policy-request/create-policy-request/create-policy-request';
 import { ApproveRequest } from './policy-request/approve-request/approve-request';
-import { Events } from './policy-request/events/events';
-import { PolicyEvents } from './policy/events/events';
 import { ManagePolicy } from './policy/manage-policy/manage-policy';
 import { RenewPolicy } from './policy/renew-policy/renew-policy';
 import { PolicyCoinsured } from './policy/policy-coinsured/policy-coinsured';
@@ -37,7 +35,6 @@ export const COMMON_ROUTES: Routes = [
       { path: 'policy-request/create-policy-request', component: CreatePolicyRequest },
       { path: 'policy-request/aprrove-request', component: ApproveRequest },
       { path: 'policy-request/aprrove-request/request-approval', component: RequestApproval },
-      { path: 'policy-request/events', component: Events },
 
       /*Policy*/
       { path: 'policy/manage-policy', component: ManagePolicy },
@@ -55,16 +52,14 @@ export const COMMON_ROUTES: Routes = [
       { path: 'policy/approve-policy', component: ApprovePolicy },
       { path: 'policy/approve-policy/approve-policy-details', component: ApprovePolicyDetails },
 
-      { path: 'policy/events', component: PolicyEvents },
-
       /*Admin User*/
       { path: 'admin-user/approval-master', component: ApprovalMaster },
       { path: 'admin-user/business-unit-master', component: BusinessUnitMaster },
       { path: 'admin-user/code-master', component: CodeMaster },
 
       /*Master User*/
-      { path: 'business-user/insurance-companies', component: InsuranceCompanies },
-      { path: 'business-user/asset-master', component: AssetMaster },
+      { path: 'masters/insurance-companies', component: InsuranceCompanies },
+      { path: 'masters/asset-master', component: AssetMaster },
 
       // You can add other feature modules here later
       // { path: 'admin', loadChildren: () => import('../admin/admin.routes').then(m => m.ADMIN_ROUTES) },

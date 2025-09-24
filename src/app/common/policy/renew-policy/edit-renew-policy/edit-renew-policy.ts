@@ -65,7 +65,7 @@ export class EditRenewPolicy {
   // confirmation modal
   openConfirmation() {
     const dialogRef = this.dialog.open(ConfirmationDialog, {
-      data: { message: 'Are you sure  you want to Renew the Policy?' },
+      data: { message: 'Are you sure  you want to renew the policy?' },
       width: '537px',
       panelClass: 'custom-dialog-container',
     });
