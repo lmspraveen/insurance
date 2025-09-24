@@ -1,1 +1,127 @@
-<p>create-policy-coinsured works!</p>
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Policy
+        </li>
+        <li class="breadcrumb-item">
+            Coinsured
+        </li>
+        <li class="breadcrumb-item">
+            Create
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Events">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Create/Edit New Coinsured Policy</h1>
+    <custom-card class="mt-4 !p-0 overflow-hidden min-height">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <img (click)="goTo('/policy/manage-policy')" src="img/back-btn.svg" alt="img" class="cursor-pointer" />
+        </div>
+        <form [formGroup]="form">
+            <div class="p-6 pb-8 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
+                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Branch Code" type="text" placeholder="Enter Branch Code"
+                        [control]="form.controls.branchCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Division Code" type="text" placeholder="Enter Division Code"
+                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
+                        [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
+                    <custom-select class="!mb-0" label="Document Type" [required]="true"
+                        placeholder="Select Document Type" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="-mt-3">
+                    <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
+                        (filesChanged)="onFilesChanged($event)">
+                    </custom-file-upload>
+                </div>
+            </div>
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Policy Number" type="text"
+                        placeholder="Enter Policy Number (Original/New)" [control]="form.controls.requesterName"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Serial Number" type="text" placeholder="Enter Serial Number"
+                        [control]="form.controls.requestNumber" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-select [required]="true" label="Status" placeholder="Select Status" [options]="roles"
+                        [(value)]="selectedRole" [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+            </div>
+
+
+
+
+            <div class="p-6 pt-8 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Coinsured Company" type="text"
+                        placeholder="Enter Coinsured Company" [control]="form.controls.requesterName"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [class]="'col-start-1'" [required]="true" label="Coinsured Company Code" type="text"
+                        placeholder="Enter Coinsured Company Code" [control]="form.controls.requesterName"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Coinsured Branch Code" type="text"
+                        placeholder="Enter Coinsured Branch Code" [control]="form.controls.requesterName"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Coinsured Division Code" type="text"
+                        placeholder="Enter Coinsured Division Code" [control]="form.controls.requesterName"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Coinsured Company Location Code" type="text"
+                        placeholder="Enter Coinsured Company Location Code" [control]="form.controls.requesterName"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+            </div>
+
+            <!-- done below -->
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Share Percentage" type="text"
+                        placeholder="Enter Share Percentage" [control]="form.controls.divisionCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-select [required]="true" label="Share Currency" placeholder="Select Share Currency"
+                        [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
+                    </custom-select>
+                    <custom-input [required]="true" label="Share Amount" type="text" placeholder="Enter Share Amount"
+                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+
+                </div>
+            </div>
+            <div class="p-6 pt-8 border-b border-b-[var(--card-border)]">
+                <custom-textarea label="Reason for Request" placeholder="Type down your reason for request "
+                    [required]="true"></custom-textarea>
+            </div>
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-datepicker label="Policy Start Date" placeholder="Start Date" [required]="true"
+                        [control]="policyStartControl">
+                    </custom-datepicker>
+                    <custom-datepicker label="Policy End Date" placeholder="End Date" [required]="true"
+                        [control]="policyEndControl">
+                    </custom-datepicker>
+                </div>
+            </div>
+
+            <div class="p-6 grid md:flex md:justify-end gap-6 mt-4">
+                <custom-button matButton="outlined" label="Cancel"></custom-button>
+                <custom-button matButton="filled" label="Create" class="min-w-[185px]"></custom-button>
+            </div>
+        </form>
+    </custom-card>
+</section>

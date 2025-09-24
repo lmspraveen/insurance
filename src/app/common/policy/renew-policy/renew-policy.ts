@@ -21,6 +21,7 @@ export interface PeriodicElement {
   expiryDate: string;
   renewalIn: any;
   status: 'active' | 'pending' | 'approved' | 'rejected' | 'requested' | 'inprogress' | 'closed';
+  action: any;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -33,6 +34,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     expiryDate: '18/08/2026',
     renewalIn: '10 Days',
     status: 'active',
+    action: '',
   },
 ];
 
@@ -92,6 +94,7 @@ export class RenewPolicy {
     'expiryDate',
     'renewalIn',
     'status',
+    'action',
   ];
 
   dataSource = ELEMENT_DATA;

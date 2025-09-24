@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, MatDialogModule, MatButtonModule],
   template: `
-    <div class="p-8 text-center">
+    <div class="p-6 text-center">
       <h3 class="text-[20px] text-[var(--primary)] font-semibold mb-8">
         {{ data.message || 'Are you sure you want to make the changes?' }}
       </h3>

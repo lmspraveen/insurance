@@ -1,1 +1,143 @@
-<p>edit-policy-coinsured works!</p>
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Policy
+        </li>
+        <li class="breadcrumb-item">
+            Coinsured
+        </li>
+        <li class="breadcrumb-item">
+            Edit
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Events">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Coinsured Policy</h1>
+    <custom-card class="mt-4 !p-0 overflow-hidden min-height">
+        <div class="p-6">
+            <div class="flex justify-between mb-6">
+                <img (click)="goTo('/policy/policy-coinsured')" src="img/back-btn.svg" alt="img"
+                    class="cursor-pointer" />
+                <button class="text-nowrap success" mat-stroked-button
+                    (click)="goTo('policy/policy-coinsured/create-policy-coinsured')">
+                    <img src="/img/icon/edit.svg" alt="">
+                </button>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Company Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Branch Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Division Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">75921</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Location Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Document Type</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">License Document</h6>
+                </div>
+            </div>
+            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-4">
+                <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Document</h5>
+                <div class="flex flex-wrap gap-6">
+                    <!-- Uploaded files -->
+                    <div class="item flex flex-col gap-4 justify-center items-center">
+                        <div class="relative w-[88px] h-[117px] border border-[#888888] rounded-[5px] overflow-hidden">
+                            <img src="./img/invoice.jpeg" class="w-full h-full object-cover" />
+                            <span
+                                class="img-type absolute left-0 top-0 block font-semibold bg-[#474747] text-white text-[10px] rounded-[6px] rounded-t-none rounded-l-none px-[8px] py-[3px]">
+                                PDF
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Number</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Serial Number</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Status</span>
+                    <h6 class="text-[20px] font-semibold text-[#128A4E] mb-0">Active</h6>
+                </div>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Coinsured Company</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">AIG</h6>
+                </div>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Coinsured Company Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Coinsured Branch Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Coinsured Division Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Coinsured Location Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Share Percentage</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">10%</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Currency</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">AED</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Share Amount</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">10000</h6>
+                </div>
+            </div>
+            <div class="mt-8">
+                <span class="text-[16px] font-medium text-med-gray block mb-4">Reason</span>
+                <p class="text-[16px] font-medium text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Start Date</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">18 Aug 2025</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">End Date</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">18 Aug 2025</h6>
+                </div>
+            </div>
+        </div>
+    </custom-card>
+</section>

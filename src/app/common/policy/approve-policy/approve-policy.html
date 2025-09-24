@@ -170,25 +170,25 @@
                     <th mat-header-cell *matHeaderCellDef> Status </th>
                     <td mat-cell *matCellDef="let element">
                         @if(element.approvalStatus === 'pending'){
-                        <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                        <button (click)="goTo('/policy/approve-policy/approve-policy-details')"
                             class="status-button text-nowrap warning" mat-stroked-button>
                             Pending
                         </button>
                         }
                         @if(element.approvalStatus === 'requestGenerated'){
-                        <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                        <button (click)="goTo('/policy/approve-policy/approve-policy-details')"
                             class="status-button text-nowrap warning" mat-stroked-button>
                             Request Generated
                         </button>
                         }
                         @if(element.approvalStatus === 'inprogress'){
-                        <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                        <button (click)="goTo('/policy/approve-policy/approve-policy-details')"
                             class="status-button text-nowrap success" mat-stroked-button>
                             Approval In Progress
                         </button>
                         }
                         @if(element.approvalStatus === 'approved'){
-                        <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                        <button (click)="goTo('/policy/approve-policy/approve-policy-details')"
                             class="status-button text-nowrap success" mat-stroked-button>
                             Approved
                         </button>

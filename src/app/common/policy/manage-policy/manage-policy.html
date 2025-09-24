@@ -37,49 +37,95 @@
                     <img class="min-w-[28px] min-h-[28px] m-auto" src="/img/icon/filter.svg" alt="">
                 </button>
 
-                <mat-menu #menu2="matMenu" class="bg-white !min-w-[280px]" [hasBackdrop]="false">
-                    <div class="px-4 py-2" (click)="$event.stopPropagation()">
+                <mat-menu #menu2="matMenu" class="bg-white !min-w-[333px]" [hasBackdrop]="false">
+                    <div class="px-4 pt-2 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
                         <div class="flex justify-between items-center mb-4">
                             <h2 class="text-[var(--primary)] text-[20px] font-semibold ">Filter</h2>
                             <img (click)="menuTrigger.closeMenu()" class="cursor-pointer min-w-[24px] min-h-[24px]"
                                 src="/img/icon/cross.svg" alt="">
                         </div>
-                        <div class="grid lg:grid-cols-2 grid-col-1 gap-x-3 gap-y-1">
+                    </div>
+                    <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Location</h6>
+                        <div class="flex flex-wrap gap-x-3 gap-y-1">
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Submitted</mat-checkbox>
+                                    [(ngModel)]="filters.submitted">Dubai</mat-checkbox>
                             </div>
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.inreview">In
-                                    Review</mat-checkbox>
+                                    [(ngModel)]="filters.submitted">Abu-Dhabi</mat-checkbox>
                             </div>
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.approve">Approved</mat-checkbox>
+                                    [(ngModel)]="filters.submitted">Sharjah</mat-checkbox>
                             </div>
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.rejected">Rejected</mat-checkbox>
+                                    [(ngModel)]="filters.submitted">Ras Al Khaimah</mat-checkbox>
                             </div>
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.paid">Paid</mat-checkbox>
+                                    [(ngModel)]="filters.submitted">Umm Al Quwain</mat-checkbox>
                             </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.closed">Closed</mat-checkbox>
-                            </div>
-                        </div>
 
-                        <div class="flex justify-end gap-3 mt-6">
-                            <custom-button label="Cancel" (click)="menuTrigger.closeMenu()" matButton="outlined"
-                                class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
-                            </custom-button>
-                            <custom-button label="Apply" (click)="applyFilters(menu)" matButton="filled"
-                                class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
-                            </custom-button>
                         </div>
+                    </div>
+                    <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Status</h6>
+                        <div class="flex flex-wrap gap-x-3 gap-y-1">
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.submitted">Active</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.inreview">Inactive</mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Company</h6>
+                        <div class="flex flex-wrap gap-x-3 gap-y-1">
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.submitted">AIG</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.inreview">NIA</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.approve">QIC</mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Policy Type</h6>
+                        <div class="flex flex-wrap gap-x-3 gap-y-1">
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.submitted">Vehicle</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.inreview">Building</mat-checkbox>
+                            </div>
+                            <div class="checkbox">
+                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                    [(ngModel)]="filters.approve">Machine</mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 pt-6 pb-3 flex justify-end gap-3 ">
+                        <custom-button label="Cancel" (click)="menuTrigger.closeMenu()" matButton="outlined"
+                            class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
+                        </custom-button>
+                        <custom-button label="Apply" (click)="applyFilters(menu)" matButton="filled"
+                            class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
+                        </custom-button>
                     </div>
                 </mat-menu>
             </div>

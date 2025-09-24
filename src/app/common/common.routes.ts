@@ -19,6 +19,10 @@ import { EditPolicy } from './policy/manage-policy/edit-policy/edit-policy';
 import { RequestApproval } from './policy-request/request-approval/request-approval';
 import { CreatePolicy } from './policy/manage-policy/create-policy/create-policy';
 import { ModifyPolicy } from './policy/manage-policy/modify-policy/modify-policy';
+import { CreatePolicyCoinsured } from './policy/policy-coinsured/create-policy-coinsured/create-policy-coinsured';
+import { EditPolicyCoinsured } from './policy/policy-coinsured/edit-policy-coinsured/edit-policy-coinsured';
+import { EditRenewPolicy } from './policy/renew-policy/edit-renew-policy/edit-renew-policy';
+import { ApprovePolicyDetails } from './policy/approve-policy/approve-policy-details/approve-policy-details';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -40,9 +44,17 @@ export const COMMON_ROUTES: Routes = [
       { path: 'policy/manage-policy/create-policy', component: CreatePolicy },
       { path: 'policy/manage-policy/modify-policy', component: ModifyPolicy },
       { path: 'policy/manage-policy/edit-policy', component: EditPolicy },
+
       { path: 'policy/renew-policy', component: RenewPolicy },
+      { path: 'policy/renew-policy/edit', component: EditRenewPolicy },
+
       { path: 'policy/policy-coinsured', component: PolicyCoinsured },
+      { path: 'policy/policy-coinsured/create-policy-coinsured', component: CreatePolicyCoinsured },
+      { path: 'policy/policy-coinsured/edit-policy-coinsured', component: EditPolicyCoinsured },
+
       { path: 'policy/approve-policy', component: ApprovePolicy },
+      { path: 'policy/approve-policy/approve-policy-details', component: ApprovePolicyDetails },
+
       { path: 'policy/events', component: PolicyEvents },
 
       /*Admin User*/
@@ -50,7 +62,7 @@ export const COMMON_ROUTES: Routes = [
       { path: 'admin-user/business-unit-master', component: BusinessUnitMaster },
       { path: 'admin-user/code-master', component: CodeMaster },
 
-      /*Business User*/
+      /*Master User*/
       { path: 'business-user/insurance-companies', component: InsuranceCompanies },
       { path: 'business-user/asset-master', component: AssetMaster },
 
