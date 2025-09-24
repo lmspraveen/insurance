@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatIconButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
@@ -19,8 +19,14 @@ export interface PeriodicElement {
   sumInsured: string;
   businessUnit: string;
   expiryDate: string;
-  renewalIn: any;
-  status: 'active' | 'pending' | 'approved' | 'rejected' | 'requested' | 'inprogress' | 'closed';
+  approvalStatus:
+    | 'requestGenerated'
+    | 'pending'
+    | 'approved'
+    | 'rejected'
+    | 'requested'
+    | 'inprogress'
+    | 'closed';
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -31,8 +37,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     sumInsured: 'AED 10,000',
     businessUnit: 'Dubai H.O',
     expiryDate: '18/08/2026',
-    renewalIn: '10 Days',
-    status: 'active',
+    approvalStatus: 'requestGenerated',
   },
 ];
 @Component({
@@ -49,6 +54,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatTableModule,
     CustomButton,
     CustomCard,
+    MatButton,
   ],
   templateUrl: './approve-policy.html',
   styleUrl: './approve-policy.scss',
@@ -88,8 +94,7 @@ export class ApprovePolicy {
     'sumInsured',
     'businessUnit',
     'expiryDate',
-    'renewalIn',
-    'status',
+    'approvalStatus',
   ];
 
   dataSource = ELEMENT_DATA;

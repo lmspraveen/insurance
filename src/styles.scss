@@ -24,7 +24,7 @@ html {
     (
       color: (
         // primary: $my-primary-palette,
-        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       ),
       typography: Inter,
       density: 0,
@@ -754,4 +754,22 @@ custom-card {
   display: block;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+// status button
+.status-button {
+  border-radius: 6px !important;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  height: 34px;
+  border: 0 !important;
+  &.success {
+    background-color: #7fffb2;
+    border-color: #7fffb2;
+  }
+  &.warning {
+    background-color: #ffe57f;
+    border-color: #ffe57f;
+  }
 }

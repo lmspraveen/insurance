@@ -21,7 +21,7 @@
     </div>
 </header>
 <section aria-label="Approve Request">
-    <h1 class="text-[var(--primary)] text-[24px] font-bold">Approve Policy</h1>
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Policy Approve List</h1>
     <div class="flex flex-col  2xl:flex-row 2xl:justify-between items-center mt-6">
         <mat-form-field appearance="outline" FloatLabelType="never" class="search w-[454px]">
             <img class="prefix absolute z-50 cursor-pointer top-[7px] 2xl:top-[14px] left-[0px] 2xl:left-[6px]"
@@ -166,43 +166,35 @@
                     <td mat-cell *matCellDef="let element"> {{element.expiryDate}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="renewalIn">
-                    <th mat-header-cell *matHeaderCellDef> Renewal In </th>
-                    <td mat-cell *matCellDef="let element">{{element.renewalIn}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="status">
+                <ng-container matColumnDef="approvalStatus">
                     <th mat-header-cell *matHeaderCellDef> Status </th>
                     <td mat-cell *matCellDef="let element">
-                        @if(element.status === 'active'){
-                        <span class="font-semibold text-[#128A4E]">
-                            Active
-                        </span>
-                        }
-                        @if(element.status === 'paid'){
-                        <span class="font-semibold text-[#128A4E]">
-                            Paid
-                        </span>
-                        }
-                        @if(element.status === 'pending'){
-                        <span class="font-semibold text-[#FFC04C]">
+                        @if(element.approvalStatus === 'pending'){
+                        <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                            class="status-button text-nowrap warning" mat-stroked-button>
                             Pending
-                        </span>
+                        </button>
                         }
-                        @if(element.status === 'closed'){
-                        <span class="font-semibold text-[#DC4545]">
-                            Closed
-                        </span>
+                        @if(element.approvalStatus === 'requestGenerated'){
+                        <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                            class="status-button text-nowrap warning" mat-stroked-button>
+                            Request Generated
+                        </button>
                         }
-                        @if(element.status === 'unpaid'){
-                        <span class="font-semibold text-[#DC4545]">
-                            Unpaid
-                        </span>
+                        @if(element.approvalStatus === 'inprogress'){
+                        <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                            class="status-button text-nowrap success" mat-stroked-button>
+                            Approval In Progress
+                        </button>
+                        }
+                        @if(element.approvalStatus === 'approved'){
+                        <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                            class="status-button text-nowrap success" mat-stroked-button>
+                            Approved
+                        </button>
                         }
                     </td>
                 </ng-container>
-
-
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
