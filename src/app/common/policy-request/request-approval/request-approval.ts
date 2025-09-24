@@ -48,7 +48,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   standalone: true,
 })
 export class RequestApproval {
-  // dialogue
+  // dialogue table
   displayedColumns: string[] = [
     'Sno',
     'eventDate',
