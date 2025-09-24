@@ -8,7 +8,6 @@ import { CustomChips } from '../../../../shared/components/custom-chips/custom-c
   selector: 'app-edit-policy',
   imports: [MatIconButton, CustomCard, CustomChips],
   templateUrl: './edit-policy.html',
-  styleUrl: './edit-policy.scss',
 })
 export class EditPolicy {
   constructor(private router: Router) {}

@@ -56,7 +56,6 @@ interface Role {
     MatTableModule,
   ],
   templateUrl: './modify-policy.html',
-  styleUrl: './modify-policy.scss',
 })
 export class ModifyPolicy {
   @Input() pincodeControl!: any;

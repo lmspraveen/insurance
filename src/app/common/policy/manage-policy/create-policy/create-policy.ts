@@ -31,7 +31,6 @@ interface Role {
     CustomFileUpload,
   ],
   templateUrl: './create-policy.html',
-  styleUrl: './create-policy.scss',
 })
 export class CreatePolicy {
   constructor(private router: Router) {}

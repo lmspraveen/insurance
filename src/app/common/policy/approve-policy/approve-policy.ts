@@ -39,6 +39,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
     expiryDate: '18/08/2026',
     approvalStatus: 'requestGenerated',
   },
+  {
+    policyNumber: '#PLY 865',
+    insuranceCompany: 'AIG',
+    policyType: 'Vehicle',
+    sumInsured: 'AED 10,000',
+    businessUnit: 'Dubai H.O',
+    expiryDate: '18/08/2026',
+    approvalStatus: 'approved',
+  },
 ];
 @Component({
   selector: 'app-approve-policy',
