@@ -1,30 +1,30 @@
 <div class="flex items-center justify-between">
-    <ng-container *ngFor="let step of steps; let i = index">
-        <div class="flex flex-col items-center flex-1 relative">
-            <!-- Circle -->
-            <div class="flex items-center justify-center w-[24px] h-[24px] rounded-full border-2 border-[var(--primary)] transition-all duration-300 relative z-10"
-                [ngClass]="{
-              'bg-[var(--primary)]  text-white border-1': i < activeStep,
-              'bg-white text-[var(--primary)] border-1': i >= activeStep
-            }">
-                <img *ngIf="i < activeStep; else emptyCircle" src="/img/icon/tick.svg" alt="">
-                <ng-template #emptyCircle></ng-template>
-            </div>
+  @for (step of steps; track step; let i = $index) {
+  <div class="flex flex-col items-center flex-1 relative">
+    <!-- Circle -->
+    <div
+      class="flex items-center justify-center w-[24px] h-[24px] rounded-full border-2 border-[var(--primary)] transition-all duration-300 relative z-10"
+      [ngClass]="{
+          'bg-[var(--primary)] text-white border-1': i < activeStep,
+          'bg-white text-[var(--primary)] border-1': i >= activeStep
+        }">
+      @if (i
+      < activeStep) { <img src="/img/icon/tick.svg" alt="" />
+      }
+    </div>
 
-            <!-- Label -->
-            <span class="mt-2 text-sm font-semibold text-[var(--dark-gray)] text-center">
-                {{ step }}
-            </span>
+    <!-- Label -->
+    <span class="min-h-[40px] block md:min-h-max mt-2 text-sm font-semibold text-[var(--dark-gray)] text-center">
+      {{ step }}
+    </span>
 
-            <!-- Connecting Line (except last) -->
-            <div *ngIf="i < steps.length - 1" class="absolute top-[12px] left-1/2 w-full h-[1px] -z-1" [ngClass]="{
-              'bg-[#003366]': i < activeStep - 1,
-              'bg-[var(--primary)]': i >= activeStep - 1
-            }"></div>
-            <!-- <div *ngIf="i < steps.length - 1" class="absolute top-4 left-1/2 w-full h-[2px] -z-1" [ngClass]="{
-              'bg-[#003366]': i < activeStep - 1,
-              'bg-gray-300': i >= activeStep - 1
-            }"></div> -->
-        </div>
-    </ng-container>
+    <!-- Connecting Line (except last) -->
+    @if (i < steps.length - 1) { <div class="absolute top-[12px] left-1/2 w-full h-[1px] -z-1" [ngClass]="{
+            'bg-[#003366]': i < activeStep - 1,
+            'bg-[var(--primary)]': i >= activeStep - 1
+          }">
+  </div>
+  }
+</div>
+}
 </div>
