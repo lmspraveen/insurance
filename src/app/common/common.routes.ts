@@ -24,6 +24,12 @@ import { ApprovePolicyDetails } from './policy/approve-policy/approve-policy-det
 import { PolicyInvoices } from './invoices/policy-invoices/policy-invoices';
 import { CreateInvoice } from './invoices/create-invoice/create-invoice';
 import { InvoiceDetails } from './invoices/invoice-details/invoice-details';
+import { RaiseClaim } from './claims/raise-claim/raise-claim';
+import { ClaimsApprovals } from './claims/claims-approvals/claims-approvals';
+import { ClaimsDashboard } from './claims/claims-dashboard/claims-dashboard';
+import { ClaimsPaymentsClosures } from './claims/claims-payments-closures/claims-payments-closures';
+import { ModifyClaim } from './claims/claims-dashboard/modify-claim/modify-claim';
+import { ClaimDetails } from './claims/claims-dashboard/claim-details/claim-details';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -68,6 +74,14 @@ export const COMMON_ROUTES: Routes = [
       { path: 'invoices/policy-invoices', component: PolicyInvoices },
       { path: 'invoices/policy-invoices/create-invoice', component: CreateInvoice },
       { path: 'invoices/policy-invoices/invoice-details', component: InvoiceDetails },
+
+      /*claims*/
+      { path: 'claims/raise-claim', component: RaiseClaim },
+      { path: 'claims/claims-dashboard', component: ClaimsDashboard },
+      { path: 'claims/claims-dashboard/claim-details', component: ClaimDetails },
+      { path: 'claims/claims-dashboard/modify-claim', component: ModifyClaim },
+      { path: 'claims/claims-approvals', component: ClaimsApprovals },
+      { path: 'claims/claims-payments-clousers', component: ClaimsPaymentsClosures },
 
       // You can add other feature modules here later
       // { path: 'admin', loadChildren: () => import('../admin/admin.routes').then(m => m.ADMIN_ROUTES) },

@@ -5,10 +5,10 @@
             Insurance & Claims System
         </li>
         <li class="breadcrumb-item">
-            Policy
+            Claims
         </li>
         <li class="breadcrumb-item">
-            Approve Policy
+            Claims Dashboard
         </li>
     </ul>
     <div class="flex gap-1 lg:gap-6 custom-dropdown">
@@ -20,14 +20,25 @@
         </button>
     </div>
 </header>
-<section aria-label="Approve Request">
-    <h1 class="text-[var(--primary)] text-[24px] font-bold">Policy Approve List</h1>
-    <div class="flex flex-col  2xl:flex-row 2xl:justify-between items-center mt-6">
-        <mat-form-field appearance="outline" FloatLabelType="never" class="search">
-            <img class="prefix absolute z-50 cursor-pointer top-[7px] 2xl:top-[14px] left-[0px] 2xl:left-[6px]"
-                src="/img/search.svg" alt="">
-            <input matInput placeholder="search" value="">
-        </mat-form-field>
+<section aria-label="Claims Dashboard">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Claims Dashboard</h1>
+    <div aria-label="Widgets"
+        class="widget-wrapper mt-4 lg:mt-8 grid 2xl:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-8 gap-y-3">
+        <div class="widget">
+            <h2 class="text-[var(--primary)] text-[20px] font-semibold">Total Claims Raised</h2>
+            <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">24</span>
+        </div>
+        <div class="widget">
+            <h2 class="text-[var(--primary)] text-[20px] font-semibold">Active Claims</h2>
+            <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">05</span>
+        </div>
+        <div class="widget">
+            <h2 class="text-[var(--primary)] text-[20px] font-semibold">Settled Claims</h2>
+            <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">12</span>
+        </div>
+    </div>
+
+    <div class="flex flex-col  2xl:flex-row 2xl:justify-end items-center mt-6">
         <div class="flex item gap-6 custom-dropdown">
             <div class="filter">
                 <button
@@ -131,70 +142,70 @@
             </div>
         </div>
     </div>
-    <custom-card class="mt-2 !p-0 overflow-hidden min-filter-height">
-        <div class="mat-elevation-z2 overflow-x-auto">
+    <custom-card class="mt-2 !p-0 overflow-hidden min-h-[49vh] h-full">
+        <div class="mat-elevation-z2 overflow-x-auto ">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
-                <ng-container matColumnDef="policyNumber">
-                    <th mat-header-cell *matHeaderCellDef>Policy Number </th>
-                    <td mat-cell *matCellDef="let element"> {{element.policyNumber}} </td>
+                <ng-container matColumnDef="claimId">
+                    <th mat-header-cell *matHeaderCellDef>Claim ID</th>
+                    <td mat-cell *matCellDef="let element"> {{element.claimId}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="insuranceCompany">
-                    <th mat-header-cell *matHeaderCellDef>Insurance Company</th>
-                    <td mat-cell *matCellDef="let element"> {{element.insuranceCompany}} </td>
+                <ng-container matColumnDef="incidentDateTime">
+                    <th mat-header-cell *matHeaderCellDef>Incident Date & Time</th>
+                    <td mat-cell *matCellDef="let element"> {{element.incidentDateTime}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="policyType">
-                    <th mat-header-cell *matHeaderCellDef>Policy Type </th>
-                    <td mat-cell *matCellDef="let element"> {{element.policyType}} </td>
+                <ng-container matColumnDef="incidentLocation">
+                    <th mat-header-cell *matHeaderCellDef>Incident Location </th>
+                    <td mat-cell *matCellDef="let element"> {{element.incidentLocation}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="sumInsured">
-                    <th mat-header-cell *matHeaderCellDef>Sum Insured</th>
-                    <td mat-cell *matCellDef="let element"> {{element.sumInsured}} </td>
+                <ng-container matColumnDef="estClaimAmt">
+                    <th mat-header-cell *matHeaderCellDef>Estimated Claim Amount (AED)</th>
+                    <td mat-cell *matCellDef="let element"> {{element.estClaimAmt}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="businessUnit">
-                    <th mat-header-cell *matHeaderCellDef> Business Unit </th>
+                <ng-container matColumnDef="claimStatus">
+                    <th mat-header-cell *matHeaderCellDef> Claim Status </th>
                     <td mat-cell *matCellDef="let element">
-                        {{element.businessUnit}}
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="expiryDate">
-                    <th mat-header-cell *matHeaderCellDef> Expiry Date </th>
-                    <td mat-cell *matCellDef="let element"> {{element.expiryDate}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="approvalStatus">
-                    <th mat-header-cell *matHeaderCellDef> Status </th>
-                    <td mat-cell *matCellDef="let element">
-                        @if(element.approvalStatus === 'pending'){
-                        <button (click)="goTo('/policy/approve-policy/approve-policy-details')"
+                        @if(element.claimStatus === 'pending'){
+                        <button (click)="goTo('/claims/claims-dashboard/claim-details')"
                             class="status-button text-nowrap warning">
                             Pending
                         </button>
                         }
-                        @if(element.approvalStatus === 'requestGenerated'){
-                        <button (click)="goTo('/policy/approve-policy/approve-policy-details')"
+                        @if(element.claimStatus === 'requestGenerated'){
+                        <button (click)="goTo('/claims/claims-dashboard/claim-details')"
                             class="status-button text-nowrap warning">
                             Request Generated
                         </button>
                         }
-                        @if(element.approvalStatus === 'inprogress'){
-                        <button (click)="goTo('/policy/approve-policy/approve-policy-details')"
+                        @if(element.claimStatus === 'inprogress'){
+                        <button (click)="goTo('/claims/claims-dashboard/claim-details')"
                             class="status-button text-nowrap success">
                             Approval In Progress
                         </button>
                         }
-                        @if(element.approvalStatus === 'approved'){
-                        <button (click)="goTo('/policy/approve-policy/approve-policy-details')"
+                        @if(element.claimStatus === 'approved'){
+                        <button (click)="goTo('/claims/claims-dashboard/claim-details')"
                             class="status-button text-nowrap success">
                             Approved
                         </button>
                         }
                     </td>
                 </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button class="text-nowrap success" mat-button
+                            (click)="goTo('/claims/claims-dashboard/modify-claim')">
+                            <img src="/img/icon/edit.svg" alt="">
+                        </button>
+                    </td>
+                </ng-container>
+
+
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>

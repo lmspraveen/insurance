@@ -88,7 +88,7 @@ export class ApprovePolicyDetails {
   openConfirmation() {
     const dialogRef = this.dialog.open(ConfirmationDialog, {
       data: { message: 'Are you sure you want to approve this policy?' },
-      width: '787px',
+      width: '537px',
       panelClass: 'custom-dialog-container',
     });
 

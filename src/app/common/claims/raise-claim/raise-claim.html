@@ -1,0 +1,150 @@
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Claims
+        </li>
+        <li class="breadcrumb-item">
+            Raise Claim
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Events">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Raise Claim</h1>
+    <custom-card class="mt-4 !p-0 overflow-hidden min-height">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <img (click)="goTo('/policy/manage-policy')" src="img/back-btn.svg" alt="img" class="cursor-pointer" />
+        </div>
+        <form [formGroup]="form">
+            <div class="p-6 pb-8 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
+                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Branch Code" type="text" placeholder="Enter Branch Code"
+                        [control]="form.controls.branchCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Division Code" type="text" placeholder="Enter Division Code"
+                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
+                        [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
+                    <custom-select class="!mb-0" label="Document Type" [required]="true"
+                        placeholder="Select Document Type" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="-mt-3">
+                    <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
+                        (filesChanged)="onFilesChanged($event)">
+                    </custom-file-upload>
+                </div>
+            </div>
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Policy Number" type="text" placeholder="Enter Policy Number"
+                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Company Code" type="text"
+                        placeholder="Enter Policy Company Code" [control]="form.controls.branchCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Branch Code" type="text"
+                        placeholder="Enter Policy Branch Code" [control]="form.controls.divisionCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Location Code" type="text"
+                        placeholder="Enter Policy Location Code" [control]="form.controls.locationCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Policy Division Code" type="text"
+                        placeholder="Enter Policy Division Code" [control]="form.controls.locationCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Request Number" type="text"
+                        placeholder="Enter Request Number" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
+                    <custom-select class="!mb-0" label="Policy Document Type" [required]="true"
+                        placeholder="Select Policy Document Type" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="-mt-3">
+                    <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
+                        (filesChanged)="onFilesChanged($event)">
+                    </custom-file-upload>
+                </div>
+            </div>
+
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-select class="!mb-0" label="Assets" [required]="true" placeholder="Select Assets"
+                        [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+            </div>
+
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-datepicker label="Incident Date & Time" placeholder="Select Date" [required]="true"
+                        [control]="policyStartControl">
+                    </custom-datepicker>
+                    <custom-input [required]="true" label="Incident Location" type="text"
+                        placeholder="Enter Incident Location" [control]="form.controls.locationCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Incident Report Number" type="text"
+                        placeholder="Enter Incident Report Number" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+                <div class="mt-3">
+                    <custom-textarea label="Incident Description" placeholder="Describe the incident"
+                        [required]="true"></custom-textarea>
+                </div>
+                <div class="-mt-3">
+                    <custom-file-upload label="Upload Incident Pictures / Videos / Documents" accept=".pdf,.jpg,.png"
+                        [multiple]="true" (filesChanged)="onFilesChanged($event)">
+                    </custom-file-upload>
+                </div>
+            </div>
+
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-select class="!mb-0" label="Claim Type" [required]="true" placeholder="Select Claim Type"
+                        [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
+                    </custom-select>
+                    <custom-input [required]="true" label="Estimated Claim Amount" type="text"
+                        placeholder="Enter Estimated Claim Amount" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+            </div>
+
+
+            <div class="px-6 pt-6">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Contact Person" type="text"
+                        placeholder="Enter Contact Person" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Contact Person Email" type="text"
+                        placeholder="Enter Contact Person Email" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Contact Person Phone Number" type="text"
+                        placeholder="Enter Contact Person Phone Number" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+            </div>
+
+            <div class="p-6 grid md:flex md:justify-end gap-6">
+                <custom-button matButton="outlined" label="Cancel"></custom-button>
+                <custom-button (buttonClick)="openSnackBar('Created Successfully')" matButton="filled" label="Submit"
+                    class="min-w-[185px]"></custom-button>
+            </div>
+        </form>
+    </custom-card>
+</section>

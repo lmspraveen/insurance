@@ -62,6 +62,8 @@ export default class CommonLayout implements OnInit, OnDestroy {
       this.activePage = 'masters';
     } else if (url.startsWith('/invoices')) {
       this.activePage = 'invoices';
+    } else if (url.startsWith('/claims')) {
+      this.activePage = 'claims';
     } else if (url.startsWith('/reports-alerts')) {
       this.activePage = 'reports-alerts';
     } else {
@@ -100,6 +102,12 @@ export default class CommonLayout implements OnInit, OnDestroy {
       case 'invoices':
         if (!currentUrl.startsWith('/invoices')) {
           this.router.navigate(['/invoices/policy-invoices']);
+        }
+        break;
+
+      case 'claims':
+        if (!currentUrl.startsWith('/claims')) {
+          this.router.navigate(['/claims/raise-claim']);
         }
         break;
 

@@ -150,19 +150,26 @@
                                     Invoices</a>
                             </mat-expansion-panel>
 
-                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                    activePage==='claims'" [expanded]="activePage==='claims'" (opened)="onPanelOpened('claims')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
-                                        <img title="Claims" src="/img/icon/claim.svg" alt="icon" />
+                                        <img title="claims" src="/img/icon/claim.svg" alt="icon" />
                                         <span>Claims</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <a mat-list-item class="active">Raise Claim</a>
-                                <a mat-list-item>Claims Dashboard</a>
-                                <a mat-list-item>Claims Approvals</a>
-                                <a mat-list-item>Claims Payments & Closures</a>
+                                <a mat-list-item [routerLink]="'/claims/raise-claim'" routerLinkActive="active"
+                                    (click)="snav.close()">Raise Claim</a>
+                                <a mat-list-item [routerLink]="'/claims/claims-dashboard'" routerLinkActive="active"
+                                    (click)="snav.close()">Claims Dashboard</a>
+                                <a mat-list-item [routerLink]="'/claims/claims-approvals'" routerLinkActive="active"
+                                    (click)="snav.close()">Claims Approvals</a>
+                                <a mat-list-item [routerLink]="'/claims/claims-payments-clousers'"
+                                    routerLinkActive="active" (click)="snav.close()">Claims Payments & Closures</a>
                             </mat-expansion-panel>
+
+
                             <mat-expansion-panel (click)="snav.close()" hideToggle
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">

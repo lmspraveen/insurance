@@ -24,7 +24,7 @@ html {
     (
       color: (
         // primary: $my-primary-palette,
-        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       ),
       typography: Inter,
       density: 0,
@@ -763,11 +763,14 @@ custom-card {
 // status button
 .status-button {
   border-radius: 6px !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   font-size: 12px !important;
   text-align: center;
-  height: 32px !important;
+  height: 28px !important;
   border: 0 !important;
+  color: #003366 !important;
+  pointer-events: none;
+  padding: 0 24px;
   &.success {
     background-color: #7fffb2;
     border-color: #7fffb2;
@@ -775,5 +778,26 @@ custom-card {
   &.warning {
     background-color: #ffe57f;
     border-color: #ffe57f;
+  }
+}
+
+// Dashboard widget
+.widget {
+  border-radius: 32px;
+  background-color: var(--primary);
+  padding: 32px;
+  position: relative;
+  z-index: 5;
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1px solid var(--card-border);
+    background-color: white;
+    top: -2px;
+    left: 0;
+    border-radius: 32px;
+    z-index: -1;
   }
 }

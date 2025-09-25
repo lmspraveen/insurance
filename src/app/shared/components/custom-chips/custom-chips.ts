@@ -13,6 +13,7 @@ export class CustomChips {
   @Input() chips: { id?: number | string; label: string }[] = [];
   @Input() label: string | null = null;
   @Output() remove = new EventEmitter<number | string>();
+  @Input() hideButton: boolean = false;
 
   onRemoveChip(chip: any) {
     this.remove.emit(chip.id ?? chip.label); // emit id if exists, else label
