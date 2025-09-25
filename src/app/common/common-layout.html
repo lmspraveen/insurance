@@ -114,7 +114,6 @@
                                     (click)="snav.close()">Create Policy Request</a>
                                 <a mat-list-item [routerLink]="'/policy-request/aprrove-request'"
                                     routerLinkActive="active" (click)="snav.close()">Approve Requests</a>
-
                             </mat-expansion-panel>
                             <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
                     activePage==='policy'" [expanded]="activePage==='policy'" (opened)="onPanelOpened('policy')"
@@ -135,10 +134,10 @@
                                 <a mat-list-item [routerLink]="'/policy/approve-policy'" routerLinkActive="active"
                                     (click)="snav.close()">Approve
                                     Policy</a>
-
                             </mat-expansion-panel>
 
-                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                    activePage==='invoices'" [expanded]="activePage==='invoices'" (opened)="onPanelOpened('invoices')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
@@ -146,8 +145,11 @@
                                         <span>Invoices</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <a mat-list-item>Policy Invoices</a>
+                                <a mat-list-item [routerLink]="'/invoices/policy-invoices'" routerLinkActive="active"
+                                    (click)="snav.close()">Policy
+                                    Invoices</a>
                             </mat-expansion-panel>
+
                             <mat-expansion-panel (click)="snav.close()" hideToggle
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">

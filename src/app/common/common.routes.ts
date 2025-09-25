@@ -21,6 +21,9 @@ import { CreatePolicyCoinsured } from './policy/policy-coinsured/create-policy-c
 import { EditPolicyCoinsured } from './policy/policy-coinsured/edit-policy-coinsured/edit-policy-coinsured';
 import { EditRenewPolicy } from './policy/renew-policy/edit-renew-policy/edit-renew-policy';
 import { ApprovePolicyDetails } from './policy/approve-policy/approve-policy-details/approve-policy-details';
+import { PolicyInvoices } from './invoices/policy-invoices/policy-invoices';
+import { CreateInvoice } from './invoices/create-invoice/create-invoice';
+import { InvoiceDetails } from './invoices/invoice-details/invoice-details';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -60,6 +63,11 @@ export const COMMON_ROUTES: Routes = [
       /*Master User*/
       { path: 'masters/insurance-companies', component: InsuranceCompanies },
       { path: 'masters/asset-master', component: AssetMaster },
+
+      /*Invoices*/
+      { path: 'invoices/policy-invoices', component: PolicyInvoices },
+      { path: 'invoices/policy-invoices/create-invoice', component: CreateInvoice },
+      { path: 'invoices/policy-invoices/invoice-details', component: InvoiceDetails },
 
       // You can add other feature modules here later
       // { path: 'admin', loadChildren: () => import('../admin/admin.routes').then(m => m.ADMIN_ROUTES) },

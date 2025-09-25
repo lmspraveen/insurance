@@ -1,0 +1,146 @@
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Invoices
+        </li>
+        <li class="breadcrumb-item">
+            Policy Invoices
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Events">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Policy Invoice</h1>
+    <custom-card class="mt-4 !p-0 overflow-hidden min-height">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img (click)="goTo('/invoices/policy-invoices')" src="img/back-btn.svg" alt="img"
+                        class="cursor-pointer" />
+                    <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0">#INV008684</h5>
+                </div>
+                <!-- <button class="text-nowrap success" mat-stroked-button (click)="goTo('')">
+                    <img src="/img/icon/edit.svg" alt="">
+                </button> -->
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Payment Status</span>
+                    <h6 class="text-[20px] font-semibold text-[#128A4E] mb-0">Paid</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Amount</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">1000</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Currency</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">AED</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Invoice Date</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">16 Jul 2025</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Company Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Branch Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Division Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Location Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+            </div>
+            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-4">
+                <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Document</h5>
+                <div class="flex flex-wrap gap-6">
+                    <!-- Uploaded files -->
+                    <div class="item flex flex-col gap-4 justify-center items-center">
+                        <div class="relative w-[88px] h-[117px] border border-[#888888] rounded-[5px] overflow-hidden">
+                            <img src="./img/invoice.jpeg" class="w-full h-full object-cover" />
+                            <span
+                                class="img-type absolute left-0 top-0 block font-semibold bg-[#474747] text-white text-[10px] rounded-[6px] rounded-t-none rounded-l-none px-[8px] py-[3px]">
+                                PDF
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Number</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Company Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Branch Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Division Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Location Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">46125</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Document Type</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Insurance Certificate</h6>
+                </div>
+            </div>
+            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
+                <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Policy Document</h5>
+                <div class="flex flex-wrap gap-6">
+                    <!-- Uploaded files -->
+                    <div class="item flex flex-col gap-4 justify-center items-center">
+                        <div class="relative w-[88px] h-[117px] border border-[#888888] rounded-[5px] overflow-hidden">
+                            <img src="./img/invoice.jpeg" class="w-full h-full object-cover" />
+                            <span
+                                class="img-type absolute left-0 top-0 block font-semibold bg-[#474747] text-white text-[10px] rounded-[6px] rounded-t-none rounded-l-none px-[8px] py-[3px]">
+                                PDF
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
+                <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Payment Proof</h5>
+                <div class="flex flex-wrap gap-6">
+                    <!-- Uploaded files -->
+                    <div class="item flex flex-col gap-4 justify-center items-center">
+                        <div class="relative w-[88px] h-[117px] border border-[#888888] rounded-[5px] overflow-hidden">
+                            <img src="./img/invoice.jpeg" class="w-full h-full object-cover" />
+                            <span
+                                class="img-type absolute left-0 top-0 block font-semibold bg-[#474747] text-white text-[10px] rounded-[6px] rounded-t-none rounded-l-none px-[8px] py-[3px]">
+                                PDF
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </custom-card>
+</section>

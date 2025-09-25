@@ -26,8 +26,8 @@
 <section aria-label="Events">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Coinsured Policy</h1>
     <custom-card class="mt-4 !p-0 overflow-hidden min-height">
-        <div class="p-6">
-            <div class="flex justify-between mb-6">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="flex justify-between">
                 <img (click)="goTo('/policy/policy-coinsured')" src="img/back-btn.svg" alt="img"
                     class="cursor-pointer" />
                 <button class="text-nowrap success" mat-stroked-button
@@ -35,6 +35,8 @@
                     <img src="/img/icon/edit.svg" alt="">
                 </button>
             </div>
+        </div>
+        <div class="p-6">
             <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Company Code</span>
