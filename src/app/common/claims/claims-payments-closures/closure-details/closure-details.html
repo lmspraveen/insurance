@@ -21,31 +21,25 @@
     </div>
 </header>
 <section aria-label="Events">
-    <h1 class="text-[var(--primary)] text-[24px] font-bold">Claim Details</h1>
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Claim Closure</h1>
     <custom-card class="mt-4 !p-0 overflow-hidden min-height">
         <div class="p-6 border-b border-b-[var(--card-border)]">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-4">
                     <img (click)="goTo('/claims/claims-dashboard')" src="img/back-btn.svg" alt="img"
                         class="cursor-pointer" />
-                    <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0">#CLM753</h5>
+                    <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0"></h5>
                 </div>
-                <button class="text-nowrap success" mat-stroked-button
-                    (click)="goTo('/claims/claims-dashboard/modify-claim')">
-                    <img src="/img/icon/edit.svg" alt="">
-                </button>
+
             </div>
         </div>
         <div class="p-6">
             <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Claim Status</span>
-                    <h6 class="text-[20px] font-semibold text-[#FFC04C] mb-0">Pending</h6>
+                    <h6 class="text-[20px] font-semibold text-[#128A4E] mb-0">Approved</h6>
                 </div>
-                <div class="item">
-                    <span class="text-[16px] font-medium text-med-gray block mb-4">Pending At</span>
-                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Pending at HO Insurance Coordinator</h6>
-                </div>
+
             </div>
             <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
                 <div class="item">
@@ -163,7 +157,7 @@
                 </div>
             </div>
 
-            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
+            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8 ">
                 <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Policy Document</h5>
                 <div class="flex flex-wrap gap-6">
                     <!-- Uploaded files -->
@@ -179,7 +173,7 @@
                 </div>
             </div>
 
-            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+            <div class="mt-8 grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Claim Type</span>
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">General Claims</h6>
@@ -206,6 +200,136 @@
                 </div>
             </div>
 
+            <div class="mt-8 pt-8 border-t border-t-[var(--card-border)]">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">HO Insurance Coordinator
+                        Remarks</span>
+                    <p class="text-[16px] font-medium text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-t-[var(--card-border)]">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">HO Insurance Manager Remarks</span>
+                    <p class="text-[16px] font-medium text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </custom-card>
+    <custom-card class="mt-4 !p-0 overflow-hidden">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="grid 2xl:grid-cols-2 grid-col-1 gap-y-8">
+                <div
+                    class="item border-e-0 2xl:border-e 2xl:border-e-[var(--card-border)] 2xl:border-b-0 border-b border-b-[var(--card-border)] 2xl:pe-8 2xl:me-8 pb-8 2xl:pb-0">
+                    <h4 class="text-[20px] font-semibold text-[#003366] mb-8">Al Shirawi Claim Status</h4>
+                    <div class="item-wrapper mb-6">
+                        <span class="text-[16px] font-medium text-med-gray block mb-4">Settlement Status</span>
+                        <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Approved</h6>
+                    </div>
+                    <div class="item-wrapper">
+                        <span class="text-[16px] font-medium text-med-gray block mb-4">Comments</span>
+                        <div class="border border-[#B8B8B8] border-2 rounded-lg p-4 min-h-[250px]">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tempore obcaecati consequatur
+                            aspernatur inventore officia quo saepe ea. Enim laboriosam ipsam nobis omnis animi officiis
+                            qui
+                            earum, dolore veniam quia.
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="flex justify-between items-center mb-8">
+                        <h4 class="text-[20px] font-semibold text-[#003366]">Insurance Company Claim Status</h4>
+                        <button class="text-nowrap success" mat-stroked-button
+                            (click)="goTo('/claims/claims-payments-clousers/closure-details')">
+                            <img src="/img/icon/edit.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="item-wrapper mb-6">
+                        <span class="text-[16px] font-medium text-med-gray block mb-4">Settlement Status</span>
+                        <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Approved</h6>
+                    </div>
+                    <div class="item-wrapper">
+                        <span class="text-[16px] font-medium text-med-gray block mb-4">Comments</span>
+                        <div class="border border-[#B8B8B8] border-2 rounded-lg p-4 min-h-[250px]">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tempore obcaecati consequatur
+                            aspernatur inventore officia quo saepe ea. Enim laboriosam ipsam nobis omnis animi officiis
+                            qui
+                            earum, dolore veniam quia.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                <custom-input [required]="true" label="Settlement Amount" type="text"
+                    placeholder="Enter Settlement Amount" [control]="form.controls.settlementAmount"
+                    class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                <custom-select class="!mb-0" label="Settlement Currency" [required]="true"
+                    placeholder="Select Settlement Currency" [options]="settlementCurrency"
+                    [(value)]="selectedSettlementCurrency" [control]="form.controls.settlementCurrencies">
+                </custom-select>
+                <custom-datepicker label="Settlement Date" placeholder="Select Date" [required]="true"
+                    [control]="settlementDateControl">
+                </custom-datepicker>
+            </div>
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Estimated Payment Amount</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">10000 AED</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Settlement Amount</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">9686.86 AED</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Settlement Date</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">23 Aug 2025</h6>
+                </div>
+            </div>
+            <div class="mt-8">
+                <custom-textarea label="Settlement Description" placeholder="Enter your text here"></custom-textarea>
+            </div>
+            <div class="mt-2 mb-10">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Incident Description</span>
+                    <p class="text-[16px] font-semibold text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+            <div class="-mt-3">
+                <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
+                    (filesChanged)="onFilesChanged($event)">
+                </custom-file-upload>
+            </div>
+            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
+                <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Policy Document</h5>
+                <div class="flex flex-wrap gap-6">
+                    <!-- Uploaded files -->
+                    <div class="item flex flex-col gap-4 justify-center items-center">
+                        <div class="relative w-[88px] h-[117px] border border-[#888888] rounded-[5px] overflow-hidden">
+                            <img src="./img/invoice.jpeg" class="w-full h-full object-cover" />
+                            <span
+                                class="img-type absolute left-0 top-0 block font-semibold bg-[#474747] text-white text-[10px] rounded-[6px] rounded-t-none rounded-l-none px-[8px] py-[3px]">
+                                PDF
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="px-6 pb-6 grid md:flex md:justify-end gap-6">
+            <custom-button matButton="outlined" label="Cancel"></custom-button>
+            <custom-button (buttonClick)="openConfirmation()" matButton="filled" label="Save Changes"
+                class="min-w-[185px]"></custom-button>
         </div>
     </custom-card>
 </section>

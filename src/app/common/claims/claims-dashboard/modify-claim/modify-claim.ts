@@ -20,7 +20,7 @@ interface Role {
 }
 
 @Component({
-  selector: 'app-raise-claim',
+  selector: 'app-modify-claim',
   imports: [
     MatIconButton,
     CommonModule,

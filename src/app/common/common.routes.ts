@@ -30,6 +30,8 @@ import { ClaimsDashboard } from './claims/claims-dashboard/claims-dashboard';
 import { ClaimsPaymentsClosures } from './claims/claims-payments-closures/claims-payments-closures';
 import { ModifyClaim } from './claims/claims-dashboard/modify-claim/modify-claim';
 import { ClaimDetails } from './claims/claims-dashboard/claim-details/claim-details';
+import { ClaimsApprovalDetails } from './claims/claims-approvals/claims-approval-details/claims-approval-details';
+import { ClosureDetails } from './claims/claims-payments-closures/closure-details/closure-details';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -81,7 +83,9 @@ export const COMMON_ROUTES: Routes = [
       { path: 'claims/claims-dashboard/claim-details', component: ClaimDetails },
       { path: 'claims/claims-dashboard/modify-claim', component: ModifyClaim },
       { path: 'claims/claims-approvals', component: ClaimsApprovals },
+      { path: 'claims/claims-approvals/claims-aaproval-details', component: ClaimsApprovalDetails },
       { path: 'claims/claims-payments-clousers', component: ClaimsPaymentsClosures },
+      { path: 'claims/claims-payments-clousers/closure-details', component: ClosureDetails },
 
       // You can add other feature modules here later
       // { path: 'admin', loadChildren: () => import('../admin/admin.routes').then(m => m.ADMIN_ROUTES) },

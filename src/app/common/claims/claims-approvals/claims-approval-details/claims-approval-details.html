@@ -5,10 +5,10 @@
             Insurance & Claims System
         </li>
         <li class="breadcrumb-item">
-            Claim
+            Claims
         </li>
         <li class="breadcrumb-item">
-            Claims Dashboard
+            Claims Approvals
         </li>
     </ul>
     <div class="flex gap-1 lg:gap-6 custom-dropdown">
@@ -21,21 +21,33 @@
     </div>
 </header>
 <section aria-label="Events">
-    <h1 class="text-[var(--primary)] text-[24px] font-bold">Claim Details</h1>
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Claim Approval Details</h1>
     <custom-card class="mt-4 !p-0 overflow-hidden min-height">
         <div class="p-6 border-b border-b-[var(--card-border)]">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-4">
-                    <img (click)="goTo('/claims/claims-dashboard')" src="img/back-btn.svg" alt="img"
+                    <img (click)="goTo('/claims/claims-approvals')" src="img/back-btn.svg" alt="img"
                         class="cursor-pointer" />
                     <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0">#CLM753</h5>
                 </div>
-                <button class="text-nowrap success" mat-stroked-button
-                    (click)="goTo('/claims/claims-dashboard/modify-claim')">
-                    <img src="/img/icon/edit.svg" alt="">
-                </button>
+                <custom-button (click)="openTemplateDialog(customTemplate)"
+                    class="!min-h-[20px] !h-[32px] !rounded-[6px] !font-medium" matButton="outlined"
+                    label="Events"></custom-button>
             </div>
         </div>
+
+        <!-- Wizard section :: will come during the approval process -->
+        <div class="px-6 py-4 mt-4 bg-[#F6F6F6]">
+            <p class="text-[14px] font-normal text-dark-gray mb-3">Approved by HO Insurance Manager on 18 Aug 2025 |
+                16:30:23</p>
+            <p class="text-[14px] font-normal text-dark-gray mb-6">Approved by HO Insurance Coordinator on 18 Aug 2025 |
+                10:01:16</p>
+            <wizard-steps [steps]="[
+                    'HO Insurance Coordinator', 
+                    'HO Insurance Manager'
+                ]" [activeStep]="2"></wizard-steps>
+        </div>
+        <!-- Wizard section :: will come during the approval process end -->
         <div class="p-6">
             <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
                 <div class="item">
@@ -207,5 +219,97 @@
             </div>
 
         </div>
+
+        <div class="p-6">
+            <custom-textarea label="Remarks" placeholder="Enter your remarks here"></custom-textarea>
+            <div class="grid md:flex md:justify-end gap-6 mt-4">
+                <custom-button matButton="outlined" label="Send Back"
+                    (click)="goTo('/claims/claims-approvals')"></custom-button>
+                <custom-button matButton="outlined" label="Reject"></custom-button>
+                <custom-button matButton="filled" label="Approve" class="min-w-[185px]"
+                    (click)="openConfirmation()"></custom-button>
+            </div>
+        </div>
     </custom-card>
 </section>
+<!-- Modal dialogue box for events -->
+<ng-template #customTemplate>
+    <div class="flex justify-between items-center  mb-8">
+        <h3 class="text-[20px] text-[var(--primary)] font-semibold">Events</h3>
+        <img class="cursor-pointer" src="./img/icon/cross.svg" alt="">
+    </div>
+    <div class="mat-elevation-z2 overflow-x-auto border-t border-t-[var(--card-border)]">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table ">
+            <ng-container matColumnDef="Sno">
+                <th mat-header-cell *matHeaderCellDef>Sl. No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.Sno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eventDate">
+                <th mat-header-cell *matHeaderCellDef>Event Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.eventDate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eventTime">
+                <th mat-header-cell *matHeaderCellDef>Event Time </th>
+                <td mat-cell *matCellDef="let element"> {{element.eventTime}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eventType">
+                <th mat-header-cell *matHeaderCellDef> Event type </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="text-primary font-semibold">{{element.eventType}}</span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eventById">
+                <th mat-header-cell *matHeaderCellDef>Event By Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.eventById}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="evnetName">
+                <th mat-header-cell *matHeaderCellDef> Event Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.evnetName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="approvalStatus">
+                <th mat-header-cell *matHeaderCellDef> Approval Status </th>
+                <td mat-cell *matCellDef="let element">
+                    @if(element.approvalStatus === 'pending'){
+                    <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                        class="status-button text-nowrap warning">
+                        Pending
+                    </button>
+                    }
+                    @if(element.approvalStatus === 'requested'){
+                    <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                        class="status-button text-nowrap warning">
+                        Request Generated
+                    </button>
+                    }
+                    @if(element.approvalStatus === 'inprogress'){
+                    <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                        class="status-button text-nowrap success">
+                        Approval In Progress
+                    </button>
+                    }
+                    @if(element.approvalStatus === 'approved'){
+                    <button (click)="goTo('/policy-request/aprrove-request/request-approval')"
+                        class="status-button text-nowrap success">
+                        Approved
+                    </button>
+                    }
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <div class="border-b border-b-[var(--card-border)] pb-6 mb-6 mt-8">
+        <span class="text-[16px] font-medium text-med-gray block mb-4">Event Remarks</span>
+        <p class="text-[16px] font-medium text-dark-gray mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing
+            elit. Nostrum laudantium nihil beatae, a accusamus, rerum dolores alias eveniet nulla odit tenetur ea
+            voluptatum ratione expedita, enim nobis tempora in architecto.</p>
+    </div>
+</ng-template>

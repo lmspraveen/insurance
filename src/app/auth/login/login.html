@@ -39,16 +39,10 @@
                                 class="font-medium !text-xs !text-[#474747] !min-w-[auto] !p-0 !block me-0 ms-auto w-[110px] hover:bg-[transparent]">
                                 Forgot Password?
                             </a>
-                            <p class="text-[#DC4545] text-[12px] text-center font-semibold mb-3">Invalid Employee ID !
-                            </p>
-
 
                             <custom-button label="Login" matButton="filled"
                                 (buttonClick)="dummyLogin(); openSnackBar('User Login Successfully')">
                             </custom-button>
-                            <!-- this buton will appear when inputs are filled -->
-                            <!-- <custom-button label="Login" matButton="outlined" (buttonClick)="dummyLogin()">
-                            </custom-button> -->
                         </form>
 
                         <a (click)="goToSignup()" matButton disableRipple
