@@ -59,13 +59,12 @@
                                 </mat-expansion-panel-header>
 
                                 <a mat-list-item [routerLink]="'/admin-user/code-master'" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Code Master</a>
+                                    (click)="snav.close()">Code Master</a>
                                 <a mat-list-item [routerLink]="'/admin-user/approval-master'" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Approval
+                                    (click)="snav.close()">Approval
                                     Master</a>
                                 <a mat-list-item [routerLink]="'/admin-user/business-unit-master'"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-                                    (click)="snav.close()">Business Unit Master</a>
+                                    routerLinkActive="active" (click)="snav.close()">Business Unit Master</a>
                             </mat-expansion-panel>
 
                             <mat-expansion-panel [expanded]="activePage==='masters'" (click)="snav.close();" hideToggle

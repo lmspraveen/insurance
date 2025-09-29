@@ -36,6 +36,12 @@ import { AddCompany } from './masters/insurance-companies/add-company/add-compan
 import { CompanyDetails } from './masters/insurance-companies/company-details/company-details';
 import { AddAsset } from './masters/asset-master/add-asset/add-asset';
 import { AssetDetails } from './masters/asset-master/asset-details/asset-details';
+import { AddApproval } from './admin-user/approval-master/add-approval/add-approval';
+import { ApprovalDetails } from './admin-user/approval-master/approval-details/approval-details';
+import { AddBusinessUnit } from './admin-user/business-unit-master/add-business-unit/add-business-unit';
+import { BusinessUnitDetails } from './admin-user/business-unit-master/business-unit-details/business-unit-details';
+import { AddCode } from './admin-user/code-master/add-code/add-code';
+import { CodeDetails } from './admin-user/code-master/code-details/code-details';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -69,8 +75,22 @@ export const COMMON_ROUTES: Routes = [
 
       /*Admin User*/
       { path: 'admin-user/approval-master', component: ApprovalMaster },
+      { path: 'admin-user/approval-master/add-approval', component: AddApproval },
+      { path: 'admin-user/approval-master/edit-approval', component: AddApproval },
+      { path: 'admin-user/approval-master/approval-details', component: ApprovalDetails },
+
       { path: 'admin-user/business-unit-master', component: BusinessUnitMaster },
+      { path: 'admin-user/business-unit-master/add-business-unit', component: AddBusinessUnit },
+      { path: 'admin-user/business-unit-master/edit-business-unit', component: AddBusinessUnit },
+      {
+        path: 'admin-user/business-unit-master/business-unit-details',
+        component: BusinessUnitDetails,
+      },
+
       { path: 'admin-user/code-master', component: CodeMaster },
+      { path: 'admin-user/code-master/add-code', component: AddCode },
+      { path: 'admin-user/code-master/edit-code', component: AddCode },
+      { path: 'admin-user/code-master/code-details', component: CodeDetails },
 
       /*Master User*/
       { path: 'masters/insurance-companies', component: InsuranceCompanies },
