@@ -69,8 +69,7 @@
                             </mat-expansion-panel>
 
                             <mat-expansion-panel [expanded]="activePage==='masters'" (click)="snav.close();" hideToggle
-                                [class.active-link]="
-                    activePage==='masters'" (opened)="onPanelOpened('masters')"
+                                [class.active-link]=" activePage==='masters'" (opened)="onPanelOpened('masters')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
@@ -80,23 +79,11 @@
                                 </mat-expansion-panel-header>
 
                                 <a mat-list-item [routerLink]="'/masters/insurance-companies'" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Insurance
+                                    (click)="snav.close()">Insurance
                                     Companies</a>
                                 <a mat-list-item [routerLink]="'/masters/asset-master'" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{ exact: true }" (click)="snav.close()">Asset Master</a>
+                                    (click)="snav.close()">Asset Master</a>
                             </mat-expansion-panel>
-                            <!-- <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
-                    activePage==='masters'" (opened)="onPanelOpened('masters')"
-                                class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
-                                <mat-expansion-panel-header class="!px-4">
-                                    <mat-panel-title class="flex gap-4">
-                                        <img title="Business User" src="/img/icon/business.svg" alt="icon" />
-                                        <span>Business User</span>
-                                    </mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <a mat-list-item>Insurance Companies</a>
-                                <a mat-list-item>Asset Master</a>
-                            </mat-expansion-panel> -->
 
                             <mat-expansion-panel [expanded]="activePage==='policy-request'" (click)="snav.close();"
                                 hideToggle [class.active-link]="

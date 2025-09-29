@@ -11,8 +11,8 @@ import { ApprovePolicy } from './policy/approve-policy/approve-policy';
 import { ApprovalMaster } from './admin-user/approval-master/approval-master';
 import { BusinessUnitMaster } from './admin-user/business-unit-master/business-unit-master';
 import { CodeMaster } from './admin-user/code-master/code-master';
-import { AssetMaster } from './business-user/asset-master/asset-master';
-import { InsuranceCompanies } from './business-user/insurance-companies/insurance-companies';
+import { AssetMaster } from './masters/asset-master/asset-master';
+import { InsuranceCompanies } from './masters/insurance-companies/insurance-companies';
 import { EditPolicy } from './policy/manage-policy/edit-policy/edit-policy';
 import { RequestApproval } from './policy-request/request-approval/request-approval';
 import { CreatePolicy } from './policy/manage-policy/create-policy/create-policy';
@@ -32,6 +32,10 @@ import { ModifyClaim } from './claims/claims-dashboard/modify-claim/modify-claim
 import { ClaimDetails } from './claims/claims-dashboard/claim-details/claim-details';
 import { ClaimsApprovalDetails } from './claims/claims-approvals/claims-approval-details/claims-approval-details';
 import { ClosureDetails } from './claims/claims-payments-closures/closure-details/closure-details';
+import { AddCompany } from './masters/insurance-companies/add-company/add-company';
+import { CompanyDetails } from './masters/insurance-companies/company-details/company-details';
+import { AddAsset } from './masters/asset-master/add-asset/add-asset';
+import { AssetDetails } from './masters/asset-master/asset-details/asset-details';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -70,7 +74,13 @@ export const COMMON_ROUTES: Routes = [
 
       /*Master User*/
       { path: 'masters/insurance-companies', component: InsuranceCompanies },
+      { path: 'masters/insurance-companies/add-company', component: AddCompany },
+      { path: 'masters/insurance-companies/edit-company', component: AddCompany },
+      { path: 'masters/insurance-companies/company-details', component: CompanyDetails },
       { path: 'masters/asset-master', component: AssetMaster },
+      { path: 'masters/asset-master/add-asset', component: AddAsset },
+      { path: 'masters/asset-master/edit-asset', component: AddAsset },
+      { path: 'masters/asset-master/asset-details', component: AssetDetails },
 
       /*Invoices*/
       { path: 'invoices/policy-invoices', component: PolicyInvoices },
