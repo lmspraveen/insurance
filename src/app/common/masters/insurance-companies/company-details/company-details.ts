@@ -4,13 +4,12 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 import { CustomCard } from '../../../../shared/components/custom-card/custom-card';
 import { ContentDialog } from '../../../../shared/dialogues/content-dialogue';
 import { MatDialog } from '@angular/material/dialog';
-import { CustomDatepicker } from '../../../../shared/components/custom-datepicker/custom-datepicker';
 import { CustomTextarea } from '../../../../shared/components/custom-textarea/custom-textarea';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'company-details',
-  imports: [MatIconButton, CustomCard, CustomDatepicker, CustomTextarea, MatButton],
+  imports: [MatIconButton, CustomCard, CustomTextarea, MatButton],
   templateUrl: './company-details.html',
 })
 export class CompanyDetails {

@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CustomInput } from '../../../shared/components/custom-input/custom-input';
 import { CustomSelect } from '../../../shared/components/custom-select/custom-select';
-import { CustomTextarea } from '../../../shared/components/custom-textarea/custom-textarea';
 import { CustomButton } from '../../../shared/components/custom-button/custom-button';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { CustomDatepicker } from '../../../shared/components/custom-datepicker/custom-datepicker';
@@ -29,7 +28,6 @@ interface Role {
     ReactiveFormsModule,
     CustomInput,
     CustomSelect,
-    CustomTextarea,
     CustomButton,
     CustomCard,
     CustomDatepicker,
