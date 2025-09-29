@@ -1,1 +1,100 @@
-<p>add-asset works!</p>
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Masters
+        </li>
+        <li class="breadcrumb-item">
+            Asset Master
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Events">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Add Asset</h1>
+    <custom-card class="mt-2 lg:mt-4 !p-0 overflow-hidden min-height">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="flex items-center gap-4">
+                <img (click)="goTo('/masters/asset-master')" src="img/back-btn.svg" alt="img" class="cursor-pointer" />
+                <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0">Add/Edit Asset</h5>
+            </div>
+        </div>
+        <form [formGroup]="form">
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Asset ID" type="text" placeholder="Enter Asset ID"
+                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-select class="!mb-0" label="Status" [required]="true" placeholder="Select Status"
+                        [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Asset Company Code" type="text"
+                        placeholder="Enter Asset Company Code" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Asset Branch Code" type="text"
+                        placeholder="Enter Asset Branch Code" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Asset Division Code" type="text"
+                        placeholder="Enter Asset Division Code" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Asset Location Code" type="text"
+                        placeholder="Enter Asset Location Code" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+            </div>
+
+            <div class="p-6 border-b border-b-[var(--card-border)]">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-select class="!mb-0" label="Asset Type" [required]="true" placeholder="Select Asset Type"
+                        [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
+                    </custom-select>
+                </div>
+                <div class="pt-2">
+                    <custom-textarea label="Asset Description" placeholder="Enter Asset Description"></custom-textarea>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-select class="!mb-0" label="Asset Make/Model" [required]="true"
+                        placeholder="Select Asset Make/Model" [options]="roles" [(value)]="selectedRole"
+                        [control]="form.controls.Roles">
+                    </custom-select>
+                    <custom-input [required]="true" label="Asset Registration No." type="text"
+                        placeholder="Enter Asset Registration No." [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Asset VIN" type="text" placeholder="Enter Asset VIN"
+                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Asset Chassis No." type="text"
+                        placeholder="Enter Asset Chassis No." [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                    <custom-input [required]="true" label="Asset Currency" type="text"
+                        placeholder="Enter Asset Currency" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    <custom-input [required]="true" label="Asset Valuation" type="text"
+                        placeholder="Enter Asset Valuation" [control]="form.controls.companyCode"
+                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                </div>
+            </div>
+            <div class="p-6 grid md:flex md:justify-end gap-6">
+                <custom-button matButton="outlined" label="Cancel"></custom-button>
+                <custom-button (buttonClick)="openSnackBar('Asset Added Successfully')" matButton="filled"
+                    label="Add Asset" class="min-w-[185px]"></custom-button>
+                <custom-button (buttonClick)="openConfirmation()" matButton="filled" label="Edit Asset"
+                    class="min-w-[185px]"></custom-button>
+            </div>
+        </form>
+    </custom-card>
+</section>
