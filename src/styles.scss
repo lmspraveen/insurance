@@ -24,7 +24,7 @@ html {
     (
       color: (
         // primary: $my-primary-palette,
-        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // secondary: $my-secondary-palette,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       ),
       typography: Inter,
       density: 0,
@@ -321,10 +321,12 @@ textarea::placeholder {
 .mat-mdc-unelevated-button:not(:disabled) {
   background-color: var(--primary) !important;
   // border-radius: 10px !important;
+  white-space: nowrap;
 }
 
 .mat-mdc-outlined-button:not(:disabled) {
   // border-radius: 10px !important;
+  white-space: nowrap;
   border-color: var(--primary) !important;
   color: var(--primary) !important;
   &.danger {
