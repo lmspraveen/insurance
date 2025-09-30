@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIconButton } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
@@ -59,7 +59,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatTableModule,
     CustomButton,
     CustomCard,
-    MatButton,
   ],
   templateUrl: './alerts.html',
 })
