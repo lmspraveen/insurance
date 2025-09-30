@@ -1,1 +1,80 @@
-<p>approval-details works!</p>
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Admin User
+        </li>
+        <li class="breadcrumb-item">
+            Approval Master
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Events">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Approval</h1>
+    <custom-card class="mt-2 lg:mt-4 !p-0 overflow-hidden min-height">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img (click)="goTo('/admin-user/code-master')" src="img/back-btn.svg" alt="img"
+                        class="cursor-pointer" />
+                    <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0">#02156</h5>
+                </div>
+                <button class="text-nowrap success" matButton
+                    (click)="goTo('/admin-user/approval-master/edit-approval')">
+                    <img src="/img/icon/edit.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="grid 2xl:grid-cols-3 md:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Business Unit Name</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Dubai H.O</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Employee Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">475926</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Status</span>
+                    <h6 class="text-[20px] font-semibold text-[#DC4545] mb-0">Denied</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Company Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">475926</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Branch Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">475926</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Division Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">475926</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Location Code</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">475926</h6>
+                </div>
+            </div>
+        </div>
+    </custom-card>
+</section>
+
+<ng-template #customTemplate>
+    <h3 class="text-[20px] text-[var(--primary)] font-semibold mb-8 text-center">Are you sure you want to Deactivate
+        this Company?</h3>
+    <custom-textarea
+        value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        placeholder="Reason to Deactivate the Company"></custom-textarea>
+</ng-template>

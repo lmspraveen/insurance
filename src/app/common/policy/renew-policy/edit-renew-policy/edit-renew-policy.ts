@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { MatIconButton } from '@angular/material/button';
 import { CustomCard } from '../../../../shared/components/custom-card/custom-card';
 import { CustomChips } from '../../../../shared/components/custom-chips/custom-chips';
-import { CustomTextarea } from '../../../../shared/components/custom-textarea/custom-textarea';
 import { CustomDatepicker } from '../../../../shared/components/custom-datepicker/custom-datepicker';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomButton } from '../../../../shared/components/custom-button/custom-button';
@@ -12,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-renew-policy',
-  imports: [MatIconButton, CustomCard, CustomChips, CustomTextarea, CustomDatepicker, CustomButton],
+  imports: [MatIconButton, CustomCard, CustomChips, CustomDatepicker, CustomButton],
   templateUrl: './edit-renew-policy.html',
 })
 export class EditRenewPolicy {
