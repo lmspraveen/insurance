@@ -1,0 +1,126 @@
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            Reports & Alerts
+        </li>
+        <li class="breadcrumb-item">
+            Reports
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="Active Policies Report">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Active Policies Report</h1>
+    <custom-card class="mt-2 lg:mt-4 !p-0 overflow-hidden min-height">
+        <div class="p-6 border-b border-b-[var(--card-border)]">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img (click)="goTo('/reports-alerts/reports')" src="img/back-btn.svg" alt="img"
+                        class="cursor-pointer" />
+                    <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0"></h5>
+                </div>
+                <button class="text-nowrap" matButton (click)="goTo('/reports-alerts/reports/active-policies-report')">
+                    <img src="/img/icon/download-sqaure.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="grid 2xl:grid-cols-3 md:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Number</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">#PLYO001</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Insurance Company</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">AIG</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy type</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Vehicle</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Business Unit</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Dubai H.O</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Status</span>
+                    <h6 class="text-[20px] font-semibold text-[#128A4E] mb-0">Active</h6>
+                </div>
+            </div>
+
+            <div class="grid 2xl:grid-cols-3 md:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Start Date</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">01 Aug 2025</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Policy End Date</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">01 Aug 2026</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Renewal Date</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">31 Jul 2026</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Sum Insured</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">AED 10000</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Premium Amount</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">AED 18000</h6>
+                </div>
+                <div class="item">
+                    <span class="text-[16px] font-medium text-med-gray block mb-4">Defect Liability Period (DLP)</span>
+                    <h6 class="text-[20px] font-semibold text-dark-gray mb-0">30 Days</h6>
+                </div>
+            </div>
+            <div class="mt-8">
+                <span class="text-[16px] font-medium text-med-gray block mb-4">Terms & Conditions</span>
+                <p class="text-[16px] font-semibold text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="mt-8">
+                <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Description</span>
+                <p class="text-[16px] font-semibold text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
+                <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Policy Document</h5>
+                <div class="flex flex-wrap gap-6">
+                    <!-- Uploaded files -->
+                    <div class="item flex flex-col gap-4 justify-center items-center">
+                        <div class="relative w-[88px] h-[117px] border border-[#888888] rounded-[5px] overflow-hidden">
+                            <img src="./img/invoice.jpeg" class="w-full h-full object-cover" />
+                            <span
+                                class="img-type absolute left-0 top-0 block font-semibold bg-[#474747] text-white text-[10px] rounded-[6px] rounded-t-none rounded-l-none px-[8px] py-[3px]">
+                                PDF
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </custom-card>
+</section>
+
+<ng-template #customTemplate>
+    <h3 class="text-[20px] text-[var(--primary)] font-semibold mb-8 text-center">Are you sure you want to Deactivate
+        this Company?</h3>
+    <custom-textarea
+        value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        placeholder="Reason to Deactivate the Company"></custom-textarea>
+</ng-template>

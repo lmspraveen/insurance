@@ -1,0 +1,56 @@
+<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
+    <ul class="mb-0 breadcrumb flex">
+        <li class="breadcrumb-item">
+            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
+            Insurance & Claims System
+        </li>
+        <li class="breadcrumb-item">
+            User
+        </li>
+    </ul>
+    <div class="flex gap-1 lg:gap-6 custom-dropdown">
+        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
+        </button>
+        <button class="!w-[48px] !h-[48px] !bg-white active" matIconButton>
+            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
+        </button>
+    </div>
+</header>
+<section aria-label="User Profile">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Profile</h1>
+    <custom-card class="mt-2 lg:mt-4 overflow-hidden">
+        <div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
+            <div class="item">
+                <span class="text-[16px] font-medium text-med-gray block mb-4">User Name</span>
+                <h6 class="text-[20px] font-semibold text-dark-gray mb-0">John Doe</h6>
+            </div>
+            <div class="item">
+                <span class="text-[16px] font-medium text-med-gray block mb-4">Role</span>
+                <h6 class="text-[20px] font-semibold text-dark-gray mb-0">Business HOD</h6>
+            </div>
+            <div class="item">
+                <span class="text-[16px] font-medium text-med-gray block mb-4">Employee ID</span>
+                <h6 class="text-[20px] font-semibold text-dark-gray mb-0">86243517</h6>
+            </div>
+        </div>
+    </custom-card>
+    <custom-card class="mt-2 lg:mt-4 overflow-hidden">
+        <h2 class="text-[20px] font-semibold text-[#474747] mb-8">Reset Password</h2>
+        <form [formGroup]="form">
+            <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+                <custom-input [required]="true" label="Current Password" type="password"
+                    placeholder="Enter Current Password" [control]="form.controls.companyCode"
+                    class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                <custom-input [required]="true" label="New Password" type="password" placeholder="Enter New Password"
+                    [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                <custom-input [required]="true" label="Confirm Password" type="password"
+                    placeholder="Enter Confirm Password" [control]="form.controls.companyCode"
+                    class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+            </div>
+            <div class="grid md:flex md:justify-end mt-6">
+                <custom-button matButton="filled" label="Reset" class="min-w-[185px]"></custom-button>
+            </div>
+        </form>
+    </custom-card>
+</section>

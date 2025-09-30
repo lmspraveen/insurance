@@ -42,6 +42,10 @@ import { AddBusinessUnit } from './admin-user/business-unit-master/add-business-
 import { BusinessUnitDetails } from './admin-user/business-unit-master/business-unit-details/business-unit-details';
 import { AddCode } from './admin-user/code-master/add-code/add-code';
 import { CodeDetails } from './admin-user/code-master/code-details/code-details';
+import { Reports } from './reports-alerts/reports/reports';
+import { ActivePoliciesReport } from './reports-alerts/reports/active-policies-report/active-policies-report';
+import { Alerts } from './reports-alerts/alerts/alerts';
+import { UserProfile } from './user-profile/user-profile';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -116,6 +120,14 @@ export const COMMON_ROUTES: Routes = [
       { path: 'claims/claims-approvals/claims-aaproval-details', component: ClaimsApprovalDetails },
       { path: 'claims/claims-payments-clousers', component: ClaimsPaymentsClosures },
       { path: 'claims/claims-payments-clousers/closure-details', component: ClosureDetails },
+
+      /*Reports & Alerts*/
+      { path: 'reports-alerts/reports', component: Reports },
+      { path: 'reports-alerts/reports/active-policies-report', component: ActivePoliciesReport },
+      { path: 'reports-alerts/alerts', component: Alerts },
+
+      /* User Profile*/
+      { path: 'user', component: UserProfile },
 
       // You can add other feature modules here later
       // { path: 'admin', loadChildren: () => import('../admin/admin.routes').then(m => m.ADMIN_ROUTES) },

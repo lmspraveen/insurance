@@ -157,17 +157,23 @@
                             </mat-expansion-panel>
 
 
-                            <mat-expansion-panel (click)="snav.close()" hideToggle
+                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                    activePage==='reports-alerts'" [expanded]="activePage==='reports-alerts'"
+                                (opened)="onPanelOpened('reports-alerts')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
-                                        <img title="Reports & Alerts" src="/img/icon/reports-alert.svg" alt="icon" />
+                                        <img title="reports-alerts" src="/img/icon/claim.svg" alt="icon" />
                                         <span>Reports & Alerts</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <a mat-list-item class="active">Reports</a>
-                                <a mat-list-item>Alerts</a>
+                                <a mat-list-item [routerLink]="'/reports-alerts/reports'" routerLinkActive="active"
+                                    (click)="snav.close()">Reports</a>
+                                <a mat-list-item [routerLink]="'/reports-alerts/alerts'" routerLinkActive="active"
+                                    (click)="snav.close()">Alerts</a>
+
                             </mat-expansion-panel>
+
                         </mat-accordion>
                     </mat-nav-list>
                 </div>

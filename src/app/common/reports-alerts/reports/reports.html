@@ -5,10 +5,10 @@
             Insurance & Claims System
         </li>
         <li class="breadcrumb-item">
-            Masters
+            Reports & Alerts
         </li>
         <li class="breadcrumb-item">
-            Insurance Company
+            Reports
         </li>
     </ul>
     <div class="flex gap-1 lg:gap-6 custom-dropdown">
@@ -20,14 +20,30 @@
         </button>
     </div>
 </header>
-<section aria-label="Insurance Company List">
-    <h1 class="text-[var(--primary)] text-[24px] font-bold">Insurance Company List</h1>
-    <div class="flex flex-col  2xl:flex-row 2xl:justify-between items-center mt-4 lg:mt-6">
-        <mat-form-field appearance="outline" FloatLabelType="never" class="search">
-            <img class="prefix absolute z-50 cursor-pointer top-[7px] 2xl:top-[14px] left-[0px] 2xl:left-[6px]"
-                src="/img/search.svg" alt="">
-            <input matInput placeholder="search" value="">
-        </mat-form-field>
+<section aria-label="Reports Dashboard">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold">Reports Dashboard</h1>
+    <div aria-label="Widgets" class="widget-wrapper mt-4 lg:mt-8 grid 2xl:grid-cols-2 grid-col-1 gap-x-8 gap-y-3">
+        <div class="widget">
+            <div class="flex justify-between items-center -mt-3">
+                <h2 class="text-[var(--primary)] text-[20px] font-semibold">Insurance Companies Supplied</h2>
+                <button matButton class="w-8 h-8 -me-6">
+                    <img src="/img/icon/download-sqaure.svg" alt="">
+                </button>
+            </div>
+            <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">24</span>
+        </div>
+        <div class="widget">
+            <div class="flex justify-between items-center -mt-3">
+                <h2 class="text-[var(--primary)] text-[20px] font-semibold">Insurance Companies Supplied Premium</h2>
+                <button matButton class="w-8 h-8 -me-6">
+                    <img src="/img/icon/download-sqaure.svg" alt="">
+                </button>
+            </div>
+            <span class="text-[var(--dark-gray)] text-[32px] font-bold mt-6 block">12</span>
+        </div>
+    </div>
+
+    <div class="flex flex-col  2xl:flex-row 2xl:justify-end items-center mt-4 lg:mt-6">
         <div class="flex item gap-6 custom-dropdown">
             <div class="filter">
                 <button
@@ -45,38 +61,41 @@
                                 src="/img/icon/cross.svg" alt="">
                         </div>
                     </div>
+
                     <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
-                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Company</h6>
-                        <div class="grid grid-cols-4 gap-x-3 gap-y-8">
+                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Module</h6>
+                        <div class="flex flex-wrap gap-x-3 gap-y-1">
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">AIG</mat-checkbox>
+                                    [(ngModel)]="filters.submitted">Vehicle</mat-checkbox>
                             </div>
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">NIA</mat-checkbox>
+                                    [(ngModel)]="filters.inreview">Machines</mat-checkbox>
                             </div>
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">QIC</mat-checkbox>
+                                    [(ngModel)]="filters.approve">Building</mat-checkbox>
                             </div>
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">EI</mat-checkbox>
+                                    [(ngModel)]="filters.approve">Equipments</mat-checkbox>
                             </div>
                         </div>
                     </div>
+
                     <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
-                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Status</h6>
-                        <div class="grid grid-cols-4 gap-x-3 gap-y-8">
+                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Report Type</h6>
+                        <div class="flex flex-wrap gap-x-3 gap-y-1">
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Active</mat-checkbox>
+                                    [(ngModel)]="filters.submitted">Policy</mat-checkbox>
                             </div>
                             <div class="checkbox">
                                 <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.inreview">Inactive</mat-checkbox>
+                                    [(ngModel)]="filters.inreview">Claim</mat-checkbox>
                             </div>
+
                         </div>
                     </div>
                     <div class="px-4 pt-6 pb-3 flex justify-end gap-3 ">
@@ -89,87 +108,58 @@
                     </div>
                 </mat-menu>
             </div>
-            <custom-button (click)="goTo('/masters/insurance-companies/add-company')"
-                class="!rounded-full lg:min-w-[220px]" icon="add" iconPosition="start" label="Add New"></custom-button>
         </div>
     </div>
-    <custom-card class="mt-2 !p-0 overflow-hidden min-filter-height">
-        <div class="mat-elevation-z2 overflow-x-auto">
+    <custom-card class="mt-2 !p-0 overflow-hidden min-h-[49vh] h-full">
+        <div class="mat-elevation-z2 overflow-x-auto ">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
-                <ng-container matColumnDef="sNo">
-                    <th mat-header-cell *matHeaderCellDef>S.No. </th>
-                    <td mat-cell *matCellDef="let element"> {{element.sNo}} </td>
+
+                <ng-container matColumnDef="activePolicy">
+                    <th mat-header-cell *matHeaderCellDef>Active Policy</th>
+                    <td mat-cell *matCellDef="let element"> {{element.activePolicy}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="companyName">
-                    <th mat-header-cell *matHeaderCellDef>Company Name</th>
-                    <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+                <ng-container matColumnDef="expiryDate">
+                    <th mat-header-cell *matHeaderCellDef>Expiry Date</th>
+                    <td mat-cell *matCellDef="let element"> {{element.expiryDate}} </td>
+                </ng-container>
+                <ng-container matColumnDef="sumInsured">
+                    <th mat-header-cell *matHeaderCellDef>Sum Insured</th>
+                    <td mat-cell *matCellDef="let element"> {{element.sumInsured}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="contactPerson">
-                    <th mat-header-cell *matHeaderCellDef>Contact Person</th>
-                    <td mat-cell *matCellDef="let element"> {{element.contactPerson}} </td>
+                <ng-container matColumnDef="PremiumAmt">
+                    <th mat-header-cell *matHeaderCellDef>Premium Amount (AED)</th>
+                    <td mat-cell *matCellDef="let element"> {{element.PremiumAmt}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef>Email</th>
-                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                <ng-container matColumnDef="insCompany">
+                    <th mat-header-cell *matHeaderCellDef>Insurance Company</th>
+                    <td mat-cell *matCellDef="let element"> {{element.insCompany}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="phoneNumber">
-                    <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+                <ng-container matColumnDef="format">
+                    <th mat-header-cell *matHeaderCellDef> Format </th>
                     <td mat-cell *matCellDef="let element">
-                        {{element.phoneNumber}}
-                    </td>
-                </ng-container>
+                        @if(element.format === 'pdf'){
+                        <img class="w-8 h-8 mx-auto" src="/img/icon/pdf.svg" alt="">
+                        }
+                        @if(element.format === 'xls'){
+                        <img class="w-8 h-8 mx-auto" src="/img/icon/pdf.svg" alt="">
+                        }
+                        @if(element.format === 'csv'){
+                        <img class="w-8 h-8 mx-auto" src="/img/icon/pdf.svg" alt="">
+                        }
 
-                <ng-container matColumnDef="licenseDocument">
-                    <th mat-header-cell *matHeaderCellDef> License Document </th>
-                    <td mat-cell *matCellDef="let element" class="text-center">
-                        @if(element.licenseDocument === 'pdf'){
-                        <img class="mx-auto w-8" src="/img/icon/pdf.svg" alt="pdf file">
-                        }
-                    </td>
-                </ng-container>
-
-
-                <ng-container matColumnDef="status">
-                    <th mat-header-cell *matHeaderCellDef> Status </th>
-                    <td mat-cell *matCellDef="let element">
-                        @if(element.status === 'active'){
-                        <span class="font-semibold text-[#128A4E]">
-                            Active
-                        </span>
-                        }
-                        @if(element.status === 'paid'){
-                        <span class="font-semibold text-[#128A4E]">
-                            Paid
-                        </span>
-                        }
-                        @if(element.status === 'pending'){
-                        <span class="font-semibold text-[#FFC04C]">
-                            Pending
-                        </span>
-                        }
-                        @if(element.status === 'inactive'){
-                        <span class="font-semibold text-[#DC4545]">
-                            Inactive
-                        </span>
-                        }
-                        @if(element.status === 'unpaid'){
-                        <span class="font-semibold text-[#DC4545]">
-                            Unpaid
-                        </span>
-                        }
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="action">
-                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <th mat-header-cell *matHeaderCellDef> Action</th>
                     <td mat-cell *matCellDef="let element">
-                        <button class="text-nowrap success" mat-stroked-button
-                            (click)="goTo('/masters/insurance-companies/company-details')">
-                            <img src="/img/icon/edit.svg" alt="">
+                        <button class="text-nowrap success" mat-button
+                            (click)="goTo('/reports-alerts/reports/active-policies-report')">
+                            <img src="/img/icon/download.svg" alt="">
                         </button>
                     </td>
                 </ng-container>
