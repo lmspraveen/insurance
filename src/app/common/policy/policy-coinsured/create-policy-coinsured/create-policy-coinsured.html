@@ -34,13 +34,13 @@
             <div class="p-6 pb-8 border-b border-b-[var(--card-border)]">
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
-                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.companyCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Branch Code" type="text" placeholder="Enter Branch Code"
-                        [control]="form.controls.branchCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.branchCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Division Code" type="text" placeholder="Enter Division Code"
-                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.divisionCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
-                        [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.locationCode" class="xl:!min-w-[313px]"></custom-input>
                 </div>
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
                     <custom-select class="!mb-0" label="Document Type" [required]="true"
@@ -58,9 +58,9 @@
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Policy Number" type="text"
                         placeholder="Enter Policy Number (Original/New)" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Serial Number" type="text" placeholder="Enter Serial Number"
-                        [control]="form.controls.requestNumber" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.requestNumber" class="xl:!min-w-[313px]"></custom-input>
                     <custom-select [required]="true" label="Status" placeholder="Select Status" [options]="roles"
                         [(value)]="selectedRole" [control]="form.controls.Roles">
                     </custom-select>
@@ -74,19 +74,19 @@
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Coinsured Company" type="text"
                         placeholder="Enter Coinsured Company" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [class]="'col-start-1'" [required]="true" label="Coinsured Company Code" type="text"
                         placeholder="Enter Coinsured Company Code" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Coinsured Branch Code" type="text"
                         placeholder="Enter Coinsured Branch Code" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Coinsured Division Code" type="text"
                         placeholder="Enter Coinsured Division Code" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Coinsured Company Location Code" type="text"
                         placeholder="Enter Coinsured Company Location Code" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                 </div>
             </div>
 
@@ -95,12 +95,12 @@
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Share Percentage" type="text"
                         placeholder="Enter Share Percentage" [control]="form.controls.divisionCode"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-select [required]="true" label="Share Currency" placeholder="Select Share Currency"
                         [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
                     </custom-select>
                     <custom-input [required]="true" label="Share Amount" type="text" placeholder="Enter Share Amount"
-                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.divisionCode" class="xl:!min-w-[313px]"></custom-input>
 
                 </div>
             </div>

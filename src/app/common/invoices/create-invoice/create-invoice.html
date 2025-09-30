@@ -35,13 +35,13 @@
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Invoice Number" type="text"
                         placeholder="Enter Invoice Number" [control]="form.controls.companyCode"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-datepicker label="Invoice Date" placeholder="Select Date" [required]="true"
                         [control]="policyStartControl">
                     </custom-datepicker>
                     <custom-input [required]="true" label="Invoice Amount" type="text"
                         placeholder="Enter Invoice Amount" [control]="form.controls.companyCode"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-select class="!mb-0" label="Invoice Currency" [required]="true"
                         placeholder="Select Invoice Currency" [options]="roles" [(value)]="selectedRole"
                         [control]="form.controls.Roles">
@@ -54,16 +54,16 @@
             <div class="p-6 border-b border-b-[var(--card-border)]">
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
-                        [control]="form.controls.requestNumber" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.requestNumber" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Branch Code" type="text"
                         placeholder="Enter Branch Code (Original/New)" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Division Code" type="text"
                         placeholder="Enter Division Code (Original/New)" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Location Code" type="text"
                         placeholder="Enter Location Code (Original/New)" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                 </div>
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
                     <custom-select class="!mb-0" label="Document Type" [required]="true"
@@ -81,19 +81,19 @@
             <div class="p-6 border-b border-b-[var(--card-border)]">
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Policy Number" type="text" placeholder="Enter Policy Number"
-                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.companyCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Company Code" type="text"
                         placeholder="Enter Policy Company Code" [control]="form.controls.branchCode"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Branch Code" type="text"
                         placeholder="Enter Policy Branch Code" [control]="form.controls.divisionCode"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Location Code" type="text"
                         placeholder="Enter Policy Location Code" [control]="form.controls.locationCode"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Division Code" type="text"
                         placeholder="Enter Policy Division Code" [control]="form.controls.locationCode"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                 </div>
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
                     <custom-select class="!mb-0" label="Policy Document Type" [required]="true"
