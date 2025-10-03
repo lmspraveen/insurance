@@ -1,7 +1,7 @@
 import { Component, Input, TemplateRef } from '@angular/core';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule, MatIconButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { ConfirmationDialog } from '../../../shared/dialogues/confirmation-dialogue';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomButton } from '../../../shared/components/custom-button/custom-button';
@@ -37,7 +37,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   imports: [
     CustomCard,
     MatTableModule,
-    MatIconButton,
     MatButtonModule,
     CustomButton,
     CustomFileUpload,
