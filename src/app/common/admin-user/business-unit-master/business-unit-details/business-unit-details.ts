@@ -1,15 +1,16 @@
 import { Component, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatButton } from '@angular/material/button';
 import { CustomCard } from '../../../../shared/components/custom-card/custom-card';
 import { ContentDialog } from '../../../../shared/dialogues/content-dialogue';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomTextarea } from '../../../../shared/components/custom-textarea/custom-textarea';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 @Component({
   selector: 'business-unit-details',
-  imports: [MatIconButton, CustomCard, CustomTextarea, MatButton],
+  imports: [CustomCard, CustomTextarea, MatButton, PageHeader],
   templateUrl: './business-unit-details.html',
 })
 export class BusinessUnitDetails {
