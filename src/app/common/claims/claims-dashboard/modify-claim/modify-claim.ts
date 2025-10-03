@@ -1,5 +1,4 @@
 import { Component, inject, Input } from '@angular/core';
-import { MatIconButton } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -13,6 +12,7 @@ import { CustomFileUpload } from '../../../../shared/components/custom-file-uplo
 import { CustomChips } from '../../../../shared/components/custom-chips/custom-chips';
 import { ConfirmationDialog } from '../../../../shared/dialogues/confirmation-dialogue';
 import { MatDialog } from '@angular/material/dialog';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 interface Role {
   value: string;
@@ -22,7 +22,6 @@ interface Role {
 @Component({
   selector: 'app-modify-claim',
   imports: [
-    MatIconButton,
     CommonModule,
     ReactiveFormsModule,
     CustomInput,
@@ -33,6 +32,7 @@ interface Role {
     CustomDatepicker,
     CustomFileUpload,
     CustomChips,
+    PageHeader,
   ],
   templateUrl: './modify-claim.html',
 })

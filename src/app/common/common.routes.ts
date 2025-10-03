@@ -46,6 +46,7 @@ import { Reports } from './reports-alerts/reports/reports';
 import { ActivePoliciesReport } from './reports-alerts/reports/active-policies-report/active-policies-report';
 import { Alerts } from './reports-alerts/alerts/alerts';
 import { UserProfile } from './user-profile/user-profile';
+import { Notifications } from './notifications/notifications';
 
 export const COMMON_ROUTES: Routes = [
   {
@@ -96,7 +97,7 @@ export const COMMON_ROUTES: Routes = [
       { path: 'admin-user/code-master/edit-code', component: AddCode },
       { path: 'admin-user/code-master/code-details', component: CodeDetails },
 
-      /*Master User*/
+      /* Master User */
       { path: 'masters/insurance-companies', component: InsuranceCompanies },
       { path: 'masters/insurance-companies/add-company', component: AddCompany },
       { path: 'masters/insurance-companies/edit-company', component: AddCompany },
@@ -106,12 +107,12 @@ export const COMMON_ROUTES: Routes = [
       { path: 'masters/asset-master/edit-asset', component: AddAsset },
       { path: 'masters/asset-master/asset-details', component: AssetDetails },
 
-      /*Invoices*/
+      /* Invoices */
       { path: 'invoices/policy-invoices', component: PolicyInvoices },
       { path: 'invoices/policy-invoices/create-invoice', component: CreateInvoice },
       { path: 'invoices/policy-invoices/invoice-details', component: InvoiceDetails },
 
-      /*claims*/
+      /* claims */
       { path: 'claims/raise-claim', component: RaiseClaim },
       { path: 'claims/claims-dashboard', component: ClaimsDashboard },
       { path: 'claims/claims-dashboard/claim-details', component: ClaimDetails },
@@ -121,13 +122,16 @@ export const COMMON_ROUTES: Routes = [
       { path: 'claims/claims-payments-clousers', component: ClaimsPaymentsClosures },
       { path: 'claims/claims-payments-clousers/closure-details', component: ClosureDetails },
 
-      /*Reports & Alerts*/
+      /*Reports & Alerts */
       { path: 'reports-alerts/reports', component: Reports },
       { path: 'reports-alerts/reports/active-policies-report', component: ActivePoliciesReport },
       { path: 'reports-alerts/alerts', component: Alerts },
 
-      /* User Profile*/
+      /* User Profile */
       { path: 'user', component: UserProfile },
+
+      /* Notifications */
+      { path: 'notifications', component: Notifications },
 
       // You can add other feature modules here later
       // { path: 'admin', loadChildren: () => import('../admin/admin.routes').then(m => m.ADMIN_ROUTES) },

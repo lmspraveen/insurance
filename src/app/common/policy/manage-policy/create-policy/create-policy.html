@@ -1,28 +1,10 @@
-<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
-    <ul class="mb-0 breadcrumb flex">
-        <li class="breadcrumb-item">
-            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
-            Insurance & Claims System
-        </li>
-        <li class="breadcrumb-item">
-            Policy
-        </li>
-        <li class="breadcrumb-item">
-            Manage Policy
-        </li>
-        <li class="breadcrumb-item">
-            Create Policy
-        </li>
-    </ul>
-    <div class="flex gap-1 lg:gap-6 custom-dropdown">
-        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
-            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
-        </button>
-        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
-            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
-        </button>
-    </div>
-</header>
+<page-header [breadcrumbs]="[
+        { label: 'Insurance & Claims System'},
+        { label: 'Policy' },
+        { label: 'Manage Policy' },
+        { label: 'Create Policy' }
+    ]">
+</page-header>
 <section aria-label="Events">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Create Policy</h1>
     <custom-card class="mt-2 lg:mt-4 !p-0 overflow-hidden min-height">
@@ -33,13 +15,13 @@
             <div class="p-6 pb-8 border-b border-b-[var(--card-border)]">
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
-                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.companyCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Branch Code" type="text" placeholder="Enter Branch Code"
-                        [control]="form.controls.branchCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.branchCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Division Code" type="text" placeholder="Enter Division Code"
-                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.divisionCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
-                        [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.locationCode" class="xl:!min-w-[313px]"></custom-input>
                 </div>
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
                     <custom-select class="!mb-0" label="Document Type" [required]="true"
@@ -57,10 +39,10 @@
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Insurance Company ID" type="text"
                         placeholder="Enter Insurance Company ID" [control]="form.controls.requestNumber"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Number" type="text"
                         placeholder="Enter Policy Number (Original/New)" [control]="form.controls.requesterName"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-select [required]="true" label="Policy type" placeholder="Select Policy Type"
                         [options]="roles" [(value)]="selectedRole" [control]="form.controls.Roles">
                     </custom-select>
@@ -92,10 +74,10 @@
             <div class="p-6 border-b border-b-[var(--card-border)]">
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Sum Insured" type="text" placeholder="Enter Sum Insured"
-                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.divisionCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Premium Amount" type="text"
                         placeholder="Enter Premium Amount" [control]="form.controls.divisionCode"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-select [required]="true" label="Currency" placeholder="Select Currency" [options]="roles"
                         [(value)]="selectedRole" [control]="form.controls.Roles">
                     </custom-select>
@@ -120,15 +102,15 @@
             <div class="px-6 pt-6">
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                     <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
-                        [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.companyCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Branch Code" type="text" placeholder="Enter Branch Code"
-                        [control]="form.controls.branchCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.branchCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Division Code" type="text" placeholder="Enter Division Code"
-                        [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.divisionCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
-                        [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.locationCode" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
-                        [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="form.controls.locationCode" class="xl:!min-w-[313px]"></custom-input>
                 </div>
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 mt-3">
                     <custom-select class="!mb-0" label="Document Type" [required]="true"

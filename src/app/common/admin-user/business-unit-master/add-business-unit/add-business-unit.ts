@@ -4,9 +4,6 @@ import { CustomCard } from '../../../../shared/components/custom-card/custom-car
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomSelect } from '../../../../shared/components/custom-select/custom-select';
-import { MatIconButton } from '@angular/material/button';
-import { CustomFileUpload } from '../../../../shared/components/custom-file-upload/custom-file-upload';
-import { CustomDatepicker } from '../../../../shared/components/custom-datepicker/custom-datepicker';
 import { CustomButton } from '../../../../shared/components/custom-button/custom-button';
 import { ConfirmationDialog } from '../../../../shared/dialogues/confirmation-dialogue';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,6 +13,7 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { CustomTextarea } from '../../../../shared/components/custom-textarea/custom-textarea';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 interface Role {
   value: string;
@@ -30,8 +28,8 @@ interface Role {
     ReactiveFormsModule,
     CustomSelect,
     CustomTextarea,
-    MatIconButton,
     CustomButton,
+    PageHeader,
   ],
   templateUrl: './add-business-unit.html',
 })

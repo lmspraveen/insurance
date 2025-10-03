@@ -6,12 +6,12 @@ import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
-import { MatList, MatListItem } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
 export interface PeriodicElement {
   companyCode: string;
   policyNumber: string;
@@ -49,6 +49,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatCheckboxModule,
     CommonModule,
     MatTableModule,
+    PageHeader,
   ],
   templateUrl: './policy-coinsured.html',
   styleUrl: './policy-coinsured.scss',

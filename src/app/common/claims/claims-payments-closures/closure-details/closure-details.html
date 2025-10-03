@@ -1,25 +1,9 @@
-<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
-    <ul class="mb-0 breadcrumb flex">
-        <li class="breadcrumb-item">
-            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
-            Insurance & Claims System
-        </li>
-        <li class="breadcrumb-item">
-            Claim
-        </li>
-        <li class="breadcrumb-item">
-            Claims Dashboard
-        </li>
-    </ul>
-    <div class="flex gap-1 lg:gap-6 custom-dropdown">
-        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
-            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
-        </button>
-        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
-            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
-        </button>
-    </div>
-</header>
+<page-header [breadcrumbs]="[
+        { label: 'Insurance & Claims System'},
+        { label: 'Claims' },
+        { label: 'Claims Closers' }
+    ]">
+</page-header>
 <section aria-label="Events">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Claim Closure</h1>
     <custom-card class="mt-4 !p-0 overflow-hidden min-height">
@@ -234,7 +218,7 @@
                     </div>
                     <div class="item-wrapper">
                         <span class="text-[16px] font-medium text-med-gray block mb-4">Comments</span>
-                        <div class="border border-[#B8B8B8] border-2 rounded-lg p-4 min-h-[250px]">
+                        <div class="border-[#B8B8B8] border-2 rounded-lg p-4 min-h-[250px]">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tempore obcaecati consequatur
                             aspernatur inventore officia quo saepe ea. Enim laboriosam ipsam nobis omnis animi officiis
                             qui
@@ -256,7 +240,7 @@
                     </div>
                     <div class="item-wrapper">
                         <span class="text-[16px] font-medium text-med-gray block mb-4">Comments</span>
-                        <div class="border border-[#B8B8B8] border-2 rounded-lg p-4 min-h-[250px]">
+                        <div class="border-[#B8B8B8] border-2 rounded-lg p-4 min-h-[250px]">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tempore obcaecati consequatur
                             aspernatur inventore officia quo saepe ea. Enim laboriosam ipsam nobis omnis animi officiis
                             qui
@@ -270,7 +254,7 @@
             <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
                 <custom-input [required]="true" label="Settlement Amount" type="text"
                     placeholder="Enter Settlement Amount" [control]="form.controls.settlementAmount"
-                    class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    class="xl:!min-w-[313px]"></custom-input>
                 <custom-select class="!mb-0" label="Settlement Currency" [required]="true"
                     placeholder="Select Settlement Currency" [options]="settlementCurrency"
                     [(value)]="selectedSettlementCurrency" [control]="form.controls.settlementCurrencies">

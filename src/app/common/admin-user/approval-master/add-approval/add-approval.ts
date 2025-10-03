@@ -12,7 +12,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { CustomTextarea } from '../../../../shared/components/custom-textarea/custom-textarea';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 interface Role {
   value: string;
@@ -21,7 +21,7 @@ interface Role {
 
 @Component({
   selector: 'add-approval',
-  imports: [CustomInput, CustomCard, ReactiveFormsModule, MatIconButton, CustomButton],
+  imports: [CustomInput, CustomCard, ReactiveFormsModule, CustomButton, PageHeader],
   templateUrl: './add-approval.html',
 })
 export class AddApproval {

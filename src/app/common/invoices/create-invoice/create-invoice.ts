@@ -1,5 +1,4 @@
 import { Component, inject, Input } from '@angular/core';
-import { MatIconButton } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -14,6 +13,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
 
 interface Role {
   value: string;
@@ -23,7 +23,6 @@ interface Role {
 @Component({
   selector: 'app-create-invoice',
   imports: [
-    MatIconButton,
     CommonModule,
     ReactiveFormsModule,
     CustomInput,
@@ -32,6 +31,7 @@ interface Role {
     CustomCard,
     CustomDatepicker,
     CustomFileUpload,
+    PageHeader,
   ],
   templateUrl: './create-invoice.html',
 })

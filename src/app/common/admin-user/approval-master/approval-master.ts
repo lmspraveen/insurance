@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { CustomButton } from '../../../shared/components/custom-button/custom-button';
 import { Router } from '@angular/router';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
 
 export interface PeriodicElement {
   sNo: string;
@@ -58,6 +59,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatTableModule,
     CustomButton,
     CustomCard,
+    PageHeader,
   ],
   templateUrl: './approval-master.html',
   styleUrls: ['./approval-master.scss'],

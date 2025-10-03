@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { MatIconButton } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -10,6 +9,7 @@ import { CustomButton } from '../../../../shared/components/custom-button/custom
 import { CustomCard } from '../../../../shared/components/custom-card/custom-card';
 import { CustomDatepicker } from '../../../../shared/components/custom-datepicker/custom-datepicker';
 import { CustomFileUpload } from '../../../../shared/components/custom-file-upload/custom-file-upload';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 interface Role {
   value: string;
@@ -19,7 +19,6 @@ interface Role {
 @Component({
   selector: 'app-create-policy',
   imports: [
-    MatIconButton,
     CommonModule,
     ReactiveFormsModule,
     CustomInput,
@@ -29,6 +28,7 @@ interface Role {
     CustomCard,
     CustomDatepicker,
     CustomFileUpload,
+    PageHeader,
   ],
   templateUrl: './create-policy.html',
 })

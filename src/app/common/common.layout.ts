@@ -46,6 +46,10 @@ export default class CommonLayout implements OnInit, OnDestroy {
     this._mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
+  goTo(path: string) {
+    this.router.navigate([path]);
+  }
+
   ngOnInit(): void {
     // this.activePage(this.router.url);
     this.setActivePage(this.router.url);
@@ -66,6 +70,10 @@ export default class CommonLayout implements OnInit, OnDestroy {
       this.activePage = 'claims';
     } else if (url.startsWith('/reports-alerts')) {
       this.activePage = 'reports-alerts';
+    } else if (url.startsWith('/notifications')) {
+      this.activePage = 'notifications';
+    } else if (url.startsWith('/user')) {
+      this.activePage = 'user';
     } else {
       this.activePage = 'dashboard';
     }

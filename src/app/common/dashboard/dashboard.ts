@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CustomCard } from '../../shared/components/custom-card/custom-card';
 import { MatList, MatListItem } from '@angular/material/list';
+import { PageHeader } from '../../shared/components/page-header/page-header';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,7 @@ import { MatList, MatListItem } from '@angular/material/list';
     MatList,
     MatListItem,
     CustomCard,
+    PageHeader,
   ],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',

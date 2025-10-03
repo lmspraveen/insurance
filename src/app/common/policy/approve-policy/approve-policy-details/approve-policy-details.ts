@@ -1,6 +1,6 @@
 import { Component, Input, TemplateRef } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule, MatIconButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { CustomTextarea } from '../../../../shared/components/custom-textarea/cu
 import { WizardSteps } from '../../../../shared/components/wizard-steps/wizard-steps';
 import { ConfirmationDialog } from '../../../../shared/dialogues/confirmation-dialogue';
 import { ContentDialog } from '../../../../shared/dialogues/content-dialogue';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 export interface PeriodicElement {
   Sno: string;
@@ -36,11 +37,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
   imports: [
     CustomCard,
     MatTableModule,
-    MatIconButton,
     MatButtonModule,
     CustomButton,
     CustomFileUpload,
     CustomTextarea,
+    PageHeader,
   ],
   templateUrl: './approve-policy-details.html',
   styleUrl: './approve-policy-details.scss',

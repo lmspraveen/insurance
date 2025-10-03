@@ -21,13 +21,13 @@
         <div class="p-6 border-b border-b-[var(--card-border)]">
             <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
                 <custom-input [required]="true" label="Company Code" type="text" placeholder="Enter Company Code"
-                    [control]="form.controls.companyCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="form.controls.companyCode" class="xl:!min-w-[313px]"></custom-input>
                 <custom-input [required]="true" label="Branch Code" type="text" placeholder="Enter Branch Code"
-                    [control]="form.controls.branchCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="form.controls.branchCode" class="xl:!min-w-[313px]"></custom-input>
                 <custom-input [required]="true" label="Division Code" type="text" placeholder="Enter Division Code"
-                    [control]="form.controls.divisionCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="form.controls.divisionCode" class="xl:!min-w-[313px]"></custom-input>
                 <custom-input [required]="true" label="Location Code" type="text" placeholder="Enter Location Code"
-                    [control]="form.controls.locationCode" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="form.controls.locationCode" class="xl:!min-w-[313px]"></custom-input>
             </div>
         </div>
         <div class="p-6 border-b border-b-[var(--card-border)]">
@@ -35,10 +35,10 @@
                 <custom-input [required]="true"
                     [label]="activeTab === 'additionRequest' ? 'Change Request Number' : 'Request Number'" type="text"
                     [placeholder]="activeTab === 'additionRequest' ? 'Enter Change Request Number' : 'Enter Request Number'"
-                    [control]="form.controls.requestNumber" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="form.controls.requestNumber" class="xl:!min-w-[313px]"></custom-input>
                 @if(activeTab === 'additionRequest'){
                 <custom-input [required]="true" label="Requester Name" type="text" placeholder="Enter Requester Name"
-                    [control]="form.controls.requesterName" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="form.controls.requesterName" class="xl:!min-w-[313px]"></custom-input>
                 }
                 <custom-select label="Status" [required]="true" placeholder="Select Status  " [options]="roles"
                     [(value)]="selectedRole" [control]="form.controls.Roles">
@@ -68,15 +68,15 @@
         <div class="p-6 border-b border-b-[var(--card-border)]">
             <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3 mb-3">
                 <custom-input [required]="true" label="Sum Insured" type="text" placeholder="Enter Sum Insured"
-                    [control]="form.controls.sumInsured" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="form.controls.sumInsured" class="xl:!min-w-[313px]"></custom-input>
                 <custom-input [required]="true" label="Currency" type="text" placeholder="Enter Currency"
-                    [control]="form.controls.currency" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="form.controls.currency" class="xl:!min-w-[313px]"></custom-input>
             </div>
             <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
                 <!-- <custom-input [required]="true" label="Policy Start Date" type="date" placeholder="Enter Policy Start Date"
-                    [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                    [control]="pincodeControl" class="xl:!min-w-[313px]"></custom-input>
                 <custom-input [required]="true" label="Policy End Date" type="date" placeholder="Enter Policy End Date"
-                    [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input> -->
+                    [control]="pincodeControl" class="xl:!min-w-[313px]"></custom-input> -->
 
                 <custom-datepicker label="Policy Start Date" placeholder="Select start date" [required]="true"
                     [control]="policyStartControl">
@@ -114,19 +114,19 @@
             <div class="p-6 border-b border-b-[var(--card-border)] border-t border-t-[var(--card-border)]">
                 <div class="grid 2xl:grid-cols-3 grid-col-1 gap-x-6 gap-y-3">
                     <custom-input [required]="true" label="Policy Number" type="text" placeholder="Enter Policy Number"
-                        [control]="pincodeControl" class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        [control]="pincodeControl" class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Company Code" type="text"
                         placeholder="Enter Policy Company Code" [control]="pincodeControl"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Branch Code" type="text"
                         placeholder="Enter Policy Branch Code" [control]="pincodeControl"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Location Code" type="text"
                         placeholder="Enter Policy Location Code" [control]="pincodeControl"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                     <custom-input [required]="true" label="Policy Division Code" type="text"
                         placeholder="Enter Policy Division Code" [control]="pincodeControl"
-                        class="d-inline-flex lg:!min-w-[313px]"></custom-input>
+                        class="xl:!min-w-[313px]"></custom-input>
                 </div>
             </div>
             <div class="p-6">

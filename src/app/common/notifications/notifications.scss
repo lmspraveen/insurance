@@ -1,0 +1,20 @@
+.notification {
+  .notification-item {
+    .circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    &.active {
+      .circle {
+        background-color: #12894e;
+      }
+    }
+    &.expire {
+      .circle {
+        background-color: #dc4545;
+      }
+    }
+  }
+}
