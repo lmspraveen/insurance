@@ -47,8 +47,7 @@
                         <mat-accordion class="flex flex-col gap-[8px]" #accordion="matAccordion"
                             MatAccordionDisplayMode='flat'>
 
-                            <mat-expansion-panel [expanded]="activePage==='admin-user'" (click)="snav.close();"
-                                hideToggle [class.active-link]="
+                            <mat-expansion-panel [expanded]="activePage==='admin-user'" hideToggle [class.active-link]="
                     activePage==='admin-user'" (opened)="onPanelOpened('admin-user')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
@@ -67,7 +66,7 @@
                                     Master</a>
                             </mat-expansion-panel>
 
-                            <mat-expansion-panel [expanded]="activePage==='masters'" (click)="snav.close();" hideToggle
+                            <mat-expansion-panel [expanded]="activePage==='masters'" hideToggle
                                 [class.active-link]=" activePage==='masters'" (opened)="onPanelOpened('masters')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
@@ -84,8 +83,8 @@
                                     (click)="snav.close()">Asset Master</a>
                             </mat-expansion-panel>
 
-                            <mat-expansion-panel [expanded]="activePage==='policy-request'" (click)="snav.close();"
-                                hideToggle [class.active-link]="
+                            <mat-expansion-panel [expanded]="activePage==='policy-request'" hideToggle
+                                [class.active-link]="
                     activePage==='policy-request'" (opened)="onPanelOpened('policy-request')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
@@ -122,7 +121,7 @@
                                     Policy</a>
                             </mat-expansion-panel>
 
-                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                            <mat-expansion-panel hideToggle [class.active-link]="
                     activePage==='invoices'" [expanded]="activePage==='invoices'" (opened)="onPanelOpened('invoices')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
@@ -136,7 +135,7 @@
                                     Invoices</a>
                             </mat-expansion-panel>
 
-                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                            <mat-expansion-panel hideToggle [class.active-link]="
                     activePage==='claims'" [expanded]="activePage==='claims'" (opened)="onPanelOpened('claims')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
@@ -157,7 +156,7 @@
                             </mat-expansion-panel>
 
 
-                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
+                            <mat-expansion-panel hideToggle [class.active-link]="
                     activePage==='reports-alerts'" [expanded]="activePage==='reports-alerts'"
                                 (opened)="onPanelOpened('reports-alerts')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">

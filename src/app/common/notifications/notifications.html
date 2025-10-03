@@ -19,9 +19,38 @@
 </header>
 <section aria-label="Notifications">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Notifications</h1>
-    <custom-card class="mt-2 lg:mt-4 !p-0 overflow-hidden">
-        <div class="p-8">
-
+    <custom-card class="mt-2 lg:mt-4 !p-0 overflow-hidden min-height">
+        <div class="notification">
+            <div class="notification-item active p-8 border-b border-b-[var(--card-border)]">
+                <div class="head flex items-start justify-between mb-6">
+                    <h2 class="text-xl text-[var(--dark-gray)] font-semibold">Policy #432 expiring</h2>
+                    <span class="circle"></span>
+                </div>
+                <div class="content mb-6">
+                    <p class="text-base text-[var(--dark-gray)] font-medium">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <p class="timestamp text-base text-[var(--med-gray)] font-normal text-end">
+                    Thursday | 24/07/2025 | 09:55 am
+                </p>
+            </div>
+            <div class="notification-item expire p-8 border-b border-b-[var(--card-border)]">
+                <div class="head flex items-start justify-between mb-6">
+                    <h2 class="text-xl text-[var(--dark-gray)] font-semibold">Policy #432 expiring</h2>
+                    <span class="circle"></span>
+                </div>
+                <div class="content mb-6">
+                    <p class="text-base text-[var(--dark-gray)] font-medium">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <p class="timestamp text-base text-[var(--med-gray)] font-normal text-end">
+                    Thursday | 24/07/2025 | 09:55 am
+                </p>
+            </div>
         </div>
     </custom-card>
 </section>
