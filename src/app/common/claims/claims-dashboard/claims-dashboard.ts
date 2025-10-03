@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { CustomButton } from '../../../shared/components/custom-button/custom-button';
 import { Router } from '@angular/router';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
 
 export interface PeriodicElement {
   claimId: string;
@@ -53,6 +54,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     CustomButton,
     CustomCard,
     MatButton,
+    PageHeader,
   ],
   templateUrl: './claims-dashboard.html',
 })

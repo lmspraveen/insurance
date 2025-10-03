@@ -3,9 +3,9 @@ import { CustomInput } from '../../shared/components/custom-input/custom-input';
 import { CustomCard } from '../../shared/components/custom-card/custom-card';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatIconButton } from '@angular/material/button';
 import { CustomButton } from '../../shared/components/custom-button/custom-button';
 import { MatDialog } from '@angular/material/dialog';
+import { PageHeader } from '../../shared/components/page-header/page-header';
 
 interface Role {
   value: string;
@@ -14,7 +14,7 @@ interface Role {
 
 @Component({
   selector: 'user-profile',
-  imports: [CustomInput, CustomCard, ReactiveFormsModule, MatIconButton, CustomButton],
+  imports: [CustomInput, CustomCard, ReactiveFormsModule, CustomButton, PageHeader],
   templateUrl: './user-profile.html',
 })
 export class UserProfile {

@@ -1,25 +1,9 @@
-<header aria-label="page-header" class="page-header justify-between items-center gap-8 mb-5 hidden lg:flex">
-    <ul class="mb-0 breadcrumb flex">
-        <li class="breadcrumb-item">
-            <!-- <a class="breadcrumb-link cursor-pointer">Insurance & Claims System</a> -->
-            Insurance & Claims System
-        </li>
-        <li class="breadcrumb-item">
-            Invoices
-        </li>
-        <li class="breadcrumb-item">
-            Policy Invoices
-        </li>
-    </ul>
-    <div class="flex gap-1 lg:gap-6 custom-dropdown">
-        <button class="!w-[48px] !h-[48px] !bg-white" matIconButton>
-            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/notification.svg" alt="">
-        </button>
-        <button class="!w-[48px] !h-[48px] !bg-white " matIconButton>
-            <img class="min-w-[32px] min-h-[32px]" src="/img/icon/user.svg" alt="">
-        </button>
-    </div>
-</header>
+<page-header [breadcrumbs]="[
+        { label: 'Insurance & Claims System'},
+        { label: 'Invoices' },
+        { label: 'Policy Invoices' }
+    ]">
+</page-header>
 <section aria-label="Events">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Create Invoices</h1>
     <custom-card class="mt-2 lg:mt-4 !p-0 overflow-hidden min-height">

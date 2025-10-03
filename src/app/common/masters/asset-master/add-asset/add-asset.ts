@@ -16,6 +16,7 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { CustomTextarea } from '../../../../shared/components/custom-textarea/custom-textarea';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 interface Role {
   value: string;
@@ -30,8 +31,8 @@ interface Role {
     ReactiveFormsModule,
     CustomSelect,
     CustomTextarea,
-    MatIconButton,
     CustomButton,
+    PageHeader,
   ],
   templateUrl: './add-asset.html',
 })

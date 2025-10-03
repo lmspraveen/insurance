@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatIconButton } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
@@ -11,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { CustomButton } from '../../../shared/components/custom-button/custom-button';
 import { Router } from '@angular/router';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
 
 export interface PeriodicElement {
   invoiceId: string;
@@ -54,7 +54,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   imports: [
     CommonModule,
     FormsModule,
-    MatIconButton,
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
@@ -63,6 +62,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatTableModule,
     CustomButton,
     CustomCard,
+    PageHeader,
   ],
   templateUrl: './policy-invoices.html',
   styleUrls: ['./policy-invoices.scss'],

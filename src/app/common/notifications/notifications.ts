@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CustomCard } from '../../shared/components/custom-card/custom-card';
-import { MatIconButton } from '@angular/material/button';
+import { PageHeader } from '../../shared/components/page-header/page-header';
 
 @Component({
   selector: 'app-notifications',
-  imports: [CustomCard, MatIconButton],
+  imports: [CustomCard, PageHeader],
   templateUrl: './notifications.html',
   styleUrl: './notifications.scss',
 })

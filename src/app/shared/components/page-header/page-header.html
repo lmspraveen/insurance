@@ -18,8 +18,8 @@
     <!-- Header actions -->
     <div class="flex gap-1 lg:gap-6 custom-dropdown">
         @for (action of headerActions; track action.key) {
-        <button (click)="goTo(action.route)" class="!w-[48px] !h-[48px] !bg-white" matIconButton
-            [class.active-link]="activePage === action.key">
+        <button (click)="goTo(action.route)" [class.active]="activePage=== action.key"
+            class="!w-[48px] !h-[48px] !bg-white" matIconButton [class.active-link]="activePage === action.key">
             <img class="min-w-[32px] min-h-[32px]" [src]="action.icon" [alt]="action.key" />
         </button>
         }

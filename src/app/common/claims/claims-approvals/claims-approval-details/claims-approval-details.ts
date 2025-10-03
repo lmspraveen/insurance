@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CustomTextarea } from '../../../../shared/components/custom-textarea/custom-textarea';
 import { ConfirmationDialog } from '../../../../shared/dialogues/confirmation-dialogue';
 import { WizardSteps } from '../../../../shared/components/wizard-steps/wizard-steps';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 export interface PeriodicElement {
   Sno: string;
@@ -34,13 +35,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'claims-approval-details',
   imports: [
-    MatIconButton,
     CustomCard,
     CustomChips,
     CustomButton,
     MatTableModule,
     CustomTextarea,
     WizardSteps,
+    PageHeader,
   ],
   templateUrl: './claims-approval-details.html',
 })
