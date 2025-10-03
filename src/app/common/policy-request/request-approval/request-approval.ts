@@ -11,6 +11,7 @@ import { CustomTextarea } from '../../../shared/components/custom-textarea/custo
 import { WizardSteps } from '../../../shared/components/wizard-steps/wizard-steps';
 import { Router } from '@angular/router';
 import { ContentDialog } from '../../../shared/dialogues/content-dialogue';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
 
 export interface PeriodicElement {
   Sno: string;
@@ -42,6 +43,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     CustomFileUpload,
     CustomTextarea,
     WizardSteps,
+    PageHeader,
   ],
   templateUrl: './request-approval.html',
   styleUrl: './request-approval.scss',

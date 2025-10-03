@@ -1,11 +1,12 @@
 import { Component, Input, TemplateRef } from '@angular/core';
 import { CustomCard } from '../../../shared/components/custom-card/custom-card';
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule, MatIconButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { ConfirmationDialog } from '../../../shared/dialogues/confirmation-dialogue';
 import { MatDialog } from '@angular/material/dialog';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
 
 export interface PeriodicElement {
   requestId: string;
@@ -58,7 +59,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 @Component({
   selector: 'app-approve-request',
-  imports: [CustomCard, MatTableModule, MatIconButton, MatButtonModule],
+  imports: [CustomCard, MatTableModule, MatButtonModule, PageHeader],
   templateUrl: './approve-request.html',
   styleUrl: './approve-request.scss',
   standalone: true,

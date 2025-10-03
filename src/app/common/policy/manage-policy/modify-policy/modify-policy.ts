@@ -1,5 +1,5 @@
 import { Component, Input, TemplateRef } from '@angular/core';
-import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatButton } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -13,9 +13,9 @@ import { CustomFileUpload } from '../../../../shared/components/custom-file-uplo
 import { CustomChips } from '../../../../shared/components/custom-chips/custom-chips';
 import { MatDialog, MatDialogActions } from '@angular/material/dialog';
 import { ContentDialog } from '../../../../shared/dialogues/content-dialogue';
-import { DialogRef } from '@angular/cdk/dialog';
 import { ConfirmationDialog } from '../../../../shared/dialogues/confirmation-dialogue';
 import { MatTableModule } from '@angular/material/table';
+import { PageHeader } from '../../../../shared/components/page-header/page-header';
 
 export interface PeriodicElement {
   modifiedBy: string;
@@ -41,7 +41,6 @@ interface Role {
 @Component({
   selector: 'app-modify-policy',
   imports: [
-    MatIconButton,
     CommonModule,
     ReactiveFormsModule,
     CustomInput,
@@ -54,6 +53,7 @@ interface Role {
     CustomChips,
     MatButton,
     MatTableModule,
+    PageHeader,
   ],
   templateUrl: './modify-policy.html',
 })
