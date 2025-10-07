@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   background-color: #f7f9fc;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   mat-sidenav-container {
     background-color: transparent;
     display: flex;
@@ -14,6 +15,7 @@
     }
     @media (max-width: 1024px) {
       display: block;
+      padding-bottom: 24px;
     }
     mat-sidenav {
       background-color: #fff;

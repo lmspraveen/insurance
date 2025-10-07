@@ -81,7 +81,7 @@ export default class CommonLayout implements OnInit, OnDestroy {
 
   onPanelOpened(panel: string) {
     const currentUrl = this.router.url;
-
+    console.log('clicked and url is', currentUrl);
     switch (panel) {
       case 'policy-request':
         if (!currentUrl.startsWith('/policy-request')) {

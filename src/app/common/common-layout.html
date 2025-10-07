@@ -2,12 +2,14 @@
     <!-- <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="isMobile() ? 56 : 0"> -->
     @if(isMobile()){
     <div class="logo-mobile flex justify-between px-4 py-3 bg-[var(--primary)] w-100">
-        <img class="h-[44px]" src="img/logo-white.svg" alt="">
+        <div class="cursor-pointer block">
+            <img (click)="goTo('/dashboard')" class="h-[44px]" src="img/logo-white.svg" alt="">
+        </div>
         <div class="flex gap-4 custom-dropdown-mobile">
-            <button class="!w-[24px] !h-[24px]" matIconButton>
+            <button class="!w-[24px] !h-[24px]" matIconButton (click)="goTo('/notifications')">
                 <img class="min-w-[24px] min-h-[24px]" src="/img/icon/notification.svg" alt="">
             </button>
-            <button class="!w-[24px] !h-[24px] " matIconButton>
+            <button class="!w-[24px] !h-[24px] " matIconButton (click)="goTo('/user')">
                 <img class="min-w-[24px] min-h-[24px]" src="/img/icon/user.svg" alt="">
             </button>
             <button matIconButton (click)="snav.toggle(); ">
