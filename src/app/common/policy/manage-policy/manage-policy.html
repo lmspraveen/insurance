@@ -4,8 +4,8 @@
         { label: 'Manage Policy' }
     ]">
 </page-header>
-<section aria-label="Manage Policy">
-    <h1 class="text-[var(--primary)] text-[24px] font-bold"> Manage Policy</h1>
+<section aria-label="Manage Policies">
+    <h1 class="text-[var(--primary)] text-[24px] font-bold"> Manage Policies</h1>
     <div class="flex flex-col  md:flex-row md:justify-between items-center md:items-start md:gap-8 mt-4 md:mt-6">
         <mat-form-field appearance="outline" FloatLabelType="never" class="search">
             <img class="prefix absolute z-50 cursor-pointer top-[12px] 2xl:top-[18px] left-[0px] 2xl:left-[6px] w-6 h-6"
@@ -154,7 +154,7 @@
 
 
                 <ng-container matColumnDef="status">
-                    <th mat-header-cell *matHeaderCellDef> Approval Status </th>
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
                     <td mat-cell *matCellDef="let element">
                         @if(element.status === 'active'){
                         <span class="font-semibold text-[#128A4E]">

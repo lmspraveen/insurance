@@ -12,7 +12,7 @@
                 <div class="flex items-center gap-4">
                     <img (click)="goTo('/claims/claims-approvals')" src="img/back-btn.svg" alt="img"
                         class="cursor-pointer" />
-                    <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0">#CLM753</h5>
+                    <!-- <h5 class="text-[20px] font-semibold text-[var(--dark-gray)] mb-0">#CLM753</h5> -->
                 </div>
                 <custom-button (click)="openTemplateDialog(customTemplate)"
                     class="!min-h-[20px] !h-[32px] !rounded-[6px] !font-medium" matButton="outlined"
@@ -57,14 +57,12 @@
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">12456</h6>
                 </div>
             </div>
-
             <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Document Type</span>
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">License Document</h6>
                 </div>
             </div>
-
             <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
                 <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Policy Document</h5>
                 <div class="flex flex-wrap gap-6">
@@ -80,7 +78,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Policy Number</span>
@@ -111,7 +108,6 @@
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">415263</h6>
                 </div>
             </div>
-
             <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
                 <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Policy Document</h5>
                 <div class="flex flex-wrap gap-6">
@@ -127,13 +123,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="mt-8">
                 <span class="text-[16px] font-medium text-med-gray block mb-4">Assets</span>
                 <custom-chips [hideButton]="true" [chips]="selectedAssets"
                     (remove)="removeAssets($event)"></custom-chips>
             </div>
-
             <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Incident Location</span>
@@ -148,7 +142,6 @@
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">145695621</h6>
                 </div>
             </div>
-
             <div class="mt-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Incident Description</span>
@@ -158,7 +151,6 @@
                     </p>
                 </div>
             </div>
-
             <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
                 <h5 class="block font-semibold text-[#474747] mb-6">Uploaded Policy Document</h5>
                 <div class="flex flex-wrap gap-6">
@@ -174,8 +166,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+            <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Claim Type</span>
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">General Claims</h6>
@@ -186,8 +177,7 @@
                 </div>
 
             </div>
-
-            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+            <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Contact Person</span>
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">John Doe</h6>
@@ -201,12 +191,13 @@
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">+971 504473569</h6>
                 </div>
             </div>
-
+            <div class="mt-8">
+                <custom-textarea label="Remarks" placeholder="Enter your remarks here"></custom-textarea>
+            </div>
         </div>
 
-        <div class="p-6">
-            <custom-textarea label="Remarks" placeholder="Enter your remarks here"></custom-textarea>
-            <div class="grid md:flex md:justify-end gap-6 mt-4">
+        <div class="px-6 pb-6">
+            <div class="grid md:flex md:justify-end gap-6">
                 <custom-button matButton="outlined" label="Send Back"
                     (click)="goTo('/claims/claims-approvals')"></custom-button>
                 <custom-button matButton="outlined" label="Reject"></custom-button>
@@ -240,14 +231,14 @@
             </ng-container>
 
             <ng-container matColumnDef="eventType">
-                <th mat-header-cell *matHeaderCellDef> Event type </th>
+                <th mat-header-cell *matHeaderCellDef> Event Type </th>
                 <td mat-cell *matCellDef="let element">
                     <span class="text-primary font-semibold">{{element.eventType}}</span>
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="eventById">
-                <th mat-header-cell *matHeaderCellDef>Event By Id </th>
+                <th mat-header-cell *matHeaderCellDef>Event By ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.eventById}} </td>
             </ng-container>
 

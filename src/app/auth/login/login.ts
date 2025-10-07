@@ -43,7 +43,7 @@ export class Login {
 
   openSnackBar(message: string) {
     this._snackBar.open(message, '', {
-      duration: 50000,
+      duration: 5000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       panelClass: ['center-snackbar'],
