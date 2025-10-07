@@ -1,0 +1,54 @@
+.legend {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 30px;
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: var(--dark-gray);
+  margin-bottom: 8px;
+  min-width: 200px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--card-border);
+    border-radius: 15px;
+  }
+  &.lemon {
+    &:before {
+      background-color: #d5ff63;
+    }
+  }
+  &.green {
+    &:before {
+      background-color: #4effa7;
+    }
+  }
+  &.red {
+    &:before {
+      background-color: #ff6c70;
+    }
+  }
+  &.pink {
+    &:before {
+      background-color: #fd72ff;
+    }
+  }
+  &.blue {
+    &:before {
+      background-color: #3a9cff;
+    }
+  }
+  .percentage {
+    text-align: end;
+  }
+}

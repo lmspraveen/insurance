@@ -6,108 +6,106 @@
 </page-header>
 <section aria-label="Claims Payments Closures">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Claims Closures List</h1>
-    <div class="flex flex-col  2xl:flex-row 2xl:justify-end items-center mt-4 lg:mt-6">
-        <div class="flex item gap-6 custom-dropdown">
-            <div class="filter">
-                <button
-                    class="2xl:!w-[60px] 2xl:!h-[60px] !w-[48px] !h-[48px] !bg-white !border !border-[var(--input-border)] flex items-center justify-center"
-                    matIconButton [matMenuTriggerFor]="menu2" [matMenuTriggerRestoreFocus]="false"
-                    #menuTrigger="matMenuTrigger">
-                    <img class="min-w-[28px] min-h-[28px] m-auto" src="/img/icon/filter.svg" alt="">
-                </button>
+    <div class="flex justify-end custom-dropdown mt-4 lg:mt-6">
+        <div class="filter">
+            <button
+                class="2xl:!w-[60px] 2xl:!h-[60px] !w-[48px] !h-[48px] !bg-white  !border !border-solid !border-[var(--card-border)] flex items-center justify-center"
+                matIconButton [matMenuTriggerFor]="menu2" [matMenuTriggerRestoreFocus]="false"
+                #menuTrigger="matMenuTrigger">
+                <img class="min-w-[24px] min-h-[24px] m-auto" src="/img/icon/filter-blue.svg" alt="">
+            </button>
 
-                <mat-menu #menu2="matMenu" class="bg-white !min-w-[333px]" [hasBackdrop]="false">
-                    <div class="px-4 pt-2 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
-                        <div class="flex justify-between items-center mb-4">
-                            <h2 class="text-[var(--primary)] text-[20px] font-semibold ">Filter</h2>
-                            <img (click)="menuTrigger.closeMenu()" class="cursor-pointer min-w-[24px] min-h-[24px]"
-                                src="/img/icon/cross.svg" alt="">
-                        </div>
+            <mat-menu #menu2="matMenu" class="bg-white !min-w-[333px]" [hasBackdrop]="false">
+                <div class="px-4 pt-2 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-[var(--primary)] text-[20px] font-semibold ">Filter</h2>
+                        <img (click)="menuTrigger.closeMenu()" class="cursor-pointer min-w-[24px] min-h-[24px]"
+                            src="/img/icon/cross.svg" alt="">
                     </div>
-                    <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
-                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Location</h6>
-                        <div class="flex flex-wrap gap-x-3 gap-y-1">
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Dubai</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Abu-Dhabi</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Sharjah</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Ras Al Khaimah</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Umm Al Quwain</mat-checkbox>
-                            </div>
+                </div>
+                <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                    <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Location</h6>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1">
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.submitted">Dubai</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.submitted">Abu-Dhabi</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.submitted">Sharjah</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.submitted">Ras Al Khaimah</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.submitted">Umm Al Quwain</mat-checkbox>
+                        </div>
 
+                    </div>
+                </div>
+                <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                    <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Status</h6>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1">
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.submitted">Active</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.inreview">Inactive</mat-checkbox>
                         </div>
                     </div>
-                    <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
-                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Status</h6>
-                        <div class="flex flex-wrap gap-x-3 gap-y-1">
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Active</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.inreview">Inactive</mat-checkbox>
-                            </div>
+                </div>
+                <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                    <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Company</h6>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1">
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.submitted">AIG</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.inreview">NIA</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.approve">QIC</mat-checkbox>
                         </div>
                     </div>
-                    <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
-                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Company</h6>
-                        <div class="flex flex-wrap gap-x-3 gap-y-1">
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">AIG</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.inreview">NIA</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.approve">QIC</mat-checkbox>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
-                        <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Policy Type</h6>
-                        <div class="flex flex-wrap gap-x-3 gap-y-1">
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.submitted">Vehicle</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.inreview">Building</mat-checkbox>
-                            </div>
-                            <div class="checkbox">
-                                <mat-checkbox [disableRipple]="true" class="flat-checkbox"
-                                    [(ngModel)]="filters.approve">Machine</mat-checkbox>
-                            </div>
+                <div class="p-4 border-b border-b-[var(--card-border)]" (click)="$event.stopPropagation()">
+                    <h6 class="text-[16px] font-semibold text-dark-gray mb-4">Policy Type</h6>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1">
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.submitted">Vehicle</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.inreview">Building</mat-checkbox>
+                        </div>
+                        <div class="checkbox">
+                            <mat-checkbox [disableRipple]="true" class="flat-checkbox"
+                                [(ngModel)]="filters.approve">Machine</mat-checkbox>
                         </div>
                     </div>
-                    <div class="px-4 pt-6 pb-3 flex justify-end gap-3 ">
-                        <custom-button label="Cancel" (click)="menuTrigger.closeMenu()" matButton="outlined"
-                            class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
-                        </custom-button>
-                        <custom-button label="Apply" (click)="applyFilters(menu)" matButton="filled"
-                            class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
-                        </custom-button>
-                    </div>
-                </mat-menu>
-            </div>
+                </div>
+                <div class="px-4 pt-6 pb-3 flex justify-end gap-3 ">
+                    <custom-button label="Cancel" (click)="menuTrigger.closeMenu()" matButton="outlined"
+                        class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
+                    </custom-button>
+                    <custom-button label="Apply" (click)="applyFilters(menu)" matButton="filled"
+                        class="!min-h-[30px] !text-[14px] !font-semibold !rounded-[5px]">
+                    </custom-button>
+                </div>
+            </mat-menu>
         </div>
     </div>
     <custom-card class="mt-2 !p-0 overflow-hidden min-h-[70vh] h-full">

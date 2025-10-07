@@ -6,7 +6,7 @@
 </page-header>
 <section aria-label="Events">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Claim Closure</h1>
-    <custom-card class="mt-4 !p-0 overflow-hidden min-height">
+    <custom-card class="!p-0 overflow-hidden min-height mt-2 lg:mt-4">
         <div class="p-6 border-b border-b-[var(--card-border)]">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-4">
@@ -157,7 +157,7 @@
                 </div>
             </div>
 
-            <div class="mt-8 grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
+            <div class="mt-8 grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Claim Type</span>
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">General Claims</h6>
@@ -169,7 +169,7 @@
 
             </div>
 
-            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+            <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Contact Person</span>
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">John Doe</h6>
@@ -251,7 +251,8 @@
             </div>
         </div>
         <div class="p-6">
-            <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3 pt-2">
+            <h4 class="text-[20px] font-semibold text-[#003366] mb-8">Settlement Details</h4>
+            <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-col-1 gap-x-6 gap-y-3">
                 <custom-input [required]="true" label="Settlement Amount" type="text"
                     placeholder="Enter Settlement Amount" [control]="form.controls.settlementAmount"
                     class="xl:!min-w-[313px]"></custom-input>
@@ -263,7 +264,7 @@
                     [control]="settlementDateControl">
                 </custom-datepicker>
             </div>
-            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-8">
+            <div class="grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 gap-x-3 gap-y-8 mt-4">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Estimated Payment Amount</span>
                     <h6 class="text-[20px] font-semibold text-dark-gray mb-0">10000 AED</h6>
@@ -280,7 +281,7 @@
             <div class="mt-8">
                 <custom-textarea label="Settlement Description" placeholder="Enter your text here"></custom-textarea>
             </div>
-            <div class="mt-2 mb-10">
+            <div class="mt-2">
                 <div class="item">
                     <span class="text-[16px] font-medium text-med-gray block mb-4">Incident Description</span>
                     <p class="text-[16px] font-semibold text-dark-gray mb-0">Lorem ipsum dolor sit amet, consectetur
@@ -289,7 +290,22 @@
                     </p>
                 </div>
             </div>
-            <div class="-mt-3">
+            <div class="upload-box border border-[#474747] border-dashed rounded-[30px] p-6 mt-8">
+                <h5 class="block font-semibold text-[#474747] mb-6">Payment Proof</h5>
+                <div class="flex flex-wrap gap-6">
+                    <!-- Uploaded files -->
+                    <div class="item flex flex-col gap-4 justify-center items-center">
+                        <div class="relative w-[88px] h-[117px] border border-[#888888] rounded-[5px] overflow-hidden">
+                            <img src="./img/invoice.jpeg" class="w-full h-full object-cover" />
+                            <span
+                                class="img-type absolute left-0 top-0 block font-semibold bg-[#474747] text-white text-[10px] rounded-[6px] rounded-t-none rounded-l-none px-[8px] py-[3px]">
+                                PDF
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="-mt-1">
                 <custom-file-upload label="Upload Policy Documents" accept=".pdf,.jpg,.png" [multiple]="true"
                     (filesChanged)="onFilesChanged($event)">
                 </custom-file-upload>

@@ -6,19 +6,19 @@
 </page-header>
 <section aria-label="Renew Request">
     <h1 class="text-[var(--primary)] text-[24px] font-bold">Renew Policy</h1>
-    <div class="flex flex-col  md:flex-row md:justify-between items-center md:items-start md:gap-8 mt-4 md:mt-6">
+    <div class="flex justify-between items-start gap-8 mt-4 lg:mt-6">
         <mat-form-field appearance="outline" FloatLabelType="never" class="search">
-            <img class="prefix absolute z-50 cursor-pointer top-[7px] 2xl:top-[14px] left-[0px] 2xl:left-[6px]"
+            <img class="prefix absolute z-50 cursor-pointer top-[12px] 2xl:top-[18px] left-[0px] 2xl:left-[6px] w-6 h-6"
                 src="/img/search.svg" alt="">
             <input matInput placeholder="search" value="">
         </mat-form-field>
         <div class="flex item gap-6 custom-dropdown">
             <div class="filter">
                 <button
-                    class="2xl:!w-[60px] 2xl:!h-[60px] !w-[48px] !h-[48px] !bg-white !border !border-[var(--input-border)] flex items-center justify-center"
+                    class="2xl:!w-[60px] 2xl:!h-[60px] !w-[48px] !h-[48px] !bg-white  !border !border-solid !border-[var(--card-border)] flex items-center justify-center"
                     matIconButton [matMenuTriggerFor]="menu2" [matMenuTriggerRestoreFocus]="false"
                     #menuTrigger="matMenuTrigger">
-                    <img class="min-w-[28px] min-h-[28px] m-auto" src="/img/icon/filter.svg" alt="">
+                    <img class="min-w-[24px] min-h-[24px] m-auto" src="/img/icon/filter-blue.svg" alt="">
                 </button>
 
                 <mat-menu #menu2="matMenu" class="bg-white !min-w-[333px]" [hasBackdrop]="false">
@@ -115,7 +115,7 @@
             </div>
         </div>
     </div>
-    <custom-card class="mt-2 !p-0 overflow-hidden min-filter-height">
+    <custom-card class="lg:mt-2 !p-0 overflow-hidden min-filter-height">
         <div class="mat-elevation-z2 overflow-x-auto">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
                 <ng-container matColumnDef="policyNumber">

@@ -22,14 +22,14 @@
         </div>
     </div>
 
-    <div class="flex flex-col  2xl:flex-row 2xl:justify-end items-center mt-4 lg:mt-6">
+    <div class="flex justify-end mt-4 lg:mt-6">
         <div class="flex item gap-6 custom-dropdown">
             <div class="filter">
                 <button
-                    class="2xl:!w-[60px] 2xl:!h-[60px] !w-[48px] !h-[48px] !bg-white !border !border-[var(--input-border)] flex items-center justify-center"
+                    class="2xl:!w-[60px] 2xl:!h-[60px] !w-[48px] !h-[48px] !bg-white  !border !border-solid !border-[var(--card-border)] flex items-center justify-center"
                     matIconButton [matMenuTriggerFor]="menu2" [matMenuTriggerRestoreFocus]="false"
                     #menuTrigger="matMenuTrigger">
-                    <img class="min-w-[28px] min-h-[28px] m-auto" src="/img/icon/filter.svg" alt="">
+                    <img class="min-w-[24px] min-h-[24px] m-auto" src="/img/icon/filter-blue.svg" alt="">
                 </button>
 
                 <mat-menu #menu2="matMenu" class="bg-white !min-w-[333px]" [hasBackdrop]="false">

@@ -100,8 +100,8 @@
                                 <a mat-list-item [routerLink]="'/policy-request/aprrove-request'"
                                     routerLinkActive="active" (click)="snav.close()">Approve Requests</a>
                             </mat-expansion-panel>
-                            <mat-expansion-panel (click)="snav.close();" hideToggle [class.active-link]="
-                    activePage==='policy'" [expanded]="activePage==='policy'" (opened)="onPanelOpened('policy')"
+                            <mat-expansion-panel [expanded]="activePage==='policy'" hideToggle
+                                [class.active-link]="activePage==='policy'" (opened)="onPanelOpened('policy')"
                                 class="!rounded-none !shadow-none !bg-transparent text-[16px] font-medium text-[#474747]">
                                 <mat-expansion-panel-header class="!px-4">
                                     <mat-panel-title class="flex gap-4">
